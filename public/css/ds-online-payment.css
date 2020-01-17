@@ -8,6 +8,12 @@
     align-items: center;
     margin-bottom: 170px;
 }
+.online-payment-title {
+    font-size: 24px;
+    font-family: 'Segoe UI Semibold';
+    padding-left: 340px;
+    text-align: center;
+}
 .cards-block {
     width: 180px;
     height: 113px;
@@ -121,6 +127,10 @@
     }
 }
 @media (max-width: 1200px) {
+    .online-payment-title {
+        font-size: 18px;
+        width: 600px;
+    }
     .enter-card {
         width: 420px;
     }
@@ -138,6 +148,11 @@
     }
 }
 @media (max-width: 992px) {
+    .online-payment-title {
+       padding-left: 6%;
+        width: 270px;
+        font-size: 18px;
+    }
     .online-payment {
         max-width: 85%;
         margin-right: 20px;
@@ -179,6 +194,13 @@
     }
 }
 @media (max-width: 480px) {
+    .payments .dashboard-header {
+        justify-content: center;
+        align-items: center;
+    }
+    .online-payment-title {
+        padding-left: 0;
+    }
     .enter-card, .expiry-date {
         width: 100%;
     }

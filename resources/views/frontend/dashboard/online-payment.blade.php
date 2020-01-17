@@ -1,11 +1,9 @@
 @extends('frontend.dashboard.main')
 
 @section('title', 'Online Payment Options')
-@section('sidebarClass', 'back-color-aside')
 
 @section('extra-styles')
     <link rel="stylesheet" href="{{ asset('css/ds-user-profile.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/ds-clients.css') }}">
     <link rel="stylesheet" href="{{ asset('css/ds-invoices.css') }}">
     <link rel="stylesheet" href="{{ asset('css/ds-invoice-template.css') }}">
     <link rel="stylesheet" href="{{ asset('css/ds-online-payment.css') }}">
@@ -13,9 +11,9 @@
 @endsection
 
 @section('content')
-<main class="clients invoices">
+<main class="clients invoices payments">
     <div class="dashboard-header">
-        <h1 class="dashboard-clients-title invoice-title-name">Online Payment Options</h1>
+        <h1 class="online-payment-title invoice-title-name">Online Payment Options</h1>
         <div class="dashboard-form-mobile">
             <i class="fas fa-bars"></i>
         </div>

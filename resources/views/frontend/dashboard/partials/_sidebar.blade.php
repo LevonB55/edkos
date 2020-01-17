@@ -18,7 +18,7 @@
                             <h5 class="settings-block-item-text">Dashboard</h5>
                         </div>
                     </a>
-                    <a class="settings-block-item" href="ds-clients.html">
+                    <a href="{{ route('clients') }}" class="settings-block-item" href="ds-clients.html">
                         <div class="settings-block-item-img">
                             <img src="{{ asset('assets/img/dashboard/clients.png') }}">
                         </div>
@@ -26,7 +26,7 @@
                             <h5 class="settings-block-item-text">Clients</h5>
                         </div>
                     </a>
-                    <a class="settings-block-item" href="ds-invoices.html">
+                    <a href="{{ route('invoices') }}" class="settings-block-item" href="ds-invoices.html">
                         <div class="settings-block-item-img">
                             <img src="{{ asset('assets/img/dashboard/invoices.png') }}">
                         </div>
@@ -34,7 +34,7 @@
                             <h5 class="settings-block-item-text">Invoices</h5>
                         </div>
                     </a>
-                    <a class="settings-block-item" href="ds-expenses.html">
+                    <a href="{{ route('expenses') }}" class="settings-block-item" href="ds-expenses.html">
                         <div class="settings-block-item-img">
                             <img src="{{ asset('assets/img/dashboard/expenses.png') }}">
                         </div>
@@ -42,7 +42,7 @@
                             <h5 class="settings-block-item-text">Expenses</h5>
                         </div>
                     </a>
-                    <a class="settings-block-item" href="ds-estimates.html">
+                    <a href="{{ route('estimates') }}" class="settings-block-item" href="ds-estimates.html">
                         <div class="settings-block-item-img">
                             <img src="{{ asset('assets/img/dashboard/estimates.png') }}">
                         </div>
@@ -50,7 +50,7 @@
                             <h5 class="settings-block-item-text">Estimates</h5>
                         </div>
                     </a>
-                    <a class="settings-block-item" href="ds-time-tracking.html">
+                    <a href="{{ route('tracking') }}" class="settings-block-item" href="ds-time-tracking.html">
                         <div class="settings-block-item-img">
                             <img src="{{ asset('assets/img/dashboard/tracking.png') }}">
                         </div>
@@ -58,7 +58,7 @@
                             <h5 class="settings-block-item-text">Tracking</h5>
                         </div>
                     </a>
-                    <a class="settings-block-item" href="ds-projects.html">
+                    <a href="{{ route('projects') }}" class="settings-block-item" href="ds-projects.html">
                         <div class="settings-block-item-img">
                             <img src="{{ asset('assets/img/dashboard/projects.png') }}">
                         </div>
@@ -79,7 +79,7 @@
             <div class="user-dashboard-2">
                 <div class="settings-block back-color-settings">
                     <h5 class="settings-block-title">Settings For You</h5>
-                    <a class="settings-block-item active">
+                    <a href="{{ route('company-profile') }}" class="settings-block-item active">
                         <div class="settings-block-item-img">
                             <img src="{{ asset('assets/img/dashboard/home.png') }}">
                         </div>
@@ -103,7 +103,7 @@
                             <h5 class="settings-block-item-text">Apps  & Integrations</h5>
                         </div>
                     </a>
-                    <a class="settings-block-item" href="ds-online-payment-options.html">
+                    <a href="{{ route('online-payment') }}" class="settings-block-item" href="ds-online-payment-options.html">
                         <div class="settings-block-item-img">
                             <img src="{{ asset('assets/img/dashboard/payment.png') }}">
                         </div>
@@ -111,7 +111,7 @@
                             <h5 class="settings-block-item-text">Online Payments</h5>
                         </div>
                     </a>
-                    <a class="settings-block-item" href="ds-bank-connections.html">
+                    <a href="{{ route('banks') }}" class="settings-block-item" href="ds-bank-connections.html">
                         <div class="settings-block-item-img">
                             <img src="{{ asset('assets/img/dashboard/bank.png') }}">
                         </div>
@@ -119,7 +119,7 @@
                             <h5 class="settings-block-item-text">Bank Connections</h5>
                         </div>
                     </a>
-                    <a class="settings-block-item" href="ds-billing-upgrade.html">
+                    <a href="{{ route('billing-upgrade') }}" class="settings-block-item" href="ds-billing-upgrade.html">
                         <div class="settings-block-item-img">
                             <img src="{{ asset('assets/img/dashboard/upgrade.png') }}">
                         </div>
@@ -131,7 +131,7 @@
                 </div>
                 <div class="settings-block">
                     <h5 class="settings-block-title">Personal</h5>
-                    <a class="settings-block-item" href="ds-user-profile.html">
+                    <a href="{{ route('user-profile') }}" class="settings-block-item" href="ds-user-profile.html">
                         <div class="settings-block-item-img">
                             <img src="{{ asset('assets/img/dashboard/user-small.png') }}">
                         </div>
@@ -155,7 +155,7 @@
                             <h5 class="settings-block-item-text">Add Another Business</h5>
                         </div>
                     </a>
-                    <a class="settings-block-item">
+                    <a href="{{ route('logout') }}" class="settings-block-item">
                         <div class="settings-block-item-img">
                             <img src="{{ asset('assets/img/dashboard/log-out.png') }}">
                         </div>

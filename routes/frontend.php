@@ -19,6 +19,27 @@
 //Route::get('/dashboard', 'CompanyController@dashboard')->middleware('verified');
 //Route::get('/clients', 'CompanyController@clients');
 
+//Basic Routes
+Route::get('/', 'PageController@index')->name('home');
+Route::get('/about', 'PageController@about')->name('about');
+Route::get('/pricing', 'PageController@pricing')->name('pricing');
+Route::get('/help', 'PageController@help')->name('help');
+
+//Dashboard Routes
+Route::prefix('dashboard')->group(function () {
+    Route::get('company-profile', 'DashboardController@companyProfile')->name('company-profile');
+    Route::get('online-payment', 'DashboardController@onlinePayment')->name('online-payment');
+    Route::get('banks', 'DashboardController@banks')->name('banks');
+    Route::get('billing-upgrade', 'DashboardController@billingUpgrade')->name('billing-upgrade');
+    Route::get('user-profile', 'DashboardController@userProfile')->name('user-profile');
+    Route::get('clients', 'DashboardController@clients')->name('clients');
+    Route::get('invoices', 'DashboardController@invoices')->name('invoices');
+    Route::get('expenses', 'DashboardController@expenses')->name('expenses');
+    Route::get('estimates', 'DashboardController@estimates')->name('estimates');
+    Route::get('tracking', 'DashboardController@tracking')->name('tracking');
+    Route::get('projects', 'DashboardController@projects')->name('projects');
+});
+
 //Authentication routes
 Auth::routes(['verify' => true]);
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
@@ -32,41 +53,25 @@ Route::get('locale/{locale}', function ($locale){
 });
 
 //Basic views
-Route::get('/', 'PageController@index')->name('home');
-Route::get('/about', 'PageController@about')->name('about');
-Route::get('/pricing', 'PageController@pricing')->name('pricing');
-Route::get('/help', 'PageController@help')->name('help');
-//Route::view('/registration-1', 'frontend.basic.registration-1');
 Route::view('/registration-2', 'frontend.basic.registration-2');
 Route::view('/registration-3', 'frontend.basic.registration-3');
 Route::view('/registration-4', 'frontend.basic.registration-4');
 Route::view('/registration-5', 'frontend.basic.registration-5');
 
 //Dashboard views
-Route::view('/dashboard/user-profile', 'frontend.dashboard.user-profile');
-Route::view('/dashboard/company-profile', 'frontend.dashboard.company-profile');
-Route::view('/dashboard/bank-connections', 'frontend.dashboard.bank-connections');
-Route::view('/dashboard/online-payment-options', 'frontend.dashboard.online-payment-options');
-Route::view('/dashboard/billing-upgrade', 'frontend.dashboard.billing-upgrade');
 Route::view('/dashboard/billing-upgrade-monthly', 'frontend.dashboard.billing-upgrade-monthly');
 Route::view('/dashboard/billing-upgrade-monthly-pay', 'frontend.dashboard.billing-upgrade-monthly-pay');
 Route::view('/dashboard/billing-upgrade-yearly', 'frontend.dashboard.billing-upgrade-yearly');
 Route::view('/dashboard/billing-upgrade-yearly-pay', 'frontend.dashboard.billing-upgrade-yearly-pay');
-Route::view('/dashboard/clients', 'frontend.dashboard.clients');
 Route::view('/dashboard/customize-template', 'frontend.dashboard.customize-template');
-Route::view('/dashboard/estimates', 'frontend.dashboard.estimates');
 Route::view('/dashboard/estimates-template', 'frontend.dashboard.estimates-template');
-Route::view('/dashboard/expenses', 'frontend.dashboard.expenses');
 Route::view('/dashboard/recurring-expenses', 'frontend.dashboard.recurring-expenses');
 Route::view('/dashboard/new-expense', 'frontend.dashboard.new-expense');
-Route::view('/dashboard/invoices', 'frontend.dashboard.invoices');
 Route::view('/dashboard/invoice-template', 'frontend.dashboard.invoice-template');
 Route::view('/dashboard/recurring-invoices', 'frontend.dashboard.recurring-invoices');
 Route::view('/dashboard/new-recurring-invoices', 'frontend.dashboard.new-recurring-invoices');
-Route::view('/dashboard/projects', 'frontend.dashboard.projects');
 Route::view('/dashboard/new-project', 'frontend.dashboard.new-project');
 Route::view('/dashboard/proposals', 'frontend.dashboard.proposals');
 Route::view('/dashboard/proposals-template', 'frontend.dashboard.proposals-template');
-Route::view('/dashboard/time-tracking', 'frontend.dashboard.time-tracking');
-Route::view('/dashboard/time-tracking-review', 'frontend.dashboard.time-tracking-review');
+Route::view('/dashboard/tracking-review', 'frontend.dashboard.tracking-review');
 Route::view('/dashboard/add-new-business', 'frontend.dashboard.add-new-business');

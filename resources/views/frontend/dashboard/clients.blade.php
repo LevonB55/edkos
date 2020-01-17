@@ -1,6 +1,7 @@
 @extends('frontend.dashboard.main')
 
 @section('title', 'Clients')
+@section('sidebarClass', 'back-color-aside')
 
 @section('extra-styles')
     <link rel="stylesheet" href="{{ asset('css/ds-user-profile.css') }}">
