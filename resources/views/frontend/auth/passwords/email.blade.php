@@ -1,4 +1,4 @@
-@extends('frontend/basic/main')
+@extends('frontend.basic.main')
 
 @section('title', 'Edkos - Password Reset')
 @section('header')@stop
@@ -20,17 +20,18 @@
             </div>
         </div>
 
-        @if (session('status'))
-            <div class="alert alert-success" role="alert">
-                {{ session('status') }}
-            </div>
-        @endif
         <div class="login-right-side">
             <div class="login-right-side-content">
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                @endif
                 <div class="login-right-side-man">
                     <img src="{{asset('assets/img/question.png')}}">
                 </div>
-                <form method="POST" action="{{ route('password.email') }}">
+                <form action="{{ route('password.email') }}" method="POST">
+                    @csrf
                     <h4>{{ __('messages.forgot_your_password') }}</h4>
                     <p class="forgot-password-text">
                         {{ __('messages.enter_your_e_mail_address_and_well_sent_you_a_link') }}
@@ -42,7 +43,7 @@
                     </span>
                     @enderror
                     <div class="d-flex justify-content-between w-100">
-                        <button type="button" class="login-left-side-cancel"  onclick="javascript:location.href='{{ route('login') }}'">Cancel</button>
+                        <a href="{{ route('login') }}">Cancel</a>
                         <button type="submit" class="login-left-side-reset">
                             Reset
                         </button>

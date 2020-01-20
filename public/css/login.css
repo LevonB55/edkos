@@ -139,6 +139,9 @@ a {
     position: absolute;
     right: 20px;
     top: 17px;
+    font-size: 18px;
+    color: grey;
+    cursor: pointer;
 }
 .login-right-side-checkbox {
     font-size: 16px;

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Frontend\Auth;
 
+use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Requests\StoreProfile;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class SubscriptionController extends Controller
+class SubscriptionController extends FrontendController
 {
     public function registerProfile()
     {

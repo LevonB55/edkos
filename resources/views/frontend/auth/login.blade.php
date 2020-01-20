@@ -35,8 +35,8 @@
                     @enderror
 
                     <div class="position-relative">
-                        <input class="login-right-side-password form-control @error('password') is-invalid @enderror"  placeholder="{{ __('messages.password') }}" name="password">
-                        <img class="custom-input login-right-side-password-icon" src="{{asset('assets/img/password-show.png')}}">
+                        <input type="password" class="login-right-side-password form-control @error('password') is-invalid @enderror"  placeholder="{{ __('messages.password') }}" name="password">
+                        <span class="custom-input login-right-side-password-icon password-icon"><i class="fas fa-eye"></i></span>
                     </div>
                     @error('password')
                         <span class="invalid-feedback" role="alert">

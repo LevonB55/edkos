@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Frontend\Auth;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 
-class VerificationController extends Controller
+class VerificationController extends FrontendController
 {
     /*
     |--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ class VerificationController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/dashboard';
+    protected $redirectTo = '/dashboard/user-profile';
 
     /**
      * Create a new controller instance.

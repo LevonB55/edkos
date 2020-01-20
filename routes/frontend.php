@@ -9,16 +9,6 @@
 | contains the "web" middleware group. Now create something great!
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
-//Route::get('/', 'HomeController@index')->name('home');
-//Route::get('/help-center', 'HomeController@helpCenter')->name('help-center');
-//Route::get('/plans-pricing', 'HomeController@plansPricing')->name('pricing');
-//Route::get('/dashboard', 'CompanyController@dashboard')->middleware('verified');
-//Route::get('/clients', 'CompanyController@clients');
-
 //Basic Routes
 Route::get('/', 'PageController@index')->name('home');
 Route::get('/about', 'PageController@about')->name('about');
@@ -26,7 +16,7 @@ Route::get('/pricing', 'PageController@pricing')->name('pricing');
 Route::get('/help', 'PageController@help')->name('help');
 
 //Dashboard Routes
-Route::prefix('dashboard')->group(function () {
+Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::get('company-profile', 'DashboardController@companyProfile')->name('company-profile');
     Route::get('online-payment', 'DashboardController@onlinePayment')->name('online-payment');
     Route::get('banks', 'DashboardController@banks')->name('banks');
@@ -41,10 +31,10 @@ Route::prefix('dashboard')->group(function () {
 });
 
 //Authentication routes
-Auth::routes(['verify' => true]);
+Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-Route::get('registration/profile', 'Auth\SubscriptionController@registerProfile')->name('register-profile');
-Route::post('registration/profile', 'Auth\SubscriptionController@storeProfile')->name('store-profile');
+//Route::get('registration/profile', 'Auth\SubscriptionController@registerProfile')->name('register-profile');
+//Route::post('registration/profile', 'Auth\SubscriptionController@storeProfile')->name('store-profile');
 
 
 Route::get('locale/{locale}', function ($locale){

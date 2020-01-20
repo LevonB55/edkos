@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Frontend\Auth;
 
+use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-class RegisterController extends Controller
+class RegisterController extends FrontendController
 {
     /*
     |--------------------------------------------------------------------------
@@ -30,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/dashboard';
+    protected $redirectTo = '/dashboard/user-profile';
 
     /**
      * Create a new controller instance.
@@ -78,7 +78,7 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('auth.register');
+        return view('frontend.auth.register');
     }
 
     /**

@@ -38,8 +38,7 @@
                     <div class="position-relative w-100">
                         <input id="password" type="password"  class="login-right-side-password form-control @error('password') is-invalid @enderror"
                                 placeholder="{{ __('messages.password') }}" name="password"  required autocomplete="new-password">
-                        <span class="password-icon"><i class="fas fa-eye"></i></span>
-                        <img class="login-right-side-password-icon" src="{{asset('assets/img/password-show.png')}}">
+                        <span class="login-right-side-password-icon password-icon"><i class="fas fa-eye"></i></span>
                         @error('password')
                             <span class="invalid-feedback error-message" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -51,8 +50,7 @@
                         <input id="password-confirm" type="password"  class="login-right-side-password"
                                placeholder="{{ __('messages.retype_password') }}" name="password_confirmation"
                                required autocomplete="new-password">
-                        <span class="password-icon"><i class="fas fa-eye"></i></span>
-                        <img class="login-right-side-password-icon" src="{{asset('assets/img/password-show.png')}}">
+                        <span class="login-right-side-password-icon password-icon"><i class="fas fa-eye"></i></span>
                     </div>
                     <div>
                         <div class="d-flex">
