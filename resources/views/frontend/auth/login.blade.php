@@ -44,11 +44,6 @@
                         </span>
                     @enderror
 
-                    @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
                     <div class="login-right-side-block">
                         <div class="d-flex">
                             <input type="checkbox" class="login-right-side-checkbox-input" name="checkbox" id="checkbox" value="value">
