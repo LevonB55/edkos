@@ -15,6 +15,11 @@ class DashboardController extends FrontendController
         return view('frontend.dashboard.company-profile');
     }
 
+    public function showServices()
+    {
+        return view('frontend.dashboard.services');
+    }
+
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */

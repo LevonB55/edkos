@@ -87,7 +87,7 @@
                             <h5 class="settings-block-item-text">Company Profile</h5>
                         </div>
                     </a>
-                    <a class="settings-block-item">
+                    <a href="{{ route('services') }}" class="settings-block-item">
                         <div class="settings-block-item-img">
                             <img src="{{ asset('assets/img/dashboard/list.png') }}">
                         </div>

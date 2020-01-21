@@ -18,6 +18,7 @@ Route::get('/help', 'PageController@help')->name('help');
 //Dashboard Routes
 Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::get('company-profile', 'DashboardController@companyProfile')->name('company-profile');
+    Route::get('services', 'DashboardController@showServices')->name('services');
     Route::get('online-payment', 'DashboardController@onlinePayment')->name('online-payment');
     Route::get('banks', 'DashboardController@banks')->name('banks');
     Route::get('billing-upgrade', 'DashboardController@billingUpgrade')->name('billing-upgrade');
@@ -65,3 +66,4 @@ Route::view('/dashboard/proposals', 'frontend.dashboard.proposals');
 Route::view('/dashboard/proposals-template', 'frontend.dashboard.proposals-template');
 Route::view('/dashboard/tracking-review', 'frontend.dashboard.tracking-review');
 Route::view('/dashboard/add-new-business', 'frontend.dashboard.add-new-business');
+Route::view('/dashboard/services-2', 'frontend.dashboard.services-2');

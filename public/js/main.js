@@ -231,6 +231,29 @@ $(document).ready(function() {
     $('.streamline-services .streamline-div').click(function(e) {
         $(this).toggleClass("add-background-color");
     });
+
+    //Items & Services
+    $('.item-service-create-item').click(function(e) {
+        $('.items-service-send').toggleClass("items-service-send-open");
+    });
+    $('.items-service-block').click(function(e) {
+        $('.items-service-send').toggleClass("items-service-send-open");
+    });
+
+    $('.service-items-cancel').click(function(e) {
+        $('.items-service-send').removeClass("items-service-send-open");
+    });
+    /////2
+    $('.item-service-create-item-2').click(function(e) {
+        $('.items-service-send').toggleClass("items-service-send-open-2");
+    });
+    $('.items-service-block-2').click(function(e) {
+        $('.items-service-send').toggleClass("items-service-send-open-2");
+    });
+
+    $('.service-items-cancel-2').click(function(e) {
+        $('.items-service-send').removeClass("items-service-send-open-2");
+    });
  });
 
 //Shows password
