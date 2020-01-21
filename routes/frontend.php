@@ -22,6 +22,7 @@ Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::get('banks', 'DashboardController@banks')->name('banks');
     Route::get('billing-upgrade', 'DashboardController@billingUpgrade')->name('billing-upgrade');
     Route::get('user-profile', 'DashboardController@userProfile')->name('user-profile');
+    Route::post('user-profile', 'DashboardController@userProfileUpdate')->name('user-profile.update');
     Route::get('clients', 'DashboardController@clients')->name('clients');
     Route::get('invoices', 'DashboardController@invoices')->name('invoices');
     Route::get('expenses', 'DashboardController@expenses')->name('expenses');
