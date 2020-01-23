@@ -32,7 +32,7 @@
         <div class="footer-list">
             <ul>
                 <li class="first"><a>Partners</a></li>
-                <li><a>For Accountains</a></li>
+                <li><a>For Accountants</a></li>
                 <li><a>For Developers</a></li>
                 <li><a>For Franchises</a></li>
             </ul>

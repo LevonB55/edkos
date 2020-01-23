@@ -17,6 +17,8 @@ Route::get('/help', 'PageController@help')->name('help');
 
 //Dashboard Routes
 Route::prefix('dashboard')->middleware(['auth'])->group(function () {
+    Route::resource('invoices', 'InvoiceController');
+
     Route::get('company-profile', 'DashboardController@companyProfile')->name('company-profile');
     Route::get('services', 'DashboardController@showServices')->name('services');
     Route::get('online-payment', 'DashboardController@onlinePayment')->name('online-payment');
@@ -24,7 +26,6 @@ Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::get('billing-upgrade', 'DashboardController@billingUpgrade')->name('billing-upgrade');
     Route::get('user-profile', 'DashboardController@userProfile')->name('user-profile');
     Route::get('clients', 'DashboardController@clients')->name('clients');
-    Route::get('invoices', 'DashboardController@invoices')->name('invoices');
     Route::get('expenses', 'DashboardController@expenses')->name('expenses');
     Route::get('estimates', 'DashboardController@estimates')->name('estimates');
     Route::get('tracking', 'DashboardController@tracking')->name('tracking');
@@ -58,7 +59,6 @@ Route::view('/dashboard/customize-template', 'frontend.dashboard.customize-templ
 Route::view('/dashboard/estimates-template', 'frontend.dashboard.estimates-template');
 Route::view('/dashboard/recurring-expenses', 'frontend.dashboard.recurring-expenses');
 Route::view('/dashboard/new-expense', 'frontend.dashboard.new-expense');
-Route::view('/dashboard/invoice-template', 'frontend.dashboard.invoice-template');
 Route::view('/dashboard/recurring-invoices', 'frontend.dashboard.recurring-invoices');
 Route::view('/dashboard/new-recurring-invoices', 'frontend.dashboard.new-recurring-invoices');
 Route::view('/dashboard/new-project', 'frontend.dashboard.new-project');

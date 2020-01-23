@@ -26,7 +26,7 @@
                             <h5 class="settings-block-item-text">Clients</h5>
                         </div>
                     </a>
-                    <a href="{{ route('invoices') }}" class="settings-block-item" href="ds-invoices.html">
+                    <a href="{{ route('invoices.index') }}" class="settings-block-item" href="ds-invoices.html">
                         <div class="settings-block-item-img">
                             <img src="{{ asset('assets/img/dashboard/invoices.png') }}">
                         </div>
