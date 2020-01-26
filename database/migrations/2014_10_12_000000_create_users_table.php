@@ -29,6 +29,17 @@ class CreateUsersTable extends Migration
             $table->string('business_type')->nullable();
             $table->string('password');
             $table->rememberToken();
+
+            $table->string('business_phone')->nullable();
+            $table->string('mobile_phone')->nullable();
+            $table->string('format_date')->nullable();
+            $table->string('currency')->nullable();
+            $table->string('standart_rate')->nullable();
+            $table->string('vat_number')->nullable();
+            $table->string('address')->nullable();
+            $table->string('bank_account')->nullable();
+
+
             $table->timestamps();
         });
     }

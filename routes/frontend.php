@@ -18,6 +18,7 @@ Route::get('/help', 'PageController@help')->name('help');
 //Dashboard Routes
 Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::get('company-profile', 'DashboardController@companyProfile')->name('company-profile');
+    Route::post('company-profile', 'UserController@companyProfileUpdate')->name('company-profile.update');
     Route::get('online-payment', 'DashboardController@onlinePayment')->name('online-payment');
     Route::get('banks', 'DashboardController@banks')->name('banks');
     Route::get('billing-upgrade', 'DashboardController@billingUpgrade')->name('billing-upgrade');

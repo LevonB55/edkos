@@ -17,7 +17,8 @@ class DashboardController extends FrontendController
      */
     public function companyProfile()
     {
-        return view('frontend.dashboard.company-profile');
+        $user = Auth::user();
+        return view('frontend.dashboard.company-profile', compact('user'));
     }
 
     /**
