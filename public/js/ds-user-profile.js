@@ -1,17 +1,15 @@
 $(document).ready(function () {
 
-    var isEmailToBeChanged = false;
-    var isPasswordToBeChanged = false;
+    let isEmailToBeChanged = false;
+    let isPasswordToBeChanged = false;
 
     $("#show-new-email-inputs").click(function () {
         isEmailToBeChanged = true;
-        $(".primary-email").hide();
         $(".new-email-block").slideDown(200);
     });
 
     $(document).on('click', '#hide-new-email-inputs', function () {
         isEmailToBeChanged = false;
-        $(".primary-email").show();
         $(".new-email-block").slideUp(200);
         $("#new-email").val('');
         $("#confirm-new-email").val('');
@@ -20,13 +18,11 @@ $(document).ready(function () {
 
     $("#show-new-password-inputs").click(function () {
         isPasswordToBeChanged = true;
-        $(".primary-password").hide();
         $(".new-password-block").slideDown(200);
     });
 
     $(document).on('click', '#hide-new-password-inputs', function () {
         isPasswordToBeChanged = false;
-        $(".primary-password").show();
         $(".new-password-block").slideUp(200);
         $("#new-password").val('');
         $("#confirm-new-password").val('');

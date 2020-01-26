@@ -14,15 +14,18 @@
             <i class="fas fa-bars"></i>
         </div>
     </div>
-
+    
     <div class="dashboard-content">
         <div class="circle-user">
-            <img src="{{ asset('assets/img/dashboard/user-green.png') }}">
+            @isset($user->image)
+                <img src="{{ Storage::url($user->image->url) }}">    
+            @else
+                <img src="{{ asset('assets/img/dashboard/user-green.png') }}">
+            @endisset
         </div>
 
 
-
-        <form class="dashboard-form flex-column" id="update-profile-form" method='POST' action="{{route('user-profile.update')}}">
+        <form class="dashboard-form flex-column" id="update-profile-form" method='POST' action="{{route('user-profile.update')}}"  enctype="multipart/form-data">
 
             @if ($errors->any())
                 <div class="alert alert-danger" role="alert">
@@ -31,6 +34,7 @@
                     @endforeach
                 </div>
             @endif
+
 
             @if (Session::has('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -51,18 +55,18 @@
                 <input class="" value="{{$user->last_name}}" name="last_name" id="last_name" required>
             </div>
             <div class="dashboard-form-block primary-email">
-                <label for="email">Email Address</label>
-                <input class="" value="{{$user->email}}" name="email" id="email" readonly>
+                <label for="old-email">Email Address</label>
+                <input class="" value="{{$user->email}}" id="old-email" readonly>
                 <a class="d-block change-pas pointer" id="show-new-email-inputs">Change email address</a>
             </div>
             <div class="dashboard-form-block new-email-block hide-by-default">
                 <label for="email">New Email </label>
-                <input type="email" placeholder="New Email" name="new_email" id="new-email">
+                <input type="email" placeholder="New Email" name="email" id="new-email">
                 <a class="d-block change-pas small-error" id="new-email-error"></a>
             </div>
             <div class="dashboard-form-block new-email-block hide-by-default">
                 <label for="email">Confirm New Email </label>
-                <input type="email" placeholder="Confirm New Email" name="confirm_new_email" id="confirm-new-email">
+                <input type="email" placeholder="Confirm New Email" name="email_confirmation" id="confirm-new-email">
                 <a class="d-block change-pas small-error" id="confirm-new-email-error"></a>
                 <a class="d-block change-pas pointer" id="hide-new-email-inputs">Cancel</a>
             </div>
@@ -76,16 +80,19 @@
 
             <div class="dashboard-form-block new-password-block hide-by-default">
                 <label for="new-password">New Password </label>
-                <input type="password" placeholder="New Password" name="new_password" id="new-password">
+                <input type="password" placeholder="New Password" name="password" id="new-password">
                 <a class="d-block change-pas small-error" id="new-password-error"></a>
             </div>
             <div class="dashboard-form-block new-password-block hide-by-default">
                 <label for="confirm-new-password">Confirm New Password </label>
-                <input type="password" placeholder="Confirm New Password" name="confirm_new_password" id="confirm-new-password">
+                <input type="password" placeholder="Confirm New Password" name="confirm_password" id="confirm-new-password">
                 <a class="d-block change-pas small-error" id="confirm-new-password-error"></a>
                 <a class="d-block change-pas pointer" id="hide-new-password-inputs">Cancel</a>
             </div>
-
+            <div class="dashboard-form-block">
+                <label for="image">Upload photo</label>
+                <input type="file" class="" value="" name="image" id="image">
+            </div>
             <div class="dashboard-form-block save-block">
                 <a></a>
                 <button class="dashboard-save" type="submit">save</button>
