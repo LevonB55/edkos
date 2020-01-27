@@ -16,10 +16,13 @@
     <div class="dashboard-header">
         <h1 class="dashboard-clients-title invoice-title-name">New Invoice</h1>
         <div class="clients-btns">
-            <a class="prints-clients-btn"><img src="{{ asset('assets/img/prints.png') }}"></a>
-            <a class="prints-clients-btn"><img src="{{ asset('assets/img/pdf.png') }}"></a>
+{{--            <a class="prints-clients-btn"><img src="{{ asset('assets/img/prints.png') }}"></a>--}}
+{{--            <a class="prints-clients-btn"><img src="{{ asset('assets/img/pdf.png') }}"></a>--}}
             <a class="exp-clients-btn">SAVE</a>
-            <a class="new-clients-btn" data-toggle="modal" id="invoice-send">SEND</a>
+            <a class="exp-clients-btn" data-toggle="modal" id="invoice-send">SEND</a>
+            <a href="{{ route('invoices.templates') }}" class="exp-clients-btn">
+                Customize Style
+            </a>
         </div>
         <div class="dashboard-form-mobile">
             <i class="fas fa-bars"></i>

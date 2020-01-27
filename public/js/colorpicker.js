@@ -23,28 +23,52 @@
 				onChange: function (hsb, hex, rgb) {
 			        $('#colorSelectordiv').css('backgroundColor', '#' + hex);
 					// localStorage.setItem('colorCurrent', hex);
-					//green template
-					$('.main-pos .green-invoice-template .invoice-title').css('background', '#' + hex);
-					$('.main-pos .green-invoice-template .invoice-part-3').css('background', '#' + hex);
-					$('.main-pos .green-invoice-template .invoice-footer').css('background', '#' + hex);
-					$('.main-pos .green-invoice-template .date-issue-text-1').css('color', '#' + hex);
+					// //green template
+					// $('.main-pos .green-invoice-template .invoice-title').css('background', '#' + hex);
+					// $('.main-pos .green-invoice-template .invoice-part-3').css('background', '#' + hex);
+					// $('.main-pos .green-invoice-template .invoice-footer').css('background', '#' + hex);
+					// $('.main-pos .green-invoice-template .date-issue-text-1').css('color', '#' + hex);
+                    //
+					// //bronze template
+					// $('.main-pos .invoice-part-bronze-left').css('background', '#' + hex);
+					// $('.main-pos .bronze-table-last').css('background', '#' + hex);
+					// $('.main-pos .border-bronze').css('border-color', '#' + hex);
+					// $('.main-pos .invoice-template-bronze .invoice-title-27').css('color', '#' + hex);
+					// $('.main-pos .invoice-template-bronze .invoice-part-6').css('color', '#' + hex);
+					// $('.main-pos .invoice-template-bronze .date-issue-text-1').css('color', '#' + hex);
+					// //white template
+					// $('.main-pos .invoice-template-white .invoice-title-27').css('color', '#' + hex);
+					// $('.main-pos .invoice-template-white .invoice-title-20').css('color', '#' + hex);
+					// $('.main-pos .invoice-template-white .invoice-part-6').css('color', '#' + hex);
+					// $('.main-pos .invoice-template-white .date-issue-text-1').css('color', '#' + hex);
+					// $('.main-pos .invoice-template-white .invoice-title input').css('color', '#' + hex);
+                    //
+					// $('.main-pos .date-issue-text-5').css('color', '#' + hex);
+					// $('.main-pos .invoice-part-10-text').css('color', '#' + hex);
 
-					//bronze template
-					$('.main-pos .invoice-part-bronze-left').css('background', '#' + hex);
-					$('.main-pos .bronze-table-last').css('background', '#' + hex);
-					$('.main-pos .border-bronze').css('border-color', '#' + hex);
-					$('.main-pos .invoice-template-bronze .invoice-title-27').css('color', '#' + hex);
-					$('.main-pos .invoice-template-bronze .invoice-part-6').css('color', '#' + hex);
-					$('.main-pos .invoice-template-bronze .date-issue-text-1').css('color', '#' + hex);
-					//white template
-					$('.main-pos .invoice-template-white .invoice-title-27').css('color', '#' + hex);
-					$('.main-pos .invoice-template-white .invoice-title-20').css('color', '#' + hex);
-					$('.main-pos .invoice-template-white .invoice-part-6').css('color', '#' + hex);
-					$('.main-pos .invoice-template-white .date-issue-text-1').css('color', '#' + hex);
-					$('.main-pos .invoice-template-white .invoice-title input').css('color', '#' + hex);
 
-					$('.main-pos .date-issue-text-5').css('color', '#' + hex);
-					$('.main-pos .invoice-part-10-text').css('color', '#' + hex);
+                    //green template
+                    $('.green-invoice-template .invoice-title').css('background', '#' + hex);
+                    $('.green-invoice-template .invoice-part-3').css('background', '#' + hex);
+                    $('.green-invoice-template .invoice-footer').css('background', '#' + hex);
+                    $('.green-invoice-template .date-issue-text-1').css('color', '#' + hex);
+
+                    //bronze template
+                    $('.invoice-part-bronze-left').css('background', '#' + hex);
+                    $('.bronze-table-last').css('background', '#' + hex);
+                    $('.border-bronze').css('border-color', '#' + hex);
+                    $('.invoice-template-bronze .invoice-title-27').css('color', '#' + hex);
+                    $('.invoice-template-bronze .invoice-part-6').css('color', '#' + hex);
+                    $('.invoice-template-bronze .date-issue-text-1').css('color', '#' + hex);
+                    //white template
+                    $('.invoice-template-white .invoice-title-27').css('color', '#' + hex);
+                    $('.invoice-template-white .invoice-title-20').css('color', '#' + hex);
+                    $('.invoice-template-white .invoice-part-6').css('color', '#' + hex);
+                    $('.invoice-template-white .date-issue-text-1').css('color', '#' + hex);
+                    $('.invoice-template-white .invoice-title input').css('color', '#' + hex);
+
+                    $('.date-issue-text-5').css('color', '#' + hex);
+                    $('.invoice-part-10-text').css('color', '#' + hex);
 
 
 

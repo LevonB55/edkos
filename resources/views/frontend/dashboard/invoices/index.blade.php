@@ -14,9 +14,9 @@
     <div class="dashboard-header">
         <h1 class="dashboard-clients-title">Invoices</h1>
         <div class="clients-btns">
-            <a class="prints-clients-btn"><img src="{{ asset('assets/img/prints.png') }}"></a>
-            <a class="prints-clients-btn"><img src="{{ asset('assets/img/pdf.png') }}"></a>
-            <a class="exp-clients-btn">EXPORT INVOICES</a>
+{{--            <a class="prints-clients-btn"><img src="{{ asset('assets/img/prints.png') }}"></a>--}}
+{{--            <a class="prints-clients-btn"><img src="{{ asset('assets/img/pdf.png') }}"></a>--}}
+{{--            <a class="exp-clients-btn">EXPORT INVOICES</a>--}}
             <a href="{{ route('invoices.create') }}" class="new-clients-btn" href="ds-invoice-template.html">NEW INVOICE</a>
         </div>
         <div class="dashboard-form-mobile">

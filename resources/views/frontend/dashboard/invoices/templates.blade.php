@@ -16,15 +16,15 @@
 <main class="clients invoices">
     <div class="dashboard-header">
         <h1 class="dashboard-clients-title">Customize Template</h1>
-        <div class="clients-btns">
-            <a class="new-clients-btn" href="ds-invoice-template.html">NEW INVOICE</a>
-        </div>
+{{--        <div class="clients-btns">--}}
+{{--            <a class="new-clients-btn" href="ds-invoice-template.html">NEW INVOICE</a>--}}
+{{--        </div>--}}
         <div class="dashboard-form-mobile">
             <i class="fas fa-bars"></i>
         </div>
     </div>
     <section class="custom-template">
-        <a class="invoice-back border-right-0" href="ds-invoices.html">
+        <a href="{{ route('invoices.create') }}" class="invoice-back border-right-0" href="ds-invoices.html">
             <img src="{{ asset('assets/img/invoices/back.png') }}">
             <span class="border-right-black">Back</span>
             <p class="text-3">Choose a template</p>

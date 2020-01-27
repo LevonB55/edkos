@@ -17,7 +17,8 @@ Route::get('/help', 'PageController@help')->name('help');
 
 //Dashboard Routes
 Route::prefix('dashboard')->middleware(['auth'])->group(function () {
-    Route::resource('invoices', 'InvoiceController');
+    Route::get('/invoices/templates', 'InvoiceController@showTemplates')->name('invoices.templates');
+    Route::resource('invoices', 'InvoiceController')->except('destroy');
 
     Route::get('company-profile', 'DashboardController@companyProfile')->name('company-profile');
     Route::get('services', 'DashboardController@showServices')->name('services');
@@ -55,7 +56,6 @@ Route::view('/dashboard/billing-upgrade-monthly', 'frontend.dashboard.billing-up
 Route::view('/dashboard/billing-upgrade-monthly-pay', 'frontend.dashboard.billing-upgrade-monthly-pay');
 Route::view('/dashboard/billing-upgrade-yearly', 'frontend.dashboard.billing-upgrade-yearly');
 Route::view('/dashboard/billing-upgrade-yearly-pay', 'frontend.dashboard.billing-upgrade-yearly-pay');
-Route::view('/dashboard/customize-template', 'frontend.dashboard.customize-template');
 Route::view('/dashboard/estimates-template', 'frontend.dashboard.estimates-template');
 Route::view('/dashboard/recurring-expenses', 'frontend.dashboard.recurring-expenses');
 Route::view('/dashboard/new-expense', 'frontend.dashboard.new-expense');
