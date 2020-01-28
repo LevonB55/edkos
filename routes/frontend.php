@@ -46,7 +46,6 @@ Route::get('locale/{locale}', function ($locale){
 });
 
 //Basic views
-Route::view('/registration-2', 'frontend.basic.registration-2');
 Route::view('/registration-3', 'frontend.basic.registration-3');
 Route::view('/registration-4', 'frontend.basic.registration-4');
 Route::view('/registration-5', 'frontend.basic.registration-5');
