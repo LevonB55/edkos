@@ -4,6 +4,11 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Auth;
+use Session;
+use Illuminate\Support\Facades\Validator;
 
 class DashboardController extends FrontendController
 {
@@ -12,7 +17,8 @@ class DashboardController extends FrontendController
      */
     public function companyProfile()
     {
-        return view('frontend.dashboard.company-profile');
+        $user = Auth::user();
+        return view('frontend.dashboard.company-profile', compact('user'));
     }
 
     public function showServices()
@@ -49,8 +55,10 @@ class DashboardController extends FrontendController
      */
     public function userProfile()
     {
-        return view('frontend.dashboard.user-profile');
+        $user = Auth::user();
+        return view('frontend.dashboard.user-profile', compact('user'));
     }
+
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View

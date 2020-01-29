@@ -763,3 +763,17 @@ button.close-bank {
         font-size: 13px;
     }
 }
+
+
+.hide-by-default{
+    display: none;
+}
+.pointer {
+    cursor: pointer;
+}
+
+.small-error{
+    font-size: 60%;
+    color: red !important;
+    font-weight: bolder;
+}
