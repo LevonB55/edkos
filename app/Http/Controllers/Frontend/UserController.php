@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateUserProfile;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -11,46 +12,58 @@ use Session;
 use Illuminate\Support\Facades\Validator;
 use File;
 use Illuminate\Support\Facades\Storage;
+use Image;
 
 class UserController  extends FrontendController
 {
-    public function userProfileUpdate(Request $request)
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showUserProfile()
     {
         $user = Auth::user();
-        $validatedData = $request->validate([
-            'first_name'         => 'required',
-            'last_name'          => 'required',
-            'email'              => 'same:email_confirmation|unique:users,email,'.$user->id,
-            'email_confirmation' => '',
-            'password'           => 'same:confirm_password',
-            'confirm_password'   => ''
-        ]);
+        return view('frontend.dashboard.users.user-profile', compact('user'));
+    }
 
-        $user               = User::find($user->id);
-        $user->first_name   = $request->first_name;
-        $user->last_name    = $request->last_name;
-        // to update email
-        if ($request->email != '') {
-            $user->email    = $request->email;
+    public function userProfileUpdate(UpdateUserProfile $request)
+    {
+        $validated = $request->validated();
+        if($request->ajax()) {
+            $image = '';
+            $user = Auth::user();
+            $user->first_name = $validated['first_name'];
+            $user->last_name  = $validated['last_name'];
+
+            if ($request->has('email')) {
+                $user->email = $validated['email'];
+            }
+            if ($request->has('password')) {
+                $user->password = Hash::make($validated['password']);
+            }
+            $user->save();
+
+            if($request->hasFile('image')){
+                $file = $request->file('image');
+                $name = uniqid().'.'.strtolower($file->getClientOriginalExtension());
+                $url = 'public/profile-image/' . $name;
+                if($user->image()->first() && storage_path($user->image()->first()->url)) {
+                    Storage::delete($user->image()->first()->url);
+                }
+
+                Image::make($file)
+                    ->resize(300, 300)
+                    ->save(storage_path('app/' . $url));
+
+                $image = $user->image()->updateOrCreate(
+                    ['imageable_id' => $user->id],
+                    ['url' => $url]
+                );
+            }
+
+            return response()->json(['image' => $image ? $url : '']);
         }
-        if ($request->password != '') {
-            $user->password     = Hash::make($request->password);
-        }
-        $user->save();
 
-    	if($request->hasFile('image')){
-    		$file = $request->file('image');
-			$name = uniqid().'.'.strtolower($file->getClientOriginalExtension());
-			$url  = $request->file('image')->storeAs(
-				'public/profile-image', $name
-            );
-            $user->image()->create(['url' => $url]);
-    	}
-
-
-        Session::flash('success', '<strong>Success!</strong> You account has been successfully updated.');
-
-        return view('frontend.dashboard.user-profile', compact('user'));
+        return abort(404);
     }
 
 

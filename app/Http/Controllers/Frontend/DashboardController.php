@@ -53,16 +53,6 @@ class DashboardController extends FrontendController
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function userProfile()
-    {
-        $user = Auth::user();
-        return view('frontend.dashboard.user-profile', compact('user'));
-    }
-
-
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
     public function clients()
     {
         return view('frontend.dashboard.clients');

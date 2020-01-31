@@ -1,7 +1,7 @@
 <aside>
     <div class="aside-content @yield('sidebarClass')">
         <div class="user-data">
-            <img class="user-data-img" src="{{ asset('assets/img/dashboard/user.png') }}">
+            <img class="user-img" src="{{ asset('assets/img/dashboard/user.png') }}">
             <h3 class="user-data-title">Lia Smith</h3>
             <div class="open-close-arrow">
                 <img src="{{ asset('assets/img/dashboard/arrow.png') }}">

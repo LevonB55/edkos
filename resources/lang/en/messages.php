@@ -9,7 +9,7 @@ return [
     'password' => "Password",
     'retype_password' => "Retype Password",
     'password_must_be_at_least_8_characters' => "The password must be at least 8 characters",
-    'forgot_your_password' => "Forgot Your Password ?",
+    'forgot_your_password' => "Forgot Your Password?",
     'sign_in' => "Sign In",
     'sign_up' => "Sign Up",
     'welcome_to' => "Welcome to",
