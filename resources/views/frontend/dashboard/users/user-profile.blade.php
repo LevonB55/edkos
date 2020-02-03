@@ -52,7 +52,7 @@
             <div class="dashboard-form-block primary-email">
                 <label for="old-email">Email Address</label>
                 <div class="dashboard-block-item">
-                    <input class="" value="{{$user->email}}" id="old-email" disabled>
+                    <input class="user-email" value="{{$user->email}}" id="old-email" disabled>
                     <span class="d-block change-pas pointer" id="show-new-email-inputs">Change email address</span>
                 </div>
             </div>
@@ -105,5 +105,5 @@
 @endsection
 
 @section('extra-scripts')
-    <script src="{{asset('js/ds-user-profile.js')}}"></script>
+{{--    <script src="{{asset('js/ds-user-profile.js')}}"></script>--}}
 @endsection

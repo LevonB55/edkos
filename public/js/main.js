@@ -256,6 +256,13 @@ $(document).ready(function() {
     });
  });
 
+//Multiple select
+$('#select-choose').select2();
+$("#select-choose").select2({
+    tags: true,
+    tokenSeparators: [',', ' ']
+});
+
 //Shows password
 $('.password-icon').on('click', function () {
     $(this).find('i').toggleClass('fa-eye').toggleClass('fa-eye-slash');

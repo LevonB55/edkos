@@ -44,7 +44,7 @@ main {
     align-items: center;
     flex-direction: column;
 }
-.user-img {
+.user-profile-img {
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -635,7 +635,7 @@ button.close-bank {
     .aside-logo img {
         width: 70px;
     }
-    .user-img {
+    .user-profile-img {
         width: 40px;
     }
     .settings-block-item-text {

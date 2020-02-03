@@ -29,13 +29,14 @@ class UserController  extends FrontendController
     {
         $validated = $request->validated();
         if($request->ajax()) {
-            $image = '';
+            $url = $email = '';
             $user = Auth::user();
             $user->first_name = $validated['first_name'];
             $user->last_name  = $validated['last_name'];
 
             if ($request->has('email')) {
-                $user->email = $validated['email'];
+                $email = $validated['email'];
+                $user->email = $email;
             }
             if ($request->has('password')) {
                 $user->password = Hash::make($validated['password']);
@@ -54,13 +55,13 @@ class UserController  extends FrontendController
                     ->resize(300, 300)
                     ->save(storage_path('app/' . $url));
 
-                $image = $user->image()->updateOrCreate(
+                $user->image()->updateOrCreate(
                     ['imageable_id' => $user->id],
                     ['url' => $url]
                 );
             }
 
-            return response()->json(['image' => $image ? $url : '']);
+            return response()->json(['image' => $url, 'email' => $email]);
         }
 
         return abort(404);

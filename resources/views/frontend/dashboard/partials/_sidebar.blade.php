@@ -1,8 +1,12 @@
 <aside>
     <div class="aside-content @yield('sidebarClass')">
         <div class="user-data">
-            <img class="user-img" src="{{ asset('assets/img/dashboard/user.png') }}">
-            <h3 class="user-data-title">Lia Smith</h3>
+            @if($userImage)
+                <img class="user-profile-img" src="{{ Storage::url($userImage) }}">
+            @else
+                <img class="user-profile-img" src="{{ asset('assets/img/dashboard/user.png') }}">
+            @endif
+            <h3 class="user-data-title">{{ $user->full_name }}</h3>
             <div class="open-close-arrow">
                 <img src="{{ asset('assets/img/dashboard/arrow.png') }}">
             </div>
@@ -26,7 +30,7 @@
                             <h5 class="settings-block-item-text">Clients</h5>
                         </div>
                     </a>
-                    <a href="{{ route('invoices.index') }}" class="settings-block-item" href="ds-invoices.html">
+                    <a href="{{ route('invoices.index') }}" class="settings-block-item {{ Request::routeIs('invoices*') ? 'active' : '' }}" href="ds-invoices.html">
                         <div class="settings-block-item-img">
                             <img src="{{ asset('assets/img/dashboard/invoices.png') }}">
                         </div>
@@ -79,7 +83,7 @@
             <div class="user-dashboard-2">
                 <div class="settings-block back-color-settings">
                     <h5 class="settings-block-title">Settings For You</h5>
-                    <a href="{{ route('company-profile') }}" class="settings-block-item active">
+                    <a href="{{ route('company-profile') }}" class="settings-block-item {{ Request::routeIs('company-profile') ? 'active' : '' }}">
                         <div class="settings-block-item-img">
                             <img src="{{ asset('assets/img/dashboard/home.png') }}">
                         </div>
@@ -131,7 +135,7 @@
                 </div>
                 <div class="settings-block">
                     <h5 class="settings-block-title">Personal</h5>
-                    <a href="{{ route('user-profile') }}" class="settings-block-item" href="ds-user-profile.html">
+                    <a href="{{ route('user-profile') }}" class="settings-block-item {{ Request::routeIs('user-profile') ? 'active' : '' }}" href="ds-user-profile.html">
                         <div class="settings-block-item-img">
                             <img src="{{ asset('assets/img/dashboard/user-small.png') }}">
                         </div>

@@ -25,5 +25,15 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
+        view()->composer('frontend.dashboard.partials._sidebar', function ($view) {
+            $user = auth()->user();
+            $userImage = '';
+            if($image = $user->image()->first()) {
+                $userImage = $image->url;
+            }
+
+            $view->with(compact('user', 'userImage'));
+        });
     }
 }
