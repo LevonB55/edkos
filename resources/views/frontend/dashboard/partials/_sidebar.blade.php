@@ -104,7 +104,7 @@
                             <img src="{{ asset('assets/img/dashboard/cube.png') }}">
                         </div>
                         <div class="settings-block-item-block">
-                            <h5 class="settings-block-item-text">Apps  & Integrations</h5>
+                            <h5 class="settings-block-item-text">Apps & Integrations</h5>
                         </div>
                     </a>
                     <a href="{{ route('online-payment') }}" class="settings-block-item">
