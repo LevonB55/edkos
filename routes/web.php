@@ -24,7 +24,7 @@
 //Route::get('/clients', 'CompanyController@clients')->name('home');
 //
 //
-//Route::get('locale/{locale}', function ($locale){
-//    Session::put('locale', $locale);
-//    return redirect()->back();
-//});
+Route::get('locale/{locale}', function ($locale){
+    Session::put('locale', $locale);
+    return redirect()->back();
+});

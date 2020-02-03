@@ -68,3 +68,8 @@ Route::view('/dashboard/proposals-template', 'frontend.dashboard.proposals-templ
 Route::view('/dashboard/tracking-review', 'frontend.dashboard.tracking-review');
 Route::view('/dashboard/add-new-business', 'frontend.dashboard.add-new-business');
 Route::view('/dashboard/services-2', 'frontend.dashboard.services-2');
+
+Route::get('locale/{locale}', function ($locale){
+    Session::put('locale', $locale);
+    return redirect()->back();
+});
