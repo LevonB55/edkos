@@ -58,6 +58,7 @@ Route::view('/dashboard/billing-upgrade-monthly-pay', 'frontend.dashboard.billin
 Route::view('/dashboard/billing-upgrade-yearly', 'frontend.dashboard.billing-upgrade-yearly');
 Route::view('/dashboard/billing-upgrade-yearly-pay', 'frontend.dashboard.billing-upgrade-yearly-pay');
 Route::view('/dashboard/estimates-template', 'frontend.dashboard.estimates-template');
+Route::view('/dashboard/estimates-customize', 'frontend.dashboard.estimates-customize');
 Route::view('/dashboard/recurring-expenses', 'frontend.dashboard.recurring-expenses');
 Route::view('/dashboard/new-expense', 'frontend.dashboard.new-expense');
 Route::view('/dashboard/recurring-invoices', 'frontend.dashboard.recurring-invoices');

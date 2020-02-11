@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\InvoiceTemplate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -32,7 +33,8 @@ class InvoiceController extends Controller
      */
     public function showTemplates()
     {
-        return view('frontend.dashboard.invoices.templates');
+        $templates = InvoiceTemplate::all();
+        return view('frontend.dashboard.invoices.templates', compact('templates'));
     }
 
     /**

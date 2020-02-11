@@ -1,331 +1,3 @@
-.invoice-template,
-.invoice-template-2 {
-    max-width: 72%;
-    margin: 40px auto 100px;
-    position: relative;
-    margin-right: 135px;
-    z-index: 111;
-    border: 1px solid #58595B;
-}
-.invoice-back {
-    position: absolute;
-    top: 0;
-    left: -70px;
-    color: #8DC63F;
-    font-family: 'Segoe UI Semibold';
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-right: 1px solid #707070;
-}
-.invoice-back span {
-    padding-right: 6px;
-}
-.invoice-back img {
-    margin-right: 5px;
-}
-a.invoice-back:hover {
-    cursor: pointer;
-    color: #8DC63F;
-    text-decoration: none;
-}
-.invoice-title {
-    height: 195px;
-    background: #69A11B;
-    font-family: 'Segoe UI Semibold';
-    color: white;
-    padding: 30px;
-}
-.invoice-template-content {
-    max-width: 968px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-.invoice-template-info {
-    max-width: 968px;
-    margin: 0 auto;
-    padding: 40px 0 100px;
-}
-.invoice-title-24 {
-    font-size: 24px;
-    margin-top: 10px;
-}
-.invoice-title-20 {
-    font-size: 20px;
-    margin-top: 15px;
-}
-.invoice-title-27 {
-    font-size: 27px;
-}
-.custom-input {
-    display: none;
-}
-.due-date-issue-select {
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 1px solid #707070;
-    opacity: 1;
-    color: #58595B;
-    font-family: 'Segoe UI Regular';
-    font-size: 16px;
-    padding: 5px;
-    width: 180px;
-    padding-left: 2px;
-    margin-bottom: 10px;
-}
-.invoice-title input {
-    width: 100px;
-    color: white;
-    border: 0;
-    background: transparent;
-    text-align: right;
-    border-bottom: 1px solid silver;
-}
-.invoice-title input::placeholder {
-    color: white;
-}
-.company-logo-file {
-    border: 1px solid #707070;
-    width: 458px;
-    height: 162px;
-}
-.company-logo-file:hover {
-    cursor: pointer;
-}
-.company-logo-file label {
-    color: #58595B;
-    font-size: 24px;
-    font-family: 'Segoe UI Semibold';
-    justify-content: center!important;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-}
-.date-issue {
-    height: 162px;
-}
-.invoice-part-1 {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-.date-issue-text-1 {
-    color: #8DC63F;
-    font-size: 20px;
-    font-family: 'Segoe UI Semibold';
-}
-.date-issue-text-2 {
-    color: #58595B;
-    font-size: 17px;
-    width: 180px;
-    margin-bottom: 22px;
-    border: 0;
-    font-family: 'Segoe UI Semibold';
-    border-bottom: 1px solid #58595B;
-}
-.invoice-part-2 {
-    display:flex;
-    justify-content: flex-start;
-    margin-top: 100px;
-}
-.date-issue-text-3 {
-    color: #58595B;
-    font-size: 24px;
-    font-family: 'Segoe UI Bold';
-    line-height: 38px;
-    padding-left: 10px;
-    border: 1px solid #fff;
-}
-.open-close-user-block {
-    width: 280px;
-    height: 200px;
-    border: 1px solid #707070;
-    padding: 20px 28px;
-}
-.open-clickable {
-    display: none;
-}
-.open-close-user {
-    position: absolute;
-    right: 0;
-    top: 81px;
-    width: 225px;
-    border: 1px solid #707070;
-    padding: 10px 28px 30px 28px;
-    background: white;
-    z-index: 111111111;
-}
-.open-close-user span {
-    font-size: 18px;
-    font-family: 'Segoe UI Regular';
-    color: #AFACAC;
-    margin-left: 20px;
-}
-.open-close-user  div {
-    margin-top: 10px;
-}
-.open-close-user  div:hover {
-    cursor: pointer;
-}
-.samll-icons {
-    position: absolute;
-    top: -16px;
-    left: -16px;
-}
-.date-issue-text-3:focus,
-.date-issue-text-4:focus {
-    border: 1px solid #707070;
-}
-.date-issue-text-4 {
-    color: #58595B;
-    font-size: 22px;
-    line-height: 38px;
-    font-family: 'Segoe UI Semibold';
-    border: 0;
-    padding-left: 10px;
-    border: 1px solid #fff;
-}
-.date-issue-text-5 {
-    color: #8DC63F;
-    font-size: 20px;
-    line-height: 38px;
-    padding-left: 10px;
-    font-family: 'Segoe UI Semibold';
-}
-.invoice-template-block {
-    text-align: left;
-    width: 445px;
-}
-.invoice-part-3 {
-    margin-top: 60px;
-    padding:0 35px;
-    height: 53px;
-    background: #8DC63F;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.invoice-part-4 {
-    margin-top: 30px;
-    padding:0 35px;
-    height: 53px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.invoice-part-3-desc {
-    width: 60%;
-}
-.invoice-part-3-price {
-    width: 40%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.invoice-part-6 {
-    color: #fff;
-    font-size: 20px;
-    width: 80px;
-    text-align: center;
-    font-family: 'Segoe UI Semibold';
-}
-.invoice-part-7 {
-    color: #58595B;
-    font-size: 20px;
-    width: 100px;
-    text-align: center;
-    font-family: 'Segoe UI Semibold';
-}
-.invoice-part-5 {
-    width: 100%;
-    height: 1px;
-    background: #707070;
-    margin-top: 10px;
-}
-.invoice-part-14 {
-    height: 53px;
-    padding: 0 35px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    align-items: center;
-}
-.invoice-part-14-text {
-    width: 100px;
-    font-family: 'Segoe UI Regular';
-    font-size: 20px;
-    opacity: 0.5;
-    text-align: center;
-}
-.invoice-part-14 select {
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 1px solid #707070;
-    opacity: 1;
-    width: 44%;
-    color: #58595B;
-    font-family: 'Segoe UI Regular';
-    font-size: 16px;
-    padding: 5px;
-    padding-left: 10px;
-}
-.invoice-part-14 .invoice-part-3-desc {
-    display: flex;
-    justify-content: space-between;
-}
-.equal-part {
-    text-align: left;
-}
-.equal-part-2 {
-    text-align: left;
-    width: 100%;
-}
-.invoice-part-10 {
-    display: flex;
-    margin-top: 60px;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-.invoice-part-10-text {
-    color: #8DC63F;
-    font-size: 20px;
-    margin-bottom: 15px;
-    font-family: 'Segoe UI Semibold';
-}
-.invoice-part-10 input {
-    width: 390px;
-    height: 56px;
-    border-radius: 4px;
-    border: 1px solid #636364;
-    font-size: 17px;
-    font-family: 'Segoe UI Semibold';
-    color: #636364;
-    padding-left: 15px;
-}
-.invoice-part-10-text2 {
-    color: #58595B;
-    font-size: 22px;
-    font-family: 'Segoe UI Semibold';
-}
-.invoice-footer {
-    height: 40px;
-    background: #8DC63F;
-    border-radius: 4px;
-}
-.company-logo {
-    color: #58595B;
-    font-family: 'Segoe UI Semibold';
-    font-size: 24px;
-}
-.select-a-file {
-    color: #0D83DD;
-    font-family: 'Segoe UI Semibold';
-    font-size: 24px;
-    margin-top: 5px;
-}
 .send-invoice {
     position: absolute;
     z-index: 5555555;
@@ -450,411 +122,1445 @@ a.invoice-back:hover {
     color: #707070 !important;
     background: transparent;
 }
-.out-data p {
-    width: 42%;
-    font-size: 16px;
-    font-family: 'Segoe UI Semibold';
-    color: #AFACAC;
+
+
+/*11111111111111111111111111111*/
+.gr-template {
+    max-width: 1000px;
+    margin: 40px auto 100px;
+    position: relative;
+    margin-right: 150px;
+    z-index: 111;
+    border: 1px solid #58595B;
 }
-.open-send-invoice-popup {
-    display: none;
-}
-.invoice-template-2 .invoice-part-3 {
-    background: #fff;
-}
-.invoice-template-2 .invoice-part-6 {
-    color: #9F6E17;
-}
-.invoice-template-2 .invoice-part-7 {
-    width: 120px;
-}
-.invoice-part-3-price-2 {
-    background: #9F6E17;
-    padding: 11px;
-}
-.invoice-part-3-price-2 .invoice-part-7 {
-    background: #9F6E17;
-    color: #fff;
-}
-.invoice-template-2 .invoice-part-4 {
-    margin-top: 0;
-}
-.invoice-template-2 .invoice-part-10-text{
-    color:  #9F6E17;
-}
-.invoice-template-2 .invoice-part-10:last-child {
+.gr-header {
+    padding: 30px;
     display: flex;
     justify-content: space-between;
-    margin-top: 45px;
+    align-items: flex-end;
+    background: #69A11B;
 }
-.invoice-template-2 .date-issue-text-10 {
+.gr-text-1 {
+    font-size: 22px;
+    font-family: 'Segoe UI Semibold';
+    color: white;
+}
+.gr-text-2 {
+    font-size: 18px;
+    margin-top: 5px;
+    font-family: 'Segoe UI Semibold';
+    color: white;
+}
+.gr-input-1 {
+    width: 100%;
+    border: 0;
+    color: white;
+    background: transparent;
+}
+.gr-input-1::placeholder {
+    color: white;
+}
+.gr-input-2 {
+    width: 100px;
+    border: 0;
+    color: white;
+    background: transparent;
+    text-align: right;
+    border-bottom: 1px solid silver;
+}
+.gr-input-2::placeholder {
+    color: white;
+}
+.gr-header-right {
+    text-align: right;
+}
+.gr-body {
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 60px;
+}
+.gr-footer {
+    height: 40px;
+    background: #8DC63F;
+}
+.gr-content-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+.gr-content-1-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #707070;
+    width: 400px;
+    height: 150px;
+}
+.gr-content-1-logo input {
+    display: none;
+}
+.gr-content-1-logo label {
+    color: #58595B;
+    font-size: 24px;
+    font-family: 'Segoe UI Semibold';
+    justify-content: center!important;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.gr-content-1-logo label:hover {
+    cursor: pointer;
+}
+.gr-text-3 {
+    color: #58595B;
+    font-family: 'Segoe UI Semibold';
+    font-size: 22px;
+}
+.gr-text-4 {
+    color: #0D83DD;
+    font-family: 'Segoe UI Semibold';
+    font-size: 22px;
+    margin-top: 5px;
+}
+.gr-date-issue {
+    height: 150px;
+}
+.gr-text-5 {
+    color: #8DC63F;
+    font-size: 18px;
+    font-family: 'Segoe UI Semibold';
+}
+.gr-text-6 {
+    color: #58595B;
+    font-size: 17px;
+    width: 180px;
+    margin-bottom: 22px;
+    border: 0;
+    font-family: 'Segoe UI Semibold';
+    border-bottom: 1px solid #58595B;
+}
+.gr-due-date {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    opacity: 1;
+    color: #58595B;
+    font-family: 'Segoe UI Regular';
+    font-size: 16px;
+    padding: 5px;
+    width: 180px;
+    padding-left: 2px;
+    margin-bottom: 10px;
+}
+.custom-input {
+    display: none;
+}
+.gr-content-2 {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 100px;
+    position: relative;
+}
+.gr-content-2 input:focus {
+    border: 1px solid silver;
+}
+.gr-content-block-2 {
+    text-align: left;
+    width: 400px;
+}
+.gr-text-7 {
+    color: #8DC63F;
+    font-size: 18px;
+    line-height: 34px;
+    padding-left: 10px;
+    font-family: 'Segoe UI Semibold';
+}
+.gr-text-8 {
+    color: #58595B;
+    font-size: 20px;
+    font-family: 'Segoe UI Bold';
+    line-height: 34px;
+    padding-left: 10px;
+    border: 1px solid #fff;
+}
+.gr-text-9 {
+    color: #58595B;
+    font-size: 20px;
+    line-height: 38px;
+    font-family: 'Segoe UI Semibold';
+    padding-left: 10px;
+    border: 1px solid #fff;
+    width: 100%;
+}
+.open-close-user {
+    position: absolute;
+    right: 0;
+    top: 91px;
+    width: 180px;
+    border: 1px solid #707070;
+    padding: 10px;
+    background: white;
+    z-index: 111111111;
+}
+.open-clickable {
+    display: none;
+}
+.open-close-user img {
+    width: 30px;
+}
+.open-close-user .samll-icons img {
+    width: 100%;
+}
+.gr-content-3 {
+    margin-top: 20px;
+}
+.gr-content-3 table {
+    width: 100%;
+}
+.gr-content-3 thead {
+    padding: 0 35px;
+    height: 53px;
+    background: #8DC63F;
+    color: white;
+}
+.gr-content-3 th {
+    padding: 6px;
+    text-align: center;
+}
+.gr-content-3 td {
+    padding: 10px;
+    text-align: center;
+    line-height: 24px;
+    font-family: 'Segoe UI Regular';
+    color: #58595B;
+    transition: 0.3s ease-in-out;
+    font-size: 18px;
+}
+.gr-content-3 td:hover {
+    background: transparent;
+}
+.gr-content-3 table input {
+    border: 0;
+    text-align: center;
+}
+.gr-content-3 table input:focus {
+    border: 1px solid silver;
+}
+.gr-add-line td {
+    color: #58595B;
+    font-size: 20px;
+    font-family: 'Segoe UI Bold';
+    line-height: 34px;
+    padding-left: 10px;
+    border: 1px solid #fff;
+}
+.gr-line-1 {
+    width: 100%;
+    height: 1px;
+    background: #707070;
+    margin-top: 10px;
+}
+.gr-select-1 {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    opacity: 1;
+    width: 100%;
+    color: #58595B;
+    font-family: 'Segoe UI Regular';
+    font-size: 16px;
+    padding: 5px;
+    padding-left: 10px;
+}
+.gr-content-4 {
+    text-align: left;
+    width: 100%;
+}
+.gr-text-10 {
+    color: #8DC63F;
+    font-size: 18px;
+    margin-top: 30px;
+    font-family: 'Segoe UI Semibold';
+}
+.gr-text-11 {
+    color: #58595B;
+    font-size: 20px;
+    font-family: 'Segoe UI Semibold';
+}
+.gr-content-5 {
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.gr-content-5-block {
+    text-align: left;
+}
+.gr-content-5-block input {
+    width: 360px;
+    height: 50px;
+    border-radius: 4px;
+    border: 1px solid #636364;
+    font-size: 15px;
+    font-family: 'Segoe UI Semibold';
+    color: #636364;
+    padding-left: 13px;
+    margin-top: 15px;
+}
+.gr-back {
+    margin-left: 346px;
+    color: #8DC63F;
+    font-family: 'Segoe UI Semibold';
+    font-size: 18px;
+    margin-top: 20px;
+    display: flex;
+    border-right: 1px solid #707070;
+    align-items: center;
+}
+.gr-back img {
+    margin-right: 5px;
+}
+.gr-back span {
+    padding-right: 6px;
+}
+
+
+/*22222222222222222222222222222*/
+
+
+.bz-template {
+    max-width: 1000px;
+    margin: 40px auto 100px;
+    position: relative;
+    margin-right: 150px;
+    z-index: 111;
+    border: 1px solid #58595B;
+}
+.bz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 20px;
+}
+.bz-header-left {
+    background: #9F6E17;
+    width: 43%;
+    padding: 7px;
+}
+.bz-text-1 {
+    font-size: 22px;
+    font-family: 'Segoe UI Semibold';
+    color: #9f6e17;
+}
+.bz-text-2 {
+    font-size: 18px;
+    margin-top: 5px;
+    font-family: 'Segoe UI Semibold';
+    color: #58595B;
+}
+.bz-input-1 {
+    width: 100%;
+    border: 0;
+    color: #58595B;
+    background: transparent;
+}
+.bz-input-1::placeholder {
+    color: #58595B;
+}
+.bz-input-2 {
+    width: 100px;
+    border: 0;
+    color: #58595B;
+    background: transparent;
+    text-align: right;
+    border-bottom: 1px solid silver;
+}
+.bz-input-2::placeholder {
+    color: #58595B;
+}
+.bz-header-right {
+    text-align: right;
+    width: 50%;
+    padding-right: 10px;
+}
+.bz-body {
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 60px;
+}
+.bz-footer {
+    height: 40px;
+}
+.bz-content-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+.bz-content-1-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #707070;
+    width: 400px;
+    height: 150px;
+    margin: 20px;
+}
+.bz-content-1-logo input {
+    display: none;
+}
+.bz-content-1-logo label {
+    color: #58595B;
+    font-size: 24px;
+    font-family: 'Segoe UI Semibold';
+    justify-content: center!important;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.bz-content-1-logo label:hover {
+    cursor: pointer;
+}
+.bz-text-3 {
+    color: #58595B;
+    font-family: 'Segoe UI Semibold';
+    font-size: 22px;
+}
+.bz-text-4 {
+    color: #0D83DD;
+    font-family: 'Segoe UI Semibold';
+    font-size: 22px;
+    margin-top: 5px;
+}
+.bz-date-issue {
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.bz-text-5 {
+    color: #9F6E17;
+    font-size: 18px;
+    text-align: left;
+    font-family: 'Segoe UI Semibold';
+}
+.bz-text-6 {
+    color: #58595B;
+    font-size: 17px;
+    width: 180px;
+    margin-bottom: 22px;
+    border: 0;
+    font-family: 'Segoe UI Semibold';
+    border-bottom: 1px solid #58595B;
+}
+.bz-due-date {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    opacity: 1;
+    color: #58595B;
+    font-family: 'Segoe UI Regular';
+    font-size: 16px;
+    padding: 5px;
+    width: 180px;
+    padding-left: 2px;
+    margin-bottom: 10px;
+}
+.custom-input {
+    display: none;
+}
+.bz-content-2 {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+}
+.bz-content-2 input:focus {
+    border: 1px solid silver;
+}
+.bz-content-block-2 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.bz-text-7 {
+    color: #fff;
+    font-size: 18px;
+    line-height: 34px;
+    padding-left: 10px;
+    font-family: 'Segoe UI Semibold';
+}
+.bz-text-8 {
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Segoe UI Bold';
+    line-height: 34px;
+    background: transparent;
+    padding-left: 10px;
+    border: 0;
+}
+.bz-text-8::placeholder {
+    color: white;
+}
+.bz-text-9 {
+    color: #fff;
+    font-size: 20px;
+    line-height: 38px;
+    font-family: 'Segoe UI Semibold';
+    padding-left: 10px;
+    width: 100%;
+    border: 0;
+    background: transparent;
+}
+.bz-text-12 {
     color: #58595B;
     border: 0;
     font-size: 19px;
     height: 39px;
-    width: 100%;
+    font-family: 'Segoe UI Semibold';
 }
-.invoice-template-2 .invoice-part-10  input {
-  padding-left: 0;
-}
-.border-bronze {
-    border-left: 2px solid #9f6e17;
-    padding-left: 20px;
-}
-.invoice-template-2 .invoice-title {
-    background: white;
-}
-.invoice-part-bronze-2-left {
-    width: 50%;
-    padding: 5px;
-    height: 200px;
-    background: #9F6E17;
-}
-.invoice-part-bronze-2-right {
-    width: 50%;
-}
-.invoice-part-bronze-2 {
-    width: 100%;
-    padding: 20px 30px;
-    display: flex;
-    justify-content: space-between;
-}
-.invoice-template-2 .date-issue-text-4::placeholder,
-.invoice-template-2 .date-issue-text-3::placeholder {
-    color: white !important;
-}
-.invoice-template-2 .date-issue-text-4 {
+.bz-text-9::placeholder {
     color: white;
-    font-size: 17px;
-    line-height: 28px;
-    width: 100%;
-    font-family: 'Segoe UI Semibold';
-    padding-left: 10px;
-    background: transparent;
-    border: 0;
 }
-.invoice-template-2 .date-issue-text-3 {
-    color: white !important;
-    font-size: 18px;
-    line-height: 28px;
-    font-family: 'Segoe UI Semibold';
-    padding-left: 10px;
-    background: transparent;
-    border: 0 !important;
-}
-.invoice-template-2 .invoice-title-27 {
-    font-size: 36px;
-    color: #9f6e17;
-}
-.input-number-bronze {
-    color: #9F6E17;
-    border: 0;
-    text-align: right;
-}
-.invoice-template-2 .date-issue-text-1 {
-    color: #9F6E17;
-}
-.invoice-template-2 .date-issue {
-    height: 55px;
-    padding: 0 0 0 30px;
-}
-.invoice-template-3 .invoice-part-10-text {
-    color: #2265D6;
-}
-.invoice-template-3 .invoice-footer {
-    background: white;
-}
-.invoice-template-3 .invoice-part-3 {
-    background: white;
-    border-bottom: 1px solid #707070;
-}
-.invoice-template-3 .invoice-part-6 {
-    color: #2265D6;
-}
-.invoice-template-3 .date-issue-text-5 {
-    color: #2265D6;
-}
-.invoice-template-3 .invoice-template-white-title {
-    height: 70px;
-    border-bottom: 1px solid #707070;
-    position: relative;
-}
-.invoice-template-3 .invoice-title {
-    background: white;
-}
-.invoice-template-3 .invoice-template-white .invoice-part-1 {
-    position: absolute;
-    top: 33px;
-    width: 190px;
-    left: 33%;
-    background: white;
-}
-.invoice-template-3 .invoice-title-27 {
-    color: #2265D6;
-    position: absolute;
-    right: 11px
-}
-.invoice-template-3 .date-issue-text-1 {
-    color: #2265D6;
-}
-.invoice-template-3 .invoice-title-20 {
-    color: #2265D6;
-}
-.invoice-template-3 .invoice-title-24 {
-    color: #58595B;
-}
-.invoice-template-3 .invoice-title input {
-    color: #58595B;
-    border-bottom: 1px solid #58595B;
-}
-.invoice-template-3 .invoice-title input::placeholder {
-    color: #58595B;
-}
-.invoice-template-3 .invoice-template-content {
-    max-width: 968px;
-    margin: 84px auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-.invoice-template-3 .company-logo-file {
-    background: white;
+.open-close-user {
     position: absolute;
     right: 0;
-    left: 0;
-    margin: auto;
+    top: 91px;
+    width: 180px;
+    border: 1px solid #707070;
+    padding: 10px;
+    background: white;
+    z-index: 111111111;
 }
-.invoice-template-3 .invoice-part-1 {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 47px;
+.open-clickable {
+    display: none;
+}
+.open-close-user img {
+    width: 30px;
+}
+.open-close-user .samll-icons img {
     width: 100%;
 }
-.invoice-template-3 {
+.bz-content-3 {
+    margin-top: 20px;
+}
+.bz-content-3 table {
+    width: 100%;
+}
+.bz-content-3 thead {
+    padding: 0 35px;
+    height: 53px;
+    color: #9F6E17;
+}
+.bz-content-3 th {
+    padding: 6px;
+    text-align: center;
+}
+.bz-template table tr {
+    border-bottom: 1px solid #707070;
+}
+.bz-content-3 td {
+    padding: 10px;
+    text-align: center;
+    line-height: 24px;
+    font-family: 'Segoe UI Regular';
+    color: #58595B;
+    transition: 0.3s ease-in-out;
+    font-size: 18px;
+}
+.bz-content-3 td:hover {
+    background: transparent;
+}
+.bz-content-3 table input {
+    border: 0;
+    text-align: center;
+}
+.bz-content-3 table input:focus {
+    border: 1px solid silver;
+}
+.bz-add-line td {
+    color: #58595B;
+    font-size: 20px;
+    font-family: 'Segoe UI Bold';
+    line-height: 34px;
+    padding-left: 10px;
+    border: 1px solid #fff;
+}
+.bz-line-1 {
+    width: 100%;
+    height: 1px;
+    background: #707070;
+    margin-top: 10px;
+}
+.bz-select-1 {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    opacity: 1;
+    width: 100%;
+    color: #58595B;
+    font-family: 'Segoe UI Regular';
+    font-size: 16px;
+    padding: 5px;
+    padding-left: 10px;
+}
+.bz-content-4 {
+    text-align: left;
+    width: 100%;
+}
+.bz-text-10 {
+    color: #9F6E17;
+    font-size: 18px;
+    margin-top: 30px;
+    font-family: 'Segoe UI Semibold';
+}
+.bz-text-11 {
+    color: #58595B;
+    font-size: 20px;
+    font-family: 'Segoe UI Semibold';
+}
+.bz-content-5 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.bz-content-5-block {
+    text-align: left;
+}
+.bz-content-5-block input {
+    width: 360px;
+    height: 50px;
+    border-radius: 4px;
+    border: 1px solid #636364;
+    font-size: 15px;
+    font-family: 'Segoe UI Semibold';
+    color: #636364;
+    padding-left: 13px;
+    margin-top: 15px;
+}
+/*333333333333333333333333333*/
+
+.wt-template {
+    max-width: 1000px;
+    margin: 40px auto 100px;
+    position: relative;
+    margin-right: 150px;
+    z-index: 111;
+    border: 1px solid #58595B;
+}
+.wt-header {
+    position: relative;
+    height: 100px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #707070;
+    padding-top: 20px;
+}
+.wt-text-1 {
+    font-size: 22px;
+    font-family: 'Segoe UI Semibold';
+    color: #2265D6;
+}
+.wt-text-2 {
+    font-size: 18px;
+    margin-top: 5px;
+    font-family: 'Segoe UI Semibold';
+    color: #2265D6;
+}
+.wt-input-1 {
+    width: 100%;
+    border: 0;
+    text-align: center;
+    color: #58595B;
+    background: transparent;
+}
+.wt-input-1::placeholder {
+    color: #58595B;
+}
+.wt-input-2 {
+    width: 100px;
+    border: 0;
+    color: #58595B;
+    background: transparent;
+    text-align: right;
+    border-bottom: 1px solid silver;
+}
+.wt-input-2::placeholder {
+    color: #58595B;
+}
+.wt-header-right {
+    text-align: right;
+}
+.wt-body {
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 60px;
+    margin-top: 50px;
+}
+.wt-footer {
+    height: 40px;
+}
+.wt-content-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+.wt-content-1-logo {
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #707070;
+    width: 400px;
+    height: 150px;
+    position: absolute;
+}
+.wt-content-1-logo input {
+    display: none;
+}
+.wt-content-1-logo label {
+    color: #58595B;
+    font-size: 24px;
+    font-family: 'Segoe UI Semibold';
+    justify-content: center!important;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.wt-content-1-logo label:hover {
+    cursor: pointer;
+}
+.wt-text-3 {
+    color: #58595B;
+    font-family: 'Segoe UI Semibold';
+    font-size: 22px;
+}
+.wt-text-4 {
+    color: #0D83DD;
+    font-family: 'Segoe UI Semibold';
+    font-size: 22px;
+    margin-top: 5px;
+}
+.wt-date-issue {
+    height: 150px;
+}
+.wt-text-5 {
+    color: #2265D6;
+    font-size: 18px;
+    font-family: 'Segoe UI Semibold';
+}
+.wt-text-6 {
+    color: #58595B;
+    font-size: 17px;
+    width: 180px;
+    margin-bottom: 22px;
+    border: 0;
+    font-family: 'Segoe UI Semibold';
+    border-bottom: 1px solid #58595B;
+}
+.wt-due-date {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    opacity: 1;
+    color: #58595B;
+    font-family: 'Segoe UI Regular';
+    font-size: 16px;
+    padding: 5px;
+    width: 180px;
+    padding-left: 2px;
+    margin-bottom: 10px;
+}
+.custom-input {
+    display: none;
+}
+.wt-content-2 {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 100px;
+    position: relative;
+}
+.wt-content-2 input:focus {
+    border: 1px solid silver;
+}
+.wt-content-block-2 {
+    text-align: left;
+    width: 400px;
+}
+.wt-text-7 {
+    color: #2265D6;
+    font-size: 18px;
+    line-height: 34px;
+    padding-left: 10px;
+    font-family: 'Segoe UI Semibold';
+}
+.wt-text-8 {
+    color: #58595B;
+    font-size: 20px;
+    font-family: 'Segoe UI Bold';
+    line-height: 34px;
+    padding-left: 10px;
+    border: 1px solid #fff;
+}
+.wt-text-9 {
+    color: #58595B;
+    font-size: 20px;
+    line-height: 38px;
+    font-family: 'Segoe UI Semibold';
+    padding-left: 10px;
+    border: 1px solid #fff;
+    width: 100%;
+}
+.open-close-user {
+    position: absolute;
+    right: 0;
+    top: 91px;
+    width: 180px;
+    border: 1px solid #707070;
+    padding: 10px;
+    background: white;
+    z-index: 111111111;
+}
+.open-clickable {
+    display: none;
+}
+.open-close-user img {
+    width: 30px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+.open-close-user .samll-icons img {
+    width: 20px;
+}
+.wt-content-3 {
+    margin-top: 20px;
+}
+.wt-content-3 table {
+    width: 100%;
+}
+.wt-content-3 thead {
+    padding: 0 35px;
+    height: 53px;
+    color: white;
+}
+.wt-content-3 th {
+    padding: 6px;
+    text-align: center;
+    color: #2265D6;
+}
+.wt-content-3 thead tr {
+    border-bottom: 1px solid #707070;
+}
+.wt-content-3 td {
+    padding: 10px;
+    text-align: center;
+    line-height: 24px;
+    font-family: 'Segoe UI Regular';
+    color: #58595B;
+    transition: 0.3s ease-in-out;
+    font-size: 18px;
+}
+.wt-content-3 td:hover {
+    background: transparent;
+}
+.wt-content-3 table input {
+    border: 0;
+    text-align: center;
+}
+.wt-content-3 table input:focus {
+    border: 1px solid silver;
+}
+.wt-add-line td {
+    color: #58595B;
+    font-size: 20px;
+    font-family: 'Segoe UI Bold';
+    line-height: 34px;
+    padding-left: 10px;
+    border: 1px solid #fff;
+}
+.wt-line-1 {
+    width: 100%;
+    height: 1px;
+    background: #707070;
+    margin-top: 10px;
+}
+.wt-select-1 {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    opacity: 1;
+    width: 100%;
+    color: #58595B;
+    font-family: 'Segoe UI Regular';
+    font-size: 16px;
+    padding: 5px;
+    padding-left: 10px;
+}
+.wt-content-4 {
+    text-align: left;
+    width: 100%;
+}
+.wt-text-10 {
+    color: #2265D6;
+    font-size: 18px;
+    margin-top: 30px;
+    font-family: 'Segoe UI Semibold';
+}
+.wt-text-11 {
+    color: #58595B;
+    font-size: 20px;
+    font-family: 'Segoe UI Semibold';
+}
+.wt-content-5 {
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.wt-content-5-block {
+    text-align: left;
+}
+.wt-content-5-block input {
+    width: 360px;
+    height: 50px;
+    border-radius: 4px;
+    border: 1px solid #636364;
+    font-size: 15px;
+    font-family: 'Segoe UI Semibold';
+    color: #636364;
+    padding-left: 13px;
+    margin-top: 15px;
+}
+.open-send-invoice-popup {
+    display: none;
+}
+.choose-template-back {
 
 }
-.invoice-template-3 {
-
-}
-.invoice-template-3 {
-
-}
-.invoice-template-3 {
-
-}
-.invoice-template-3 {
-
-}
-.invoice-template-3 {
-
-}
-.invoice-template-3 {
-
-}
-.invoice-template-3 {
-
-}
 
 
 
 
 
-@media (min-width: 1920px) {
-    .invoice-template,
-    .invoice-template-2 {
-        max-width: 1200px;
-        margin-left: 30%;
+
+@media (max-width: 1600px) {
+    .gr-back {
+        margin-left: 256px;
+        color: #8DC63F;
+        font-family: 'Segoe UI Semibold';
+        font-size: 18px;
+        margin-top: 20px;
+        display: flex;
+        border-right: 1px solid #707070;
+        align-items: center;
     }
-}
-@media (max-width: 1700px) {
-    .invoice-template,
-    .invoice-template-2 {
-        margin-right: 40px;
+    /*111111111111111111*/
+    .gr-template {
+        margin-right: 80px;
+    }
+    /*222222222222222222222222*/
+    .bz-template {
+        margin-right: 80px;
+    }
+    /*333333333333333333333333*/
+    .wt-template {
+        margin-right: 80px;
     }
 }
 @media (max-width: 1400px) {
-    .invoice-template-2 .invoice-part-3-price {
-        width: 52%;
+    /*1111111111111111111*/
+    .gr-template {
+        max-width: 700px;
     }
-    .invoice-template-info {
-        max-width: 100%;
-        padding: 30px 20px;
+    .gr-content-1-logo {
+        width: 255px;
+        height: 133px;
     }
-    .invoice-title {
-        padding: 30px 20px;
+    .gr-text-4 {
+        font-size: 15px;
+    }
+    .gr-text-3 {
+        font-size: 17px;
+    }
+    .gr-text-5 {
+        font-size: 15px;
+    }
+    .gr-text-6 {
+        font-size: 14px;
+        width: 140px;
+        margin-bottom: 17px;
+    }
+    .gr-due-date {
+        width: 140px;
+        font-size: 14px;
+    }
+    .gr-body {
+        padding: 20px 10px;
+    }
+    .gr-content-5-block {
+        width: 49%;
+    }
+    .gr-content-5-block input {
+        width: 100%;
+    }
+    .gr-text-9 {
+        font-size: 16px;
+        line-height: 30px;
+    }
+    .gr-text-8 {
+        font-size: 18px;
+        line-height: 30px;
+    }
+    .gr-content-5 {
+        margin-top: 0;
+    }
+    .gr-content-2 {
+        margin-top: 20px;
+    }
+    .gr-content-3 td {
+        padding: 10px 0;
+    }
+    .gr-add-line td {
+        font-size: 18px;
+    }
+    .gr-grid-tr {
+        display: grid;
+        justify-content: flex-end;
+        width: 330%;
+    }
+
+    /*222222222222222222222222222222*/
+    .bz-template {
+        max-width: 700px;
+    }
+    .bz-content-1-logo {
+        width: 255px;
+        height: 133px;
+    }
+    .bz-text-4 {
+        font-size: 15px;
+    }
+    .bz-text-3 {
+        font-size: 17px;
+    }
+    .bz-text-5 {
+        font-size: 15px;
+    }
+    .bz-text-6 {
+        font-size: 14px;
+        width: 140px;
+        margin-bottom: 17px;
+    }
+    .bz-due-date {
+        width: 140px;
+        font-size: 14px;
+    }
+    .bz-body {
+        padding: 20px 10px;
+    }
+    .bz-content-5-block {
+        width: 49%;
+    }
+    .bz-content-5-block input {
+        width: 100%;
+    }
+    .bz-text-9 {
+        font-size: 16px;
+        line-height: 30px;
+    }
+    .bz-text-8 {
+        font-size: 18px;
+        line-height: 30px;
+    }
+    .bz-content-5 {
+        margin-top: 0;
+    }
+    .bz-content-2 {
+        margin-top: 20px;
+    }
+    .bz-content-3 td {
+        padding: 10px 0;
+    }
+    .bz-add-line td {
+        font-size: 18px;
+    }
+    .bz-grid-tr {
+        display: grid;
+        justify-content: flex-end;
+        width: 330%;
+    }
+    .bz-text-12 {
+        font-size: 16px;
+        height: 32px;
+    }
+    /*33333333333333333333333333*/
+    .wt-template {
+        max-width: 700px;
+    }
+    .wt-content-1-logo {
+        width: 255px;
+        height: 133px;
+    }
+    .wt-text-4 {
+        font-size: 15px;
+    }
+    .wt-text-3 {
+        font-size: 17px;
+    }
+    .wt-text-5 {
+        font-size: 15px;
+    }
+    .wt-text-6 {
+        font-size: 14px;
+        width: 140px;
+        margin-bottom: 17px;
+    }
+    .wt-due-date {
+        width: 140px;
+        font-size: 14px;
+    }
+    .wt-body {
+        padding: 20px 10px;
+    }
+    .wt-content-5-block {
+        width: 49%;
+    }
+    .wt-content-5-block input {
+        width: 100%;
+    }
+    .wt-text-9 {
+        font-size: 16px;
+        line-height: 30px;
+    }
+    .wt-text-8 {
+        font-size: 18px;
+        line-height: 30px;
+    }
+    .wt-content-5 {
+        margin-top: 0;
+    }
+    .wt-content-2 {
+        margin-top: 20px;
+    }
+    .wt-content-3 td {
+        padding: 10px 0;
+    }
+    .wt-add-line td {
+        font-size: 18px;
+    }
+    .wt-grid-tr {
+        display: grid;
+        justify-content: flex-end;
+        width: 330%;
     }
 }
 @media (max-width: 1200px) {
-    .invoice-part-bronze-2-left {
-        width: 300px;
+    /*11111111111111111111*/
+    .gr-template {
+        max-width: 500px;
     }
-    .invoice-part-bronze-2 {
+    .gr-header {
+        padding: 10px;
+    }
+    .gr-text-1 {
+        font-size: 12px;
+    }
+    .gr-text-2 {
+        font-size: 11px;
+    }
+    .gr-content-1-logo {
+        width: 160px;
+        height: 95px;
+    }
+    .gr-text-4 {
+        font-size: 11px;
+    }
+    .gr-text-3 {
+        font-size: 11px;
+    }
+    .gr-text-5 {
+        font-size: 10px;
+    }
+    .gr-due-date {
+        width: 140px;
+        font-size: 10px;
+    }
+    .gr-date-issue {
+        height: 100px;
+        width: 35%;
+    }
+    .gr-text-6 {
+        font-size: 10px;
+        width: 140px;
+        margin-bottom: 11px;
+    }
+    .gr-text-9 {
+        font-size: 12px;
+        line-height: 18px;
+    }
+    .gr-text-7 {
+        font-size: 13px;
+        line-height: 16px;
+    }
+    .gr-text-8 {
+        font-size: 13px;
+        line-height: 16px;
+    }
+    .gr-content-5-block input {
+        width: 81%;
+        margin-top: 5px;
+        height: 35px;
+        font-size: 11px;
+    }
+    .gr-text-10 {
+        font-size: 12px;
+        margin-top: 13px;
+    }
+    .gr-text-11 {
+        font-size: 11px;
+    }
+    .gr-content-3 tr {
+        font-size: 10px;
+    }
+    .gr-content-3 td {
+        font-size: 10px;
+        padding: 0;
+    }
+    .gr-select-1 {
+        font-size: 9px;
+        padding: 3px;
+        margin-top: 5px;
+    }
+    .gr-back {
+        font-size: 15px;
+    }
+    .gr-back img {
+        margin-right: 5px;
+        width: 10px;
+    }
+    .gr-footer {
+        height: 20px;
+    }
+
+    /*222222222222222222222222222222*/
+
+    .bz-template {
+        max-width: 500px;
+    }
+    .bz-header {
+        padding: 10px;
+        margin: 0;
+    }
+    .bz-text-1 {
+        font-size: 12px;
+    }
+    .bz-text-2 {
+        font-size: 11px;
+    }
+    .bz-content-1-logo {
+        width: 160px;
+        height: 95px;
+        margin: 10px;
+    }
+    .bz-text-4 {
+        font-size: 11px;
+    }
+    .bz-text-3 {
+        font-size: 11px;
+    }
+    .bz-text-5 {
+        font-size: 10px;
+        text-align: right;
+    }
+    .bz-due-date {
+        width: 140px;
+        font-size: 10px;
+    }
+    .bz-date-issue {
+        flex-direction: column;
+        height: 100px;
         width: 100%;
-        padding: 20px 21px;
     }
-    .invoice-template-2 .date-issue {
-        height: 55px;
-        padding: 0 0 0 4px;
+    .bz-text-6 {
+        float: right;
+        font-size: 10px;
+        width: 140px;
+        margin-bottom: 11px;
     }
-    .invoice-template-2 .date-issue > div {
-        height: 55px;
-        display: flex;
+    .bz-text-9 {
+        font-size: 12px;
+        line-height: 18px;
+    }
+    .bz-text-7 {
+        font-size: 13px;
+        line-height: 16px;
+    }
+    .bz-text-8 {
+        font-size: 13px;
+        line-height: 16px;
+    }
+    .bz-content-5-block input {
+        width: 81%;
+        margin-top: 5px;
+        height: 35px;
+        font-size: 11px;
+    }
+    .bz-text-10 {
+        font-size: 12px;
+        margin-top: 13px;
+    }
+    .bz-text-11 {
+        font-size: 11px;
+    }
+    .bz-content-3 tr {
+        font-size: 10px;
+    }
+    .bz-content-3 td {
+        font-size: 10px;
+        padding: 0;
+    }
+    .bz-select-1 {
+        font-size: 9px;
+        padding: 3px;
+        margin-top: 5px;
+    }
+    .bz-back {
+        font-size: 15px;
+    }
+    .bz-back img {
+        margin-right: 5px;
+        width: 10px;
+    }
+    .bz-footer {
+        height: 20px;
+    }
+    .bz-content-block-2 {
         flex-direction: column;
     }
-    .invoice-template-2 .date-issue-text-1 {
-        color: #9F6E17;
+    .bz-text-12 {
+        font-size: 12px;
+        height: 22px;
     }
-    .date-issue-text-2 {
-        font-size: 16px;
+
+    /*333333333333333333333333*/
+    .wt-template {
+        max-width: 500px;
     }
-    .open-close-user {
-        width: 180px;
-        padding: 10px 8px 9px 16px;
+    .wt-header {
+        padding: 10px;
     }
-    .invoice-part-10-text2 {
-        font-size: 17px;
+    .wt-text-1 {
+        font-size: 12px;
     }
-    .invoice-part-10 input {
-        width: 100%;
-        height: 46px;
+    .wt-text-2 {
+        font-size: 11px;
     }
-    .invoice-part-10-text {
-        font-size: 17px;
+    .wt-content-1-logo {
+        width: 160px;
+        height: 95px;
     }
-    .equal-part {
-        width: 45%;
+    .wt-text-4 {
+        font-size: 11px;
     }
-    .invoice-part-6,
-    .invoice-part-3,
-    .invoice-part-4,
-    .invoice-part-14 {
-        padding: 0 5px;
+    .wt-text-3 {
+        font-size: 11px;
     }
-    .invoice-part-3-desc {
-        width: 50%;
+    .wt-text-5 {
+        font-size: 10px;
     }
-    .invoice-part-14-text {
-        font-size: 14px;
+    .wt-due-date {
+        width: 140px;
+        font-size: 10px;
     }
-    .invoice-part-3-price {
-        width: 50%;
-        justify-content: space-between;
+    .wt-date-issue {
+        height: 100px;
+        width: 35%;
     }
-    .invoice-part-6 {
-        font-size: 16px;
-        display: flex;
-        justify-content: center;
-        width: 100px;
+    .wt-text-6 {
+        font-size: 10px;
+        width: 140px;
+        margin-bottom: 11px;
     }
-    .invoice-part-4 {
-        margin-top: 0;
+    .wt-text-9 {
+        font-size: 12px;
+        line-height: 18px;
     }
-    .invoice-part-7 {
-        font-size: 14px;
-        display: flex;
-        justify-content: center;
+    .wt-text-7 {
+        font-size: 13px;
+        line-height: 16px;
     }
-    .invoice-template-block {
-        width: 50%;
+    .wt-text-8 {
+        font-size: 13px;
+        line-height: 16px;
     }
-    .date-issue-text-5 {
-        font-size: 16px;
-        line-height: 32px;
+    .wt-content-5-block input {
+        width: 81%;
+        margin-top: 5px;
+        height: 35px;
+        font-size: 11px;
     }
-    .date-issue-text-3 {
-        font-size: 18px;
-        line-height: 32px;
+    .wt-text-10 {
+        font-size: 12px;
+        margin-top: 13px;
     }
-    .date-issue-text-4 {
-        font-size: 17px;
-        line-height: 32px;
+    .wt-text-11 {
+        font-size: 11px;
     }
-    .invoice-template,
-    .invoice-template-2 {
-        max-width: 65%;
+    .wt-content-3 tr {
+        font-size: 10px;
     }
-    .invoice-title-24 {
-        font-size: 20px;
+    .wt-content-3 td {
+        font-size: 10px;
+        padding: 0;
     }
-    .invoice-title-20 {
-        font-size: 14px;
-        margin-top: 6px;
+    .wt-select-1 {
+        font-size: 9px;
+        padding: 3px;
+        margin-top: 5px;
     }
-    .invoice-title {
-        height: 140px;
-        padding: 10px 20px;
+    .wt-back {
+        font-size: 15px;
     }
-    .invoice-title-27 {
-        font-size: 22px;
+    .wt-back img {
+        margin-right: 5px;
+        width: 10px;
     }
-    .invoice-title-24 {
-        font-size: 18px;
+    .wt-footer {
+        height: 20px;
     }
-    .company-logo-file {
-        width: 330px;
-        height: 145px;
-    }
-    .company-logo {
-        font-size: 20px;
-    }
-    .select-a-file {
-        font-size: 20px;
-    }
-    .date-issue-text-1 {
-        font-size: 18px;
-    }
-    .date-issue-text-2 {
-        font-size: 20px;
-    }
+
 }
 @media (max-width: 992px) {
-    .invoice-template,
-    .invoice-template-2 {
-        max-width: 85%;
-        margin-right: 20px;
+    .gr-back {
+        margin-left: 90px;
     }
     .send-invoice-content {
         margin-right: 125px;
     }
 }
 @media (max-width: 767px) {
-    .invoice-template-2 .invoice-title-27,
-    .invoice-title-20,
-    .input-number-bronze {
-        margin-left: 5px;
+    .gr-back {
+        margin-left: 8px;
+        justify-content: center;
     }
-    .invoice-part-bronze-2-left {
-        width: 57%;
+    /*1111111111111111111111111*/
+    .gr-template {
+        margin-right: 10px;
     }
-    .input-number-bronze {
-        text-align: left;
+
+    /*2222222222222222222222222222*/
+    .bz-template {
+        margin-right: 10px;
     }
-    .invoice-title-27, .invoice-title-20, .invoice-title-24 {
-        text-align: left;
-    }
-    .invoice-part-bronze-2 {
-        flex-direction: column;
-    }
-    .invoice-part-3-price-2 .invoice-part-7 {
-        background: transparent;
-        color: #58595B;
-    }
-    .invoice-part-3-price-2 {
-        background: transparent;
-    }
-    .invoice-template-2 .date-issue-text-10 {
-        color: #58595B;
-        border: 0;
-        font-size: 17px;
-        height: 33px;
-        width: 100%;
-    }
-    .invoice-template-2 .invoice-part-10:last-child {
-        align-items: flex-start;
-    }
-    .border-bronze {
-        border-left: 0;
-        padding-left: 0;
+
+    /*333333333333333333333333333*/
+    .wt-template {
+        margin-right: 10px;
     }
     .send-invoice {
         justify-content: center;
@@ -866,129 +1572,13 @@ a.invoice-back:hover {
         margin-right: 0;
         width: 93%;
     }
-    .open-close-user {
-        right: -20px;
-    }
-    .invoice-part-10 {
-        flex-direction: column;
-    }
-    .equal-part {
-        width: 98%;
-    }
-    .invoice-part-3-desc {
-        width: 100%;
-    }
-    .invoice-part-10 input {
-        font-size: 14px;
-    }
-    .invoice-part-10-text {
-        margin-top: 10px;
-        margin-bottom: 8px;
-        font-size: 14px;
-    }
-    .invoice-part-14 {
-        flex-direction: column-reverse;
-        align-items: flex-end;
-    }
-    .invoice-part-14 select {
-        font-size: 14px;
-        margin-top: 10px;
-    }
-    .invoice-template,
-    .invoice-template-2 {
-        max-width: 92%;
-    }
-    .company-logo-file {
-        width: 57%;
-        height: 132px;
-        margin-bottom: 21px;
-    }
-    .date-issue-text-2 {
-        font-size: 18px;
-    }
-    .date-issue-text-1 {
-        font-size: 16px;
-    }
-    .company-logo {
-        font-size: 17px;
-    }
-    .select-a-file {
-        font-size: 17px;
-    }
-    .invoice-back {
-        left: -3px;
-        top: -35px;
-    }
-    .invoice-back img {
-        width: 8px;
-    }
-    .invoice-back span {
-        font-size: 14px;
-    }
-    .invoice-part-10 {
-        margin-top: 15px;
-    }
 }
-@media (max-width: 580px) {
-    .invoice-template-3 .invoice-title-24 {
-        color: #58595B;
-        text-align: center;
-        width: 100%;
-    }
-    .invoice-template-3 .invoice-number-4 {
-        width: 100%;
-    }
-    .invoice-template-3 .invoice-title-28 {
-        text-align: center;
-    }
-    .invoice-template-3 .company-logo-file {
-        width: 56%;
-    }
-    .invoice-template-3 .invoice-template-content {
-        margin: 34px auto 0;
-    }
-    .invoice-template-3 .invoice-title-27 {
-        font-size: 15px;
-    }
-    .invoice-part-bronze-2 {
-        width: 100%;
-        padding: 0 21px;
-    }
-    .invoice-template-2 .date-issue-text-3 {
-        color: white !important;
-        font-size: 16px;
-        line-height: 26px;
-    }
-    .invoice-template-2 .date-issue-text-4 {
-        color: white;
-        font-size: 15px;
-        line-height: 26px;
-    }
-    .invoice-template-2 .invoice-title-27,
-    .invoice-title-20,
-    .input-number-bronze {
-        margin-left: 0;
-    }
-    .invoice-title-27, .invoice-title-20, .invoice-title-24 {
-        text-align: center;
-    }
-    .input-number-bronze {
-        text-align: center;
-    }
-    .invoice-part-bronze-2-right {
-        width: 100%;
-    }
-    .invoice-part-bronze-2-left {
-        width: 100%;
-    }
+@media (max-width: 600px) {
     .send-invoice-send-btn,
     .send-invoice-cancel-btn {
         width: 47%;
         font-size: 13px;
         height: 34px;
-    }
-    .invoice-template-2 .invoice-title-27 {
-        font-size: 30px;
     }
     .send-invoice-title p {
         font-size: 16px;
@@ -1002,106 +1592,161 @@ a.invoice-back:hover {
     .send-invoice-info {
         padding: 20px 10px;
     }
-    .invoice-part-10-text2 {
-        font-size: 13px;
+    /*1111111111111111111111111*/
+    .gr-template {
+        max-width: 300px;
+        margin-right: 2px;
     }
-    .invoice-part-14 .invoice-part-3-desc {
+    .gr-header {
         flex-direction: column;
     }
-    .invoice-part-14 select {
+    .gr-input-1 {
+        text-align: right;
+    }
+    .gr-content-1 {
+        flex-direction: column;
+    }
+    .gr-content-2 {
+        flex-direction: column;
+    }
+    .gr-content-block-1 {
+        margin-bottom: 15px;
+    }
+    .gr-content-5 {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .gr-content-3 td {
+        font-size: 6px;
+    }
+    .gr-select-1 {
+        font-size: 7px;
+        padding: 1px;
+    }
+    .gr-grid-tr {
+        width: 300%;
+    }
+    .gr-content-block-2 {
         width: 100%;
     }
-    .invoice-part-14 {
-        height: auto;
+
+    /*2222222222222222222222222222*/
+
+    .bz-template {
+        max-width: 300px;
+        margin-right: 2px;
     }
-    .invoice-part-6 {
-        font-size: 13px;
-    }
-    .invoice-part-2 {
+    .bz-header {
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
     }
-    .invoice-template-content {
+    .bz-input-1 {
+        text-align: right;
+    }
+    .bz-content-1 {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
     }
-    .invoice-template-block {
-        text-align: center;
+    .bz-content-2 {
+        flex-direction: column;
+    }
+    .bz-content-block-1 {
+        margin-bottom: 15px;
+    }
+    .bz-content-5 {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .bz-content-3 td {
+        font-size: 6px;
+    }
+    .bz-select-1 {
+        font-size: 7px;
+        padding: 1px;
+    }
+    .bz-grid-tr {
+        width: 300%;
+    }
+    .bz-content-block-2 {
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
-    .invoice-part-2 {
-        margin-top: 20px;
+    .bz-back {
+        top: -29px;
+        left: 1px;
     }
-    .invoice-title-24 span {
+    .bz-header-left {
+        width: 100%;
+    }
+    .bz-content-5-block input {
+        height: 25px;
+        font-size: 10px;
+    }
+    .bz-text-10 {
+        font-size: 10px;
+        margin-top: 13px;
+    }
+    .bz-footer {
         display: none;
     }
-    .invoice-title {
-        height: auto;
+
+    /*33333333333333333333333*/
+
+    .wt-template {
+        max-width: 300px;
+        margin-right: 2px;
     }
-    .invoice-back {
-        left: 4px;
+    .wt-input-1 {
+        text-align: left;
     }
-    .invoice-part-1 {
+    .wt-content-1 {
         flex-direction: column;
     }
-    .company-logo-file {
-        width: 100%;
-    }
-    .date-issue {
-        width: 100%;
-        margin-top: 20px;
-        display: flex;
+    .wt-content-2 {
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
     }
-    .date-issue p {
-        width: 150px;
+    .wt-content-block-1 {
+        margin-bottom: 15px;
     }
-    .invoice-title-name {
-        padding-left: 8px;
-        font-size: 13px;
+    .wt-content-5 {
+        flex-direction: column;
+        align-items: flex-start;
     }
-    .invoice-template-info {
-        max-width: 100%;
-        padding: 30px 6px;
+    .wt-content-3 td {
+        font-size: 6px;
     }
-    .invoice-template,
-    .invoice-template-2 {
-        margin-right: 0;
-        margin: 46px auto;
+    .wt-select-1 {
+        font-size: 7px;
+        padding: 1px;
     }
-    .exp-clients-btn,
-    .new-clients-btn {
-        width: 200px;
+    .wt-grid-tr {
+        width: 300%;
     }
-    .date-issue-text-4 {
-        font-size: 15px;
-        line-height: 28px;
+    .wt-content-block-2 {
+        width: 100%;
     }
-    .date-issue-text-3,
-    .date-issue-text-4 {
-        text-align: center;
+    .wt-back {
+        top: -29px;
+        left: 1px;
+    }
+    .wt-content-5-block input {
+        height: 27px;
+        font-size: 9px;
+    }
+    .wt-text-10 {
+        font-size: 10px;
+    }
+    .wt-header {
+        border: 0;
+    }
+    .wt-body {
+        margin-top: 0;
+    }
+    .wt-header-right {
+        text-align: left;
+    }
+    .wt-input-2::placeholder {
+        text-align: left;
+    }
+    .wt-text-9, .wt-text-8, .wt-text-7 {
         padding-left: 0;
-        width: 100%;
-    }
-    .open-close-user img {
-        width: 16px;
-    }
-    .open-close-user span {
-        font-size: 15px;
-        margin-left: 12px;
-    }
-    .open-close-user {
-        right: 0;
-        top: 290px;
-        width: 118px;
-        padding: 8px 8px 18px 8px;
     }
 }
 

@@ -268,3 +268,14 @@ $('.password-icon').on('click', function () {
     $(this).find('i').toggleClass('fa-eye').toggleClass('fa-eye-slash');
     $(this).prev('input').attr('type', (index, attr) => attr === 'password' ? 'text' : 'password');
 });
+
+//Invoice Add tr
+$('.gr-add-table-tr').click(function(e) {
+    $(".gr-content-3 tbody").prepend( "    <tr>\n" +
+        "                                <td></td>\n" +
+        "                                <td></td>\n" +
+        "                                <td><input placeholder=\"€0.00\"></td>\n" +
+        "                                <td><input placeholder=\"1\"></td>\n" +
+        "                                <td><input placeholder=\"€0.00\"></td>\n" +
+        "                            </tr>" );
+});
