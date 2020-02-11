@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\Models\InvoiceTemplate;
+use Illuminate\Database\Seeder;
 
-class InvoiceTemplateTableSeeder extends Seeder
+class InvoiceTemplatesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

@@ -27,9 +27,25 @@
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
                     <h4>{{ __('messages.sign_up') }}</h4>
+                    <input class="login-right-side-email form-control @error('first_name') is-invalid @enderror"
+                           placeholder="First Name" name="first_name" value="{{ old('first_name') }}"
+                           required autocomplete="first_name" autofocus>
+                    @error('first_name')
+                        <span class="invalid-feedback error-message" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    <input class="login-right-side-email form-control @error('last_name') is-invalid @enderror"
+                           placeholder="Last Name" name="last_name" value="{{ old('last_name') }}"
+                           required autocomplete="last_name">
+                    @error('last_name')
+                        <span class="invalid-feedback error-message" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     <input class="login-right-side-email form-control @error('email') is-invalid @enderror"
                            placeholder="{{ __('messages.email_address') }}" name="email" value="{{ old('email') }}"
-                           required autocomplete="email" autofocus>
+                           required autocomplete="email">
                     @error('email')
                         <span class="invalid-feedback error-message" role="alert">
                             <strong>{{ $message }}</strong>
