@@ -19,11 +19,10 @@
 .standart-rate {
     display: none;
 }
-
 .base-select-block img {
     pointer-events: none;
     position: absolute;
-    left: 236px;
+    left: 261px;
     top: 21px;
 }
 .base-select-block select {

@@ -132,7 +132,7 @@
                     <input class="bz-text-12" placeholder="Role in the company">
                 </div>
                 <div>
-                    <input class="bz-text-12 clickable-input" placeholder="Email" id="dropdownMenuButton-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <input class="bz-text-12 clickable-input" placeholder="Email" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <input class="bz-text-12" placeholder="Address">
                 </div>
                 <div>

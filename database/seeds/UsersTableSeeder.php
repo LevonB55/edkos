@@ -16,21 +16,21 @@ class UsersTableSeeder extends Seeder
            'first_name' => 'Jack',
            'last_name' => 'Owen',
            'email' => 'jack@example.com',
-           'password' => bcrypt('12345678'),
+           'password' => bcrypt('12345678')
         ]);
 
         User::insert([
             'first_name' => 'Michael',
             'last_name' => 'Smith',
             'email' => 'michael@example.com',
-            'password' => bcrypt('12345678'),
+            'password' => bcrypt('12345678')
         ]);
 
         User::insert([
             'first_name' => 'Steve',
             'last_name' => 'Doe',
             'email' => 'steve@example.com',
-            'password' => bcrypt('12345678'),
+            'password' => bcrypt('12345678')
         ]);
     }
 }

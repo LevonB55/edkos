@@ -12,15 +12,6 @@ use Illuminate\Support\Facades\Validator;
 
 class DashboardController extends FrontendController
 {
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function companyProfile()
-    {
-        $user = Auth::user();
-        return view('frontend.dashboard.company-profile', compact('user'));
-    }
-
     public function showServices()
     {
         return view('frontend.dashboard.services');

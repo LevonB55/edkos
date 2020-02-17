@@ -20,9 +20,9 @@ Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::get('/invoices/templates', 'InvoiceController@showTemplates')->name('invoices.templates');
     Route::resource('invoices', 'InvoiceController')->except('destroy');
 
-    Route::get('company-profile', 'DashboardController@companyProfile')->name('company-profile');
+    Route::get('company-profile', 'UserController@showCompanyProfile')->name('company-profile');
+    Route::put('company-profile', 'UserController@updateCompanyProfile')->name('company-profile.update');
     Route::get('services', 'DashboardController@showServices')->name('services');
-    Route::post('company-profile', 'UserController@companyProfileUpdate')->name('company-profile.update');
     Route::get('online-payment', 'DashboardController@onlinePayment')->name('online-payment');
     Route::get('banks', 'DashboardController@banks')->name('banks');
     Route::get('billing-upgrade', 'DashboardController@billingUpgrade')->name('billing-upgrade');

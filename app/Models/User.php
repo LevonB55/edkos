@@ -10,6 +10,8 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    const DATE_FORMAT = 'mm/dd/yyyy';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -38,6 +40,15 @@ class User extends Authenticatable
     ];
 
     /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'date_format' => self::DATE_FORMAT
+    ];
+
+    /**
      * Get the user's full name.
      *
      * @return string
@@ -50,5 +61,14 @@ class User extends Authenticatable
     public function image()
     {
         return $this->morphOne('App\Models\Image', 'imageable');
+    }
+
+    public function getDateFormats()
+    {
+        return [
+          self::DATE_FORMAT => 'mm/dd/yyyy',
+          '2' => 'dd/mm/yyyy',
+          '3' => 'yyyy-mm-dd'
+        ];
     }
 }

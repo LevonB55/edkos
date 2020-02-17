@@ -20,26 +20,19 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('company')->nullable();
-            $table->string('country')->nullable();
-            $table->string('state')->nullable();
-            $table->string('city')->nullable();
-            $table->string('street')->nullable();
-            $table->string('postal_code')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('business_type')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-
             $table->string('business_phone')->nullable();
             $table->string('mobile_phone')->nullable();
-            $table->string('format_date')->nullable();
-            $table->string('currency')->nullable();
-            $table->string('standart_rate')->nullable();
-            $table->string('vat_number')->nullable();
-            $table->string('address')->nullable();
+            $table->enum('date_format', ['mm/dd/yyyy', 'dd/mm/yyyy', 'yyyy-mm-dd']);
+            $table->float('standard_rate',8,2)->default(0);
+            $table->string('vat')->nullable();
+            $table->string('street')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+            $table->smallInteger('country_id')->nullable();
+            $table->string('zip')->nullable();
             $table->string('bank_account')->nullable();
-
-
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

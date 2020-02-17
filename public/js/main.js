@@ -37,6 +37,7 @@ $(document).ready(function() {
         $('#first-last-name').css("display", "none");
     });
     $('.clickable-input').click(function(e) {
+        e.stopPropagation();
         $(this).parent().find('.open-close-user').removeClass("open-clickable");
     });
     $('.new-expense-first-line').click(function(e) {

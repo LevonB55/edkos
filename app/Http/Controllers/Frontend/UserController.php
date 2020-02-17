@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Country;
 use App\Http\Requests\UpdateUserProfile;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 use Session;
-use Illuminate\Support\Facades\Validator;
 use File;
 use Illuminate\Support\Facades\Storage;
 use Image;
@@ -67,10 +66,20 @@ class UserController  extends FrontendController
         return abort(404);
     }
 
-
-    
-    public function companyProfileUpdate(Request $request)
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showCompanyProfile()
     {
+        $countries = Country::select('id', 'name')->get();
+        $user = Auth::user();
+
+        return view('frontend.dashboard.users.company-profile', compact('user', 'countries'));
+    }
+
+    public function updateCompanyProfile(Request $request)
+    {
+        return $request->all();
         $user = Auth::user();
         $validatedData = $request->validate([
             'company'        => 'required',
@@ -99,14 +108,11 @@ class UserController  extends FrontendController
         $user->country        = $request->country;
         $user->city           = $request->city;
         $user->postal_code    = $request->postal_code;
-        $user->bank_account   = $request->bank_account;        
+        $user->bank_account   = $request->bank_account;
         $user->save();
 
         Session::flash('success', '<strong>Success!</strong> Company has been successfully updated.');
 
         return view('frontend.dashboard.company-profile', compact('user'));
     }
-
-
-
 }

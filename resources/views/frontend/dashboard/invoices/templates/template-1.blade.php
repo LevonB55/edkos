@@ -44,7 +44,7 @@
             <div class="gr-content-block-2 email-clickable">
                 <p class="gr-text-7">For</p>
                 <input class="gr-text-8" placeholder="Contact name">
-                <input class="gr-text-9 clickable-input" placeholder="Email" id="dropdownMenuButton-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <input class="gr-text-9 clickable-input" placeholder="Email" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <input class="gr-text-9" placeholder="Address">
                 <input class="gr-text-9" placeholder="State, Country">
                 <input class="gr-text-9" placeholder="Phone: 047 4584 444">
