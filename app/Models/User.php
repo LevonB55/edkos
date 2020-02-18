@@ -18,7 +18,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password'
+        'first_name', 'last_name', 'email', 'password', 'company', 'business_phone', 'mobile_phone', 'date_format',
+        'standard_rate', 'vat', 'street', 'city', 'state', 'country_id', 'zip', 'bank_account'
     ];
 
     /**
@@ -66,7 +67,7 @@ class User extends Authenticatable
     public function getDateFormats()
     {
         return [
-          self::DATE_FORMAT => 'mm/dd/yyyy',
+          '1' => self::DATE_FORMAT,
           '2' => 'dd/mm/yyyy',
           '3' => 'yyyy-mm-dd'
         ];

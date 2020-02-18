@@ -23,8 +23,8 @@ class CreateUsersTable extends Migration
             $table->string('business_phone')->nullable();
             $table->string('mobile_phone')->nullable();
             $table->enum('date_format', ['mm/dd/yyyy', 'dd/mm/yyyy', 'yyyy-mm-dd']);
-            $table->float('standard_rate',8,2)->default(0);
-            $table->string('vat')->nullable();
+            $table->float('standard_rate',8,2)->nullable();
+            $table->float('vat',8,2)->nullable();
             $table->string('street')->nullable();
             $table->string('city')->nullable();
             $table->string('state')->nullable();

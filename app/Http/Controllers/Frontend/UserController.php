@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Http\Requests\UpdateCompanyProfile;
 use App\Models\Country;
 use App\Http\Requests\UpdateUserProfile;
-use Illuminate\Http\Request;
-use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 use Session;
@@ -77,42 +76,11 @@ class UserController  extends FrontendController
         return view('frontend.dashboard.users.company-profile', compact('user', 'countries'));
     }
 
-    public function updateCompanyProfile(Request $request)
+    public function updateCompanyProfile(UpdateCompanyProfile $request)
     {
-        return $request->all();
-        $user = Auth::user();
-        $validatedData = $request->validate([
-            'company'        => 'required',
-            'business_phone' => 'required',
-            'mobile_phone'   => 'required',
-            'format_date'    => 'required',
-            'currency'       => 'required',
-            'standart_rate'  => 'required',
-            'vat_number'     => 'required',
-            'address'        => 'required',
-            'country'        => 'required',
-            'city'           => 'required',
-            'postal_code'    => 'required',
-            'bank_account'   => 'required'
-        ]);
+        $validatedData = $request->validated();
+        Auth::user()->update($validatedData);
 
-        $user                 = User::find($user->id);
-        $user->company        = $request->company;
-        $user->business_phone = $request->business_phone;
-        $user->mobile_phone   = $request->mobile_phone;
-        $user->format_date    = $request->format_date;
-        $user->currency       = $request->currency;
-        $user->standart_rate  = $request->standart_rate;
-        $user->vat_number     = $request->vat_number;
-        $user->address        = $request->address;
-        $user->country        = $request->country;
-        $user->city           = $request->city;
-        $user->postal_code    = $request->postal_code;
-        $user->bank_account   = $request->bank_account;
-        $user->save();
-
-        Session::flash('success', '<strong>Success!</strong> Company has been successfully updated.');
-
-        return view('frontend.dashboard.company-profile', compact('user'));
+        return back()->with("success", "<strong>Success!</strong> Company profile has been successfully updated!");
     }
 }
