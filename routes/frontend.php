@@ -83,3 +83,9 @@ Route::get('/cache-clear', function () {
 
     die('Cache');
 });
+
+Route::get('/view-clear', function () {
+    $exitCode = \Illuminate\Support\Facades\Artisan::call('view:clear');
+
+    die('View');
+});
