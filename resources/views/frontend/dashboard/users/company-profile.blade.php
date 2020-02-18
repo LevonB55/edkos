@@ -88,7 +88,7 @@
                     </div>
                     <div class="dashboard-form-block">
                         <label>VAT Number</label>
-                        <input type="text" name="vat" placeholder="VAT Number" value="{{ $user->vat }}">
+                        <input type="text" name="vat" value="{{ $user->vat }}">
                     </div>
                     <div class="error-message text-danger">
                         {{ $errors->first('vat') }}
@@ -133,14 +133,14 @@
                     </div>
                     <div class="dashboard-form-block">
                         <label>ZIP Code</label>
-                        <input type="text" name="zip" placeholder="ZIP Code" value="{{ $user->zip }}">
+                        <input type="text" name="zip" value="{{ $user->zip }}">
                     </div>
                     <div class="error-message text-danger">
                         {{ $errors->first('zip') }}
                     </div>
                     <div class="dashboard-form-block">
                         <label>Bank Account</label>
-                        <input type="text" name="bank_account" placeholder="Bank Account" value="{{ $user->bank_account }}">
+                        <input type="text" name="bank_account" value="{{ $user->bank_account }}">
                     </div>
                     <div class="error-message text-danger">
                         {{ $errors->first('bank_account') }}
