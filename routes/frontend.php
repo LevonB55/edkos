@@ -75,11 +75,11 @@ Route::view('/dashboard/services-2', 'frontend.dashboard.services-2');
 Route::get('/config-clear', function () {
     $exitCode = \Illuminate\Support\Facades\Artisan::call('config:clear');
 
-    return 'Config';
+    die('Config');
 });
 
 Route::get('/cache-clear', function () {
     $exitCode = \Illuminate\Support\Facades\Artisan::call('cache:clear');
 
-    return 'Cache';
+    die('Cache');
 });
