@@ -74,8 +74,12 @@ Route::view('/dashboard/services-2', 'frontend.dashboard.services-2');
 //Artisan commands
 Route::get('/config-clear', function () {
     $exitCode = \Illuminate\Support\Facades\Artisan::call('config:clear');
+
+    return 'Config';
 });
 
 Route::get('/cache-clear', function () {
     $exitCode = \Illuminate\Support\Facades\Artisan::call('cache:clear');
+
+    return 'Cache';
 });
