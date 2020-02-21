@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Requests\UpdateCompanyProfile;
 use App\Models\Country;
 use App\Http\Requests\UpdateUserProfile;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 use Session;
@@ -82,5 +83,16 @@ class UserController  extends FrontendController
         Auth::user()->update($validatedData);
 
         return back()->with("success", "<strong>Success!</strong> Company profile has been successfully updated!");
+    }
+
+    public function customizeInvoice(Request $request)
+    {
+        $validatedData = $request->validate([
+            'invoice_id' => 'required|integer|min:1',
+            'invoice_color' => 'required',
+        ]);
+        Auth::user()->update($validatedData);
+
+        return back()->with('invoice-customize', 'Your invoice has been customized!');
     }
 }

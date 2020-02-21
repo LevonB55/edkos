@@ -17,7 +17,7 @@
 {{--            <a class="prints-clients-btn"><img src="{{ asset('assets/img/prints.png') }}"></a>--}}
 {{--            <a class="prints-clients-btn"><img src="{{ asset('assets/img/pdf.png') }}"></a>--}}
 {{--            <a class="exp-clients-btn">EXPORT INVOICES</a>--}}
-            <a href="{{ route('invoices.create') }}" class="new-clients-btn" href="ds-invoice-template.html">NEW INVOICE</a>
+            <a href="{{ route('invoices.create') }}" class="new-clients-btn">NEW INVOICE</a>
         </div>
         <div class="dashboard-form-mobile">
             <i class="fas fa-bars"></i>

@@ -35,5 +35,14 @@ class AppServiceProvider extends ServiceProvider
 
             $view->with(compact('user', 'userImage'));
         });
+
+        view()->composer('frontend.dashboard.main', function ($view) {
+            $user = auth()->user();
+
+            $view->with([
+                'invoiceId' => $user->invoice_id,
+                'invoiceColor' => $user->invoice_color
+            ]);
+        });
     }
 }

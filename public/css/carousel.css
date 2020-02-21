@@ -5,18 +5,18 @@ section {
 }
 
 li {
-    width: 700px;
+    width: 699px;
     background: white;
     display: inline-block;
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
     overflow: hidden;
-    margin-left: -104px;
+    /*margin-left: -104px;*/
 }
 
 .items {
-    position: absolute;
+    /*position: absolute;*/
 }
 .invoice-back {
     left: 6%;
@@ -51,6 +51,18 @@ li {
 .owl-prev, .owl-next {
     position: absolute;
 }
+
+.owl-next span,
+.owl-prev span{
+    font-size: 40px;
+}
+
+#owl-container .owl-theme .owl-nav [class*=owl-]:hover {
+    background: white;
+    color: black;
+    text-decoration: none;
+}
+
 .owl-prev {
     top: 44%;
     left: 0;

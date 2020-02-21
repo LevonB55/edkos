@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/ds-clients.css') }}">
     <link rel="stylesheet" href="{{ asset('css/ds-invoices.css') }}">
     <link rel="stylesheet" href="{{ asset('css/ds-invoice-template.css') }}">
+{{--    <link rel="stylesheet" href="{{ asset('css/ds-customize-template.css') }}">--}}
     <link rel="stylesheet" href="{{ asset('css/select2.css') }}">
 @endsection
 
@@ -68,9 +69,7 @@
             <img src="{{ asset('assets/img/invoices/back.png') }}">
             <span>Back</span>
         </a>
-        @include('frontend.dashboard.invoices.templates.template-1')
-        @include('frontend.dashboard.invoices.templates.template-2')
-        @include('frontend.dashboard.invoices.templates.template-3')
+        @include('frontend.dashboard.invoices.templates.template-' . auth()->user()->invoice_id)
     </main>
 @endsection
 

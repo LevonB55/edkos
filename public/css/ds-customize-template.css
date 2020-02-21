@@ -3,7 +3,7 @@
     height: 1087px;
     position: absolute;
     background: #ffffff00;
-    left: 349px;
+    left: 0;
     top: 39px;
     z-index: 9999;
 }
@@ -123,16 +123,17 @@ input:disabled {
     max-width: 1000px;
     margin: 40px auto 100px;
     position: relative;
-    margin-right: 3px;
+    /*margin-right: 3px;*/
     z-index: 111;
     border: 1px solid #58595B;
     height: 1057px;
+    box-sizing: border-box;
 }
 .gr-header {
     padding: 15px;
     display: flex;
     justify-content: space-between;
-    background: #69A11B;
+    background: var(--invoice-color);
 }
 .gr-text-1 {
     font-size: 18px;
@@ -175,7 +176,7 @@ input:disabled {
 }
 .gr-footer {
     height: 29px;
-    background: #8DC63F;
+    background: var(--invoice-color);
 }
 .gr-content-1 {
     display: flex;
@@ -224,7 +225,7 @@ input:disabled {
     height: 150px;
 }
 .gr-text-5 {
-    color: #8DC63F;
+    color: var(--invoice-color);
     font-size: 15px;
     font-family: 'Segoe UI Semibold';
 }
@@ -273,7 +274,7 @@ input:disabled {
     width: 400px;
 }
 .gr-text-7 {
-    color: #8DC63F;
+    color: var(--invoice-color);
     font-size: 17px;
     line-height: 20px;
     text-align: center;
@@ -325,7 +326,7 @@ input:disabled {
 .gr-content-3 thead {
     padding: 0 35px;
     height: 53px;
-    background: #8DC63F;
+    background: var(--invoice-color);
     color: white;
 }
 .gr-content-3 th {
@@ -381,7 +382,7 @@ input:disabled {
     width: 100%;
 }
 .gr-text-10 {
-    color: #8DC63F;
+    color: var(--invoice-color);
     font-size: 16px;
     margin-top: 18px;
     font-family: 'Segoe UI Semibold';
@@ -412,14 +413,14 @@ input:disabled {
     margin-top: 5px;
 }
 .gr-back {
-    position: absolute;
-    top: 0;
-    left: -70px;
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: -70px;*/
     color: #8DC63F;
     font-family: 'Segoe UI Semibold';
     font-size: 18px;
     display: flex;
-    justify-content: center;
+    /*justify-content: center;*/
     align-items: center;
     border-right: 1px solid #707070;
 }
@@ -438,10 +439,11 @@ input:disabled {
     max-width: 1000px;
     margin: 40px auto 100px;
     position: relative;
-    margin-right: 3px;
+    /*margin-right: 3px;*/
     z-index: 111;
     border: 1px solid #58595B;
-    height: 1070px;
+    height: 1057px;
+    box-sizing: border-box;
 }
 .bz-header {
     display: flex;
@@ -450,14 +452,14 @@ input:disabled {
     margin: 20px;
 }
 .bz-header-left {
-    background: #9F6E17;
+    background: var(--invoice-color);
     width: 43%;
     padding: 7px;
 }
 .bz-text-1 {
     font-size: 16px;
     font-family: 'Segoe UI Semibold';
-    color: #9f6e17;
+    color: var(--invoice-color);
 }
 .bz-text-2 {
     font-size: 16px;
@@ -550,7 +552,7 @@ input:disabled {
     flex-direction: column;
 }
 .bz-text-5 {
-    color: #9F6E17;
+    color: var(--invoice-color);
     font-size: 15px;
     font-family: 'Segoe UI Semibold';
 }
@@ -660,7 +662,7 @@ input:disabled {
 .bz-content-3 thead {
     padding: 0 35px;
     height: 53px;
-    color: #9F6E17;
+    color: var(--invoice-color);
 }
 .bz-content-3 th {
     padding: 6px;
@@ -718,7 +720,7 @@ input:disabled {
     width: 100%;
 }
 .bz-text-10 {
-    color: #9F6E17;
+    color: var(--invoice-color);
     font-size: 16px;
     margin-top: 43px;
     font-family: 'Segoe UI Semibold';
@@ -773,10 +775,11 @@ input:disabled {
     max-width: 1000px;
     margin: 40px auto 100px;
     position: relative;
-    margin-right: 3px;
+    box-sizing: border-box;
+    /*margin-right: 3px;*/
     z-index: 111;
     border: 1px solid #58595B;
-    height: 1070px;
+    height: 1057px;
 }
 .wt-header {
     position: relative;
@@ -790,13 +793,13 @@ input:disabled {
 .wt-text-1 {
     font-size: 18px;
     font-family: 'Segoe UI Semibold';
-    color: #2265D6;
+    color: var(--invoice-color);
 }
 .wt-text-2 {
     font-size: 16px;
     margin-top: 5px;
     font-family: 'Segoe UI Semibold';
-    color: #2265D6;
+    color: var(--invoice-color);
 }
 .wt-input-1 {
     width: 100%;
@@ -879,7 +882,7 @@ input:disabled {
     height: 150px;
 }
 .wt-text-5 {
-    color: #2265D6;
+    color: var(--invoice-color);
     text-align: left;
     font-size: 15px;
     font-family: 'Segoe UI Semibold';
@@ -924,7 +927,7 @@ input:disabled {
     width: 50%;
 }
 .wt-text-7 {
-    color: #2265D6;
+    color: var(--invoice-color);
     font-size: 18px;
     text-align: left;
     line-height: 34px;
@@ -984,7 +987,7 @@ input:disabled {
 .wt-content-3 th {
     padding: 6px;
     text-align: center;
-    color: #2265D6;
+    color: var(--invoice-color);
 }
 .wt-content-3 thead tr {
     border-bottom: 1px solid #707070;
@@ -1038,7 +1041,7 @@ input:disabled {
     width: 100%;
 }
 .wt-text-10 {
-    color: #2265D6;
+    color: var(--invoice-color);
     font-size: 16px;
     margin-top: 18px;
     font-family: 'Segoe UI Semibold';

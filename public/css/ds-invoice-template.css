@@ -138,7 +138,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    background: #69A11B;
+    background: var(--invoice-color);
 }
 .gr-text-1 {
     font-size: 22px;
@@ -181,7 +181,7 @@
 }
 .gr-footer {
     height: 40px;
-    background: #8DC63F;
+    background: var(--invoice-color);
 }
 .gr-content-1 {
     display: flex;
@@ -229,7 +229,7 @@
     height: 150px;
 }
 .gr-text-5 {
-    color: #8DC63F;
+    color: var(--invoice-color);
     font-size: 18px;
     font-family: 'Segoe UI Semibold';
 }
@@ -271,7 +271,7 @@
     width: 400px;
 }
 .gr-text-7 {
-    color: #8DC63F;
+    color: var(--invoice-color);
     font-size: 18px;
     line-height: 34px;
     padding-left: 10px;
@@ -322,7 +322,7 @@
 .gr-content-3 thead {
     padding: 0 35px;
     height: 53px;
-    background: #8DC63F;
+    background: var(--invoice-color);
     color: white;
 }
 .gr-content-3 th {
@@ -378,7 +378,7 @@
     width: 100%;
 }
 .gr-text-10 {
-    color: #8DC63F;
+    color: var(--invoice-color);
     font-size: 18px;
     margin-top: 30px;
     font-family: 'Segoe UI Semibold';
@@ -445,14 +445,14 @@
     margin: 20px;
 }
 .bz-header-left {
-    background: #9F6E17;
+    background: var(--invoice-color);
     width: 43%;
     padding: 7px;
 }
 .bz-text-1 {
     font-size: 22px;
     font-family: 'Segoe UI Semibold';
-    color: #9f6e17;
+    color: var(--invoice-color);
 }
 .bz-text-2 {
     font-size: 18px;
@@ -543,7 +543,7 @@
     margin-top: 10px;
 }
 .bz-text-5 {
-    color: #9F6E17;
+    color: var(--invoice-color);
     font-size: 18px;
     text-align: left;
     font-family: 'Segoe UI Semibold';
@@ -652,7 +652,7 @@
 .bz-content-3 thead {
     padding: 0 35px;
     height: 53px;
-    color: #9F6E17;
+    color: var(--invoice-color);
 }
 .bz-content-3 th {
     padding: 6px;
@@ -710,7 +710,7 @@
     width: 100%;
 }
 .bz-text-10 {
-    color: #9F6E17;
+    color: var(--invoice-color);
     font-size: 18px;
     margin-top: 30px;
     font-family: 'Segoe UI Semibold';
@@ -762,13 +762,13 @@
 .wt-text-1 {
     font-size: 22px;
     font-family: 'Segoe UI Semibold';
-    color: #2265D6;
+    color: var(--invoice-color);
 }
 .wt-text-2 {
     font-size: 18px;
     margin-top: 5px;
     font-family: 'Segoe UI Semibold';
-    color: #2265D6;
+    color: var(--invoice-color);
 }
 .wt-input-1 {
     width: 100%;
@@ -851,7 +851,7 @@
     height: 150px;
 }
 .wt-text-5 {
-    color: #2265D6;
+    color: var(--invoice-color);
     font-size: 18px;
     font-family: 'Segoe UI Semibold';
 }
@@ -893,7 +893,7 @@
     width: 400px;
 }
 .wt-text-7 {
-    color: #2265D6;
+    color: var(--invoice-color);
     font-size: 18px;
     line-height: 34px;
     padding-left: 10px;
@@ -951,7 +951,7 @@
 .wt-content-3 th {
     padding: 6px;
     text-align: center;
-    color: #2265D6;
+    color: var(--invoice-color);
 }
 .wt-content-3 thead tr {
     border-bottom: 1px solid #707070;
@@ -1005,7 +1005,7 @@
     width: 100%;
 }
 .wt-text-10 {
-    color: #2265D6;
+    color: var(--invoice-color);
     font-size: 18px;
     margin-top: 30px;
     font-family: 'Segoe UI Semibold';

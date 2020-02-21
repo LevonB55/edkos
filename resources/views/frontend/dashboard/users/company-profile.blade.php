@@ -16,11 +16,7 @@
             </div>
         </div>
 
-        @if(Session::has('success'))
-            <div class="alert alert-success d-block successful-update">
-                {!! Session::get('success') !!}
-            </div>
-        @endif
+        @include('frontend.partials._messages')
 
         <div class="dashboard-company-content">
             <form action="{{ route('company-profile.update') }}" method="POST" class="dashboard-form dashboard-form-error">

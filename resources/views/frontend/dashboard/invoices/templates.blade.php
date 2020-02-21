@@ -20,12 +20,15 @@
         <div class="dashboard-header">
             <h1 class="dashboard-clients-title">Customize Template</h1>
             <div class="clients-btns">
-                <a class="new-clients-btn" href="ds-invoice-template.html">NEW INVOICE</a>
+                <a href="{{ route('invoices.create') }}" class="new-clients-btn">NEW INVOICE</a>
             </div>
             <div class="dashboard-form-mobile">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
+
+        @include('frontend.partials._messages')
+
         <section class="custom-template">
             <div class="invoice-back border-right-0">
                 <a href="{{ route('invoices.create') }}"  href="ds-invoices.html">
@@ -37,14 +40,14 @@
 
             <div class="carusel-and-div">
                 <div id="owl-container">
-                    <div id="owl-demo" class="owl-carousel owl-theme">
+                    <div id="owl-demo" class="owl-carousel owl-theme" data-invoice-color="{{ $user->invoice_color }}">
                         @foreach($templates as $template)
                             <div class="item-owl-carousel">
-                            <li class="items main-pos" id="{{ $template->id }}">
-                                @include('frontend.dashboard.invoices.templates.template-' . $template->id)
-                            </li>
-                            <div class="cover-item"></div>
-                        </div>
+                                <li class="items main-pos" id="{{ $template->id }}" data-invoice-id="{{ $template->id }}">
+                                    @include('frontend.dashboard.invoices.templates.template-' . $template->id)
+                                </li>
+                                <div class="cover-item"></div>
+                            </div>
                         @endforeach
                     </div>
                 </div>
@@ -68,7 +71,13 @@
                             <div class="abs-color"></div>
                         </div>
                     </div>
-                    <a class="btn-save">Save</a>
+                    <form action="{{ route('customize-invoice') }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <input type="hidden" name="invoice_id" value="{{ $user->invoice_id }}" class="invoice-id">
+                        <input type="hidden" name="invoice_color" value="{{ $user->invoice_color }}" class="invoice-color">
+                        <button type="submit" class="btn-save">save</button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -76,11 +85,49 @@
 @endsection
 
 @section('extra-scripts')
-    <script src="{{ asset('js/carousel.js') }}"></script>
+{{--    <script src="{{ asset('js/carousel.js') }}"></script>--}}
     <script src="{{ asset('js/colorpicker.js') }}"></script>
     <script>
         $('#colorpickerHolder').ColorPicker({flat: true});
     </script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('js/owl.carousel.js') }}"></script>
+{{--    <script src="{{ asset('js/owl.carousel.js') }}"></script>--}}
+<script>
+    $(document).ready(function () {
+        $('#owl-demo').owlCarousel({
+            items: 3,
+            loop: true,
+            // margin: 10,
+            dots: false,
+            center: true,
+            startPosition: "{{ auth()->user()->invoice_id - 1 }}",
+            nav: true,
+            // navText: [
+            //     '<img src="./assets/images/left-arrow.png">',
+            //     '<img src="./assets/images/right-arrow.png">'
+            // ],
+            // navContainer: '.main-content .custom-nav',
+            mouseDrag: true,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                600: {
+                    items: 1,
+                },
+                1000: {
+                    items: 1,
+                }
+            },
+            onTranslated: function(event) {
+                $('.invoice-id').val($('.owl-item.active .items').data('invoice-id'));
+            }
+        });
+
+        // $('#owl-demo').on('translated.owl.carousel', function(event) {
+        //     console.log($('.owl-item.active .items').data('invoice-id'));
+        // });
+    });
+</script>
 @endsection

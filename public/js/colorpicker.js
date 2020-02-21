@@ -10,6 +10,7 @@
 (function ($) {
     var ColorPicker = function () {
         var
+            invoiceColor = $('#owl-demo').data('invoice-color'),
             ids = {},
             inAction,
             charMin = 65,
@@ -21,34 +22,36 @@
                 onBeforeShow: function(){},
                 onHide: function () {},
                 onChange: function (hsb, hex, rgb) {
-                    $('#colorSelectordiv').css('backgroundColor', '#' + hex);
+                    let color = '#' + hex;
+                    $('#colorSelectordiv').css('backgroundColor', color);
                     // localStorage.setItem('colorCurrent', hex);
                     //green template
-                    $('.main-pos .gr-template .gr-header').css('background', '#' + hex);
-                    $('.main-pos .gr-template .gr-content-3 thead').css('background', '#' + hex);
-                    $('.main-pos .gr-template .gr-footer').css('background', '#' + hex);
-                    $('.main-pos .gr-template .gr-text-5').css('color', '#' + hex);
-                    $('.main-pos .gr-template .gr-text-7').css('color', '#' + hex);
-                    $('.main-pos .gr-template .gr-text-10').css('color', '#' + hex);
+                    $('.main-pos .gr-template .gr-header').css('background', color);
+                    $('.main-pos .gr-template .gr-content-3 thead').css('background', color);
+                    $('.main-pos .gr-template .gr-footer').css('background', color);
+                    $('.main-pos .gr-template .gr-text-5').css('color', color);
+                    $('.main-pos .gr-template .gr-text-7').css('color', color);
+                    $('.main-pos .gr-template .gr-text-10').css('color', color);
 
                     //bronze template
-                    $('.main-pos .bz-header-left').css('background', '#' + hex);
-                    $('.main-pos .bz-content-3 thead').css('color', '#' + hex);
-                    $('.main-pos .bz-text-10').css('color', '#' + hex);
-                    $('.main-pos .bz-text-1').css('color', '#' + hex);
-                    $('.main-pos .bz-text-5').css('color', '#' + hex);
+                    $('.main-pos .bz-header-left').css('background', color);
+                    $('.main-pos .bz-content-3 thead').css('color', color);
+                    $('.main-pos .bz-text-10').css('color', color);
+                    $('.main-pos .bz-text-1').css('color', color);
+                    $('.main-pos .bz-text-5').css('color', color);
 
                     //white template
-                    $('.main-pos .wt-text-5').css('color', '#' + hex);
-                    $('.main-pos .wt-text-1').css('color', '#' + hex);
-                    $('.main-pos .wt-text-2').css('color', '#' + hex);
-                    $('.main-pos .wt-text-7').css('color', '#' + hex);
-                    $('.main-pos .wt-content-3 th').css('color', '#' + hex);
-                    $('.main-pos .wt-text-10').css('color', '#' + hex);
+                    $('.main-pos .wt-text-5').css('color', color);
+                    $('.main-pos .wt-text-1').css('color', color);
+                    $('.main-pos .wt-text-2').css('color', color);
+                    $('.main-pos .wt-text-7').css('color', color);
+                    $('.main-pos .wt-content-3 th').css('color', color);
+                    $('.main-pos .wt-text-10').css('color', color);
 
+                    $('.invoice-color').val(color);
                 },
                 onSubmit: function () {},
-                color: 'ff0000',
+                color: invoiceColor ? invoiceColor : '#8DC63F',
                 livePreview: true,
                 flat: false
             },

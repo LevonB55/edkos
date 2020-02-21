@@ -13,3 +13,8 @@
 {{--<link rel="stylesheet" href="{{ asset('css/main.css') }}">--}}
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 @yield('extra-styles')
+<style>
+    :root {
+        --invoice-color: {{ $invoiceColor ?? '#8DC63F' }};
+    }
+</style>

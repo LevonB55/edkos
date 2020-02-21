@@ -33,8 +33,10 @@ class InvoiceController extends Controller
      */
     public function showTemplates()
     {
+        $user = auth()->user();
         $templates = InvoiceTemplate::all();
-        return view('frontend.dashboard.invoices.templates', compact('templates'));
+
+        return view('frontend.dashboard.invoices.templates', compact('user','templates'));
     }
 
     /**

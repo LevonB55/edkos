@@ -19,9 +19,10 @@ Route::get('/help', 'PageController@help')->name('help');
 Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::get('/invoices/templates', 'InvoiceController@showTemplates')->name('invoices.templates');
     Route::resource('invoices', 'InvoiceController')->except('destroy');
-
     Route::get('company-profile', 'UserController@showCompanyProfile')->name('company-profile');
     Route::put('company-profile', 'UserController@updateCompanyProfile')->name('company-profile.update');
+    Route::put('customize-invoice', 'UserController@customizeInvoice')->name('customize-invoice');
+
     Route::get('services', 'DashboardController@showServices')->name('services');
     Route::get('online-payment', 'DashboardController@onlinePayment')->name('online-payment');
     Route::get('banks', 'DashboardController@banks')->name('banks');
