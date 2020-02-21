@@ -96,7 +96,7 @@
                 </div>
                 <div class="form-all-content">
                     <div class="dashboard-form-block">
-                        <label>Address 777</label>
+                        <label>Address</label>
                         <input type="text" name="street" placeholder="Street Address" value="{{ $user->street }}">
                     </div>
                     <div class="error-message text-danger">
