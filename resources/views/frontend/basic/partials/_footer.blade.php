@@ -5,7 +5,7 @@
                 <li class="first"><a>Services</a></li>
                 <li><a>Invoicing</a></li>
                 <li><a>Expenses</a></li>
-                <li><a href="../../dashboard/ds-time-tracking.html">Time Tracking</a></li>
+                <li><a href="../../platform/ds-time-tracking.html">Time Tracking</a></li>
                 <li><a>Projects</a></li>
                 <li><a>Payments</a></li>
                 <li><a>Accounting</a></li>

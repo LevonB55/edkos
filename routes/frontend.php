@@ -15,25 +15,26 @@ Route::get('/about', 'PageController@about')->name('about');
 Route::get('/pricing', 'PageController@pricing')->name('pricing');
 Route::get('/help', 'PageController@help')->name('help');
 
-//Dashboard Routes
-Route::prefix('dashboard')->middleware(['auth'])->group(function () {
-    Route::get('/invoices/templates', 'InvoiceController@showTemplates')->name('invoices.templates');
+//Platform Routes
+Route::prefix('platform')->middleware(['auth'])->group(function () {
+    Route::get('invoices/templates', 'InvoiceController@showTemplates')->name('invoices.templates');
+    Route::put('invoices/customize', 'InvoiceController@customizeInvoice')->name('invoices.customize');
     Route::resource('invoices', 'InvoiceController')->except('destroy');
+
     Route::get('company-profile', 'UserController@showCompanyProfile')->name('company-profile');
     Route::put('company-profile', 'UserController@updateCompanyProfile')->name('company-profile.update');
-    Route::put('customize-invoice', 'UserController@customizeInvoice')->name('customize-invoice');
 
-    Route::get('services', 'DashboardController@showServices')->name('services');
-    Route::get('online-payment', 'DashboardController@onlinePayment')->name('online-payment');
-    Route::get('banks', 'DashboardController@banks')->name('banks');
-    Route::get('billing-upgrade', 'DashboardController@billingUpgrade')->name('billing-upgrade');
+    Route::get('services', 'PlatformController@showServices')->name('services');
+    Route::get('online-payment', 'PlatformController@onlinePayment')->name('online-payment');
+    Route::get('banks', 'PlatformController@banks')->name('banks');
+    Route::get('billing-upgrade', 'PlatformController@billingUpgrade')->name('billing-upgrade');
     Route::get('user-profile', 'UserController@showUserProfile')->name('user-profile');
     Route::post('user-profile', 'UserController@userProfileUpdate')->name('user-profile.update');
-    Route::get('clients', 'DashboardController@clients')->name('clients');
-    Route::get('expenses', 'DashboardController@expenses')->name('expenses');
-    Route::get('estimates', 'DashboardController@estimates')->name('estimates');
-    Route::get('tracking', 'DashboardController@tracking')->name('tracking');
-    Route::get('projects', 'DashboardController@projects')->name('projects');
+    Route::get('clients', 'PlatformController@clients')->name('clients');
+    Route::get('expenses', 'PlatformController@expenses')->name('expenses');
+    Route::get('estimates', 'PlatformController@estimates')->name('estimates');
+    Route::get('tracking', 'PlatformController@tracking')->name('tracking');
+    Route::get('projects', 'PlatformController@projects')->name('projects');
 });
 
 //Authentication routes
@@ -54,22 +55,22 @@ Route::view('/registration-4', 'frontend.basic.registration-4');
 Route::view('/registration-5', 'frontend.basic.registration-5');
 
 //Dashboard views
-Route::view('/dashboard/billing-upgrade-monthly', 'frontend.dashboard.billing-upgrade-monthly');
-Route::view('/dashboard/billing-upgrade-monthly-pay', 'frontend.dashboard.billing-upgrade-monthly-pay');
-Route::view('/dashboard/billing-upgrade-yearly', 'frontend.dashboard.billing-upgrade-yearly');
-Route::view('/dashboard/billing-upgrade-yearly-pay', 'frontend.dashboard.billing-upgrade-yearly-pay');
-Route::view('/dashboard/estimates-template', 'frontend.dashboard.estimates-template');
-Route::view('/dashboard/estimates-customize', 'frontend.dashboard.estimates-customize');
-Route::view('/dashboard/recurring-expenses', 'frontend.dashboard.recurring-expenses');
-Route::view('/dashboard/new-expense', 'frontend.dashboard.new-expense');
-Route::view('/dashboard/recurring-invoices', 'frontend.dashboard.recurring-invoices');
-Route::view('/dashboard/new-recurring-invoices', 'frontend.dashboard.new-recurring-invoices');
-Route::view('/dashboard/new-project', 'frontend.dashboard.new-project');
-Route::view('/dashboard/proposals', 'frontend.dashboard.proposals');
-Route::view('/dashboard/proposals-template', 'frontend.dashboard.proposals-template');
-Route::view('/dashboard/tracking-review', 'frontend.dashboard.tracking-review');
-Route::view('/dashboard/add-new-business', 'frontend.dashboard.add-new-business');
-Route::view('/dashboard/services-2', 'frontend.dashboard.services-2');
+Route::view('/platform/billing-upgrade-monthly', 'frontend.platform.billing-upgrade-monthly');
+Route::view('/platform/billing-upgrade-monthly-pay', 'frontend.platform.billing-upgrade-monthly-pay');
+Route::view('/platform/billing-upgrade-yearly', 'frontend.platform.billing-upgrade-yearly');
+Route::view('/platform/billing-upgrade-yearly-pay', 'frontend.platform.billing-upgrade-yearly-pay');
+Route::view('/platform/estimates-template', 'frontend.platform.estimates-template');
+Route::view('/platform/estimates-customize', 'frontend.platform.estimates-customize');
+Route::view('/platform/recurring-expenses', 'frontend.platform.recurring-expenses');
+Route::view('/platform/new-expense', 'frontend.platform.new-expense');
+Route::view('/platform/recurring-invoices', 'frontend.platform.recurring-invoices');
+Route::view('/platform/new-recurring-invoices', 'frontend.platform.new-recurring-invoices');
+Route::view('/platform/new-project', 'frontend.platform.new-project');
+Route::view('/platform/proposals', 'frontend.platform.proposals');
+Route::view('/platform/proposals-template', 'frontend.platform.proposals-template');
+Route::view('/platform/tracking-review', 'frontend.platform.tracking-review');
+Route::view('/platform/add-new-business', 'frontend.platform.add-new-business');
+Route::view('/platform/services-2', 'frontend.platform.services-2');
 
 
 //Artisan commands

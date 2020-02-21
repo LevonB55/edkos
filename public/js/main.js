@@ -280,3 +280,30 @@ $('.gr-add-table-tr').click(function(e) {
         "                                <td><input placeholder=\"€0.00\"></td>\n" +
         "                            </tr>" );
 });
+
+//Invoice slider
+let invoiceSlider = $('.invoice-slider');
+invoiceSlider.owlCarousel({
+    items: invoiceSlider.data('invoice-templates-count'),
+    loop: true,
+    dots: false,
+    center: true,
+    startPosition: invoiceSlider.data('chosen-invoice-id') - 1,
+    nav: true,
+    mouseDrag: true,
+    responsiveClass: true,
+    responsive: {
+        0: {
+            items: 1,
+        },
+        600: {
+            items: 1,
+        },
+        1000: {
+            items: 1,
+        }
+    },
+    onTranslated: function(event) {
+        $('.invoice-id').val($('.owl-item.active .items').data('invoice-id'));
+    }
+});

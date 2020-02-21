@@ -44,7 +44,7 @@ li {
 #owl-container {
     position: relative;
 }
-#owl-demo {
+.owl-carousel {
     padding: 0 50px;
     text-align: center;
 }
@@ -162,7 +162,7 @@ li {
     .owl-carousel .owl-wrapper-outer {
         width: 75%;
     }
-    #owl-demo {
+    .owl-carousel {
         padding: 0;
     }
     .owl-prev {

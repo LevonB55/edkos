@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        view()->composer('frontend.dashboard.partials._sidebar', function ($view) {
+        view()->composer('frontend.platform.partials._sidebar', function ($view) {
             $user = auth()->user();
             $userImage = '';
             if($image = $user->image()->first()) {
@@ -36,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with(compact('user', 'userImage'));
         });
 
-        view()->composer('frontend.dashboard.main', function ($view) {
+        view()->composer('frontend.platform.main', function ($view) {
             $user = auth()->user();
 
             $view->with([

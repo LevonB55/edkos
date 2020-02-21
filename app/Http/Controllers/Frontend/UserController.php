@@ -21,7 +21,7 @@ class UserController  extends FrontendController
     public function showUserProfile()
     {
         $user = Auth::user();
-        return view('frontend.dashboard.users.user-profile', compact('user'));
+        return view('frontend.platform.users.user-profile', compact('user'));
     }
 
     public function userProfileUpdate(UpdateUserProfile $request)
@@ -74,7 +74,7 @@ class UserController  extends FrontendController
         $countries = Country::select('id', 'name')->get();
         $user = Auth::user();
 
-        return view('frontend.dashboard.users.company-profile', compact('user', 'countries'));
+        return view('frontend.platform.users.company-profile', compact('user', 'countries'));
     }
 
     public function updateCompanyProfile(UpdateCompanyProfile $request)
@@ -83,16 +83,5 @@ class UserController  extends FrontendController
         Auth::user()->update($validatedData);
 
         return back()->with("success", "<strong>Success!</strong> Company profile has been successfully updated!");
-    }
-
-    public function customizeInvoice(Request $request)
-    {
-        $validatedData = $request->validate([
-            'invoice_id' => 'required|integer|min:1',
-            'invoice_color' => 'required',
-        ]);
-        Auth::user()->update($validatedData);
-
-        return back()->with('invoice-customize', 'Your invoice has been customized!');
     }
 }

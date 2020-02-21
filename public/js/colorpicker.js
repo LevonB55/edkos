@@ -10,7 +10,7 @@
 (function ($) {
     var ColorPicker = function () {
         var
-            invoiceColor = $('#owl-demo').data('invoice-color'),
+            invoiceColor = $('.owl-carousel').data('invoice-color'),
             ids = {},
             inAction,
             charMin = 65,

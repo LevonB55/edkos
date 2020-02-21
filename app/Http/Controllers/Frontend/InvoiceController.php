@@ -15,7 +15,7 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        return view('frontend.dashboard.invoices.index');
+        return view('frontend.platform.invoices.index');
     }
 
     /**
@@ -25,7 +25,7 @@ class InvoiceController extends Controller
      */
     public function create()
     {
-        return view('frontend.dashboard.invoices.create');
+        return view('frontend.platform.invoices.create');
     }
 
     /**
@@ -36,7 +36,7 @@ class InvoiceController extends Controller
         $user = auth()->user();
         $templates = InvoiceTemplate::all();
 
-        return view('frontend.dashboard.invoices.templates', compact('user','templates'));
+        return view('frontend.platform.invoices.templates', compact('user','templates'));
     }
 
     /**
@@ -70,6 +70,21 @@ class InvoiceController extends Controller
     public function edit($id)
     {
         //
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function customizeInvoice(Request $request)
+    {
+        $validatedData = $request->validate([
+            'invoice_id' => 'required|integer|min:1',
+            'invoice_color' => 'required',
+        ]);
+        auth()->user()->update($validatedData);
+
+        return back()->with('invoice-customize', 'Your invoice has been customized!');
     }
 
     /**
