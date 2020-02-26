@@ -27459,9 +27459,9 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! select2 */ "./node_modules/select2/dist/js/select2.js");
 
-__webpack_require__(/*! ./ds-user-profile */ "./resources/js/ds-user-profile.js");
-
 __webpack_require__(/*! owl.carousel */ "./node_modules/owl.carousel/dist/owl.carousel.js");
+
+__webpack_require__(/*! ./user-profile */ "./resources/js/user-profile.js");
 
 /***/ }),
 
@@ -27486,12 +27486,42 @@ try {
 
 /***/ }),
 
-/***/ "./resources/js/ds-user-profile.js":
-/*!*****************************************!*\
-  !*** ./resources/js/ds-user-profile.js ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./resources/js/scripts.js":
+/*!*********************************!*\
+  !*** ./resources/js/scripts.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  //Image upload
+  imageUpload: function imageUpload(imageSpot, selector) {
+    if (selector && selector[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        imageSpot.attr('src', e.target.result);
+      };
+
+      reader.readAsDataURL(selector[0]);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/user-profile.js":
+/*!**************************************!*\
+  !*** ./resources/js/user-profile.js ***!
+  \**************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _scripts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scripts */ "./resources/js/scripts.js");
 
 var userProfile = {
   newEmailEl: $('.new-email'),
@@ -27576,16 +27606,8 @@ $("#update-profile-form").on('submit', function (e) {
   });
 }); //Image upload
 
-$("#image").change(function () {
-  if (this.files && this.files[0]) {
-    var reader = new FileReader();
-
-    reader.onload = function (e) {
-      $('.circle-user img').attr('src', e.target.result);
-    };
-
-    reader.readAsDataURL(this.files[0]);
-  }
+$("#image").change(function (e) {
+  _scripts__WEBPACK_IMPORTED_MODULE_0__["default"].imageUpload($('.circle-user img'), e.target.files);
 });
 
 /***/ }),

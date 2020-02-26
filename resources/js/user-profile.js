@@ -77,12 +77,6 @@ $("#update-profile-form").on('submit', function(e) {
 });
 
 //Image upload
-$("#image").change(function () {
-    if (this.files && this.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            $('.circle-user img').attr('src', e.target.result);
-        };
-        reader.readAsDataURL(this.files[0]);
-    }
+$("#image").change((e) => {
+    app.imageUpload($('.circle-user img'), e.target.files)
 });

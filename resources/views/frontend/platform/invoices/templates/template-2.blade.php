@@ -1,11 +1,15 @@
 <div class="bz-template">
-    <a class="bz-content-1-logo">
-        <label for="bz-logo">
-            <h4 class="bz-text-3">Drag Your Logo Or</h4>
-            <h4 class="bz-text-4">Select A File</h4>
-        </label>
-        <input id="bz-logo" type="file">
-    </a>
+{{--    <a class="bz-content-1-logo">--}}
+{{--        <label for="bz-logo">--}}
+{{--            <h4 class="bz-text-3">Drag Your Logo Or</h4>--}}
+{{--            <h4 class="bz-text-4">Select A File</h4>--}}
+{{--        </label>--}}
+{{--        <input id="bz-logo" type="file">--}}
+{{--    </a>--}}
+    <span class="bz-content-1-logo">
+        Logo
+        <img class="template-logo" alt="Template Logo">
+    </span>
     <div class="bz-header">
         <div class="bz-header-left">
             <p class="bz-text-7">Bill To</p>

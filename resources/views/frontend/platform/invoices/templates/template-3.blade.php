@@ -1,12 +1,16 @@
 <div class="wt-template">
     <div class="wt-header">
-        <a class="wt-content-1-logo">
-            <label for="wt-logo">
-                <h4 class="wt-text-3">Drag Your Logo Or</h4>
-                <h4 class="wt-text-4">Select A File</h4>
-            </label>
-            <input id="wt-logo" type="file">
-        </a>
+{{--        <a class="wt-content-1-logo">--}}
+{{--            <label for="wt-logo">--}}
+{{--                <h4 class="wt-text-3">Drag Your Logo Or</h4>--}}
+{{--                <h4 class="wt-text-4">Select A File</h4>--}}
+{{--            </label>--}}
+{{--            <input id="wt-logo" type="file">--}}
+{{--        </a>--}}
+        <span class="wt-content-1-logo">
+            Logo
+            <img class="template-logo" alt="Template Logo">
+        </span>
     </div>
     <div class="wt-body">
             <div class="wt-content-1">

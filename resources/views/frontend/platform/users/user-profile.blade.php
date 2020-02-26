@@ -105,5 +105,5 @@
 @endsection
 
 @section('extra-scripts')
-{{--    <script src="{{asset('js/ds-user-profile.js')}}"></script>--}}
+{{--    <script src="{{asset('js/user-profile.js')}}"></script>--}}
 @endsection

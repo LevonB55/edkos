@@ -1,3 +1,8 @@
+const main = {
+    templateLogo: $('.template-logo'),
+    templateLogoViewWrapper: $('.template-logo-view-wrapper ')
+};
+
 $(document).ready(function() {
     $('.expense-item-block .expense-archive-delete').click(function(e) {
         e.stopPropagation();
@@ -306,4 +311,18 @@ invoiceSlider.owlCarousel({
     onTranslated: function(event) {
         $('.invoice-id').val($('.owl-item.active .items').data('invoice-id'));
     }
+});
+
+//Change template logo
+$("#logotype").on('change', (e) => {
+    app.imageUpload(main.templateLogo, e.target.files);
+    main.templateLogo.show();
+    main.templateLogoViewWrapper.show();
+});
+
+//Delete template logo
+$('.delete-logo').on('click', function (e) {
+    e.preventDefault();
+    $('.template-logo-view').attr('src','');
+    main.templateLogoViewWrapper.hide();
 });

@@ -12,13 +12,17 @@
     </div>
     <div class="gr-body">
         <div class="gr-content-1">
-            <a class="gr-content-1-logo">
-                <label for="gr-logo">
-                    <h4 class="gr-text-3">Drag Your Logo Or</h4>
-                    <h4 class="gr-text-4">Select A File</h4>
-                </label>
-                <input id="gr-logo" type="file">
-            </a>
+{{--            <a class="gr-content-1-logo">--}}
+{{--                <label for="gr-logo">--}}
+{{--                    <h4 class="gr-text-3">Drag Your Logo Or</h4>--}}
+{{--                    <h4 class="gr-text-4">Select A File</h4>--}}
+{{--                </label>--}}
+{{--                <input id="gr-logo" type="file">--}}
+{{--            </a>--}}
+            <span class="gr-content-1-logo">
+                Logo
+                <img class="template-logo" alt="Template Logo">
+            </span>
             <div class="gr-date-issue">
                 <p class="gr-text-5">Date Of Issue</p>
                 <input type="date" placeholder="02/05/2019" class="gr-text-6">

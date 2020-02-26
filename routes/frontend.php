@@ -54,7 +54,7 @@ Route::view('/registration-3', 'frontend.basic.registration-3');
 Route::view('/registration-4', 'frontend.basic.registration-4');
 Route::view('/registration-5', 'frontend.basic.registration-5');
 
-//Dashboard views
+//Platform views
 Route::view('/platform/billing-upgrade-monthly', 'frontend.platform.billing-upgrade-monthly');
 Route::view('/platform/billing-upgrade-monthly-pay', 'frontend.platform.billing-upgrade-monthly-pay');
 Route::view('/platform/billing-upgrade-yearly', 'frontend.platform.billing-upgrade-yearly');

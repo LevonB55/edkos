@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/ds-invoices.css') }}">
     <link rel="stylesheet" href="{{ asset('css/ds-customize-template.css') }}">
     <link rel="stylesheet" href="{{ asset('css/carousel.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/colorpicker.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/colorpicker.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}"/>
 @endsection
 
@@ -29,7 +29,7 @@
 
         <section class="custom-template">
             <div class="invoice-back border-right-0">
-                <a href="{{ route('invoices.create') }}"  href="ds-invoices.html">
+                <a href="{{ route('invoices.create') }}" href="ds-invoices.html">
                     <img src="{{ asset('assets/img/invoices/back.png') }}">
                     <span class="border-right-black">Back</span>
                 </a>
@@ -39,10 +39,12 @@
             <div class="carusel-and-div">
                 <div id="owl-container">
                     <div class="owl-carousel invoice-slider owl-theme" data-invoice-color="{{ $user->invoice_color }}"
-                        data-invoice-templates-count="{{ $templates->count() }}" data-chosen-invoice-id="{{ $user->invoice_id }}">
+                         data-invoice-templates-count="{{ $templates->count() }}"
+                         data-chosen-invoice-id="{{ $user->invoice_id }}">
                         @foreach($templates as $template)
                             <div class="item-owl-carousel">
-                                <li class="items main-pos" id="{{ $template->id }}" data-invoice-id="{{ $template->id }}">
+                                <li class="items main-pos" id="{{ $template->id }}"
+                                    data-invoice-id="{{ $template->id }}">
                                     @include('frontend.platform.invoices.templates.template-' . $template->id)
                                 </li>
                                 <div class="cover-item"></div>
@@ -51,30 +53,38 @@
                     </div>
                 </div>
                 <div class="mobile-carusel-color">
-                    <p class="text-4">Add your logotype</p>
-                    <div class="image-and-color">
-                        <div class="image-upload logotype-input">
-                            <label for="logotype">
-                                <img src="{{ asset('assets/img/logotype.png') }}">
-                                <p class="text-6">
-                                    Drop your logo here.
-                                    JPG or PNG formats.
-                                    Maximum 3MB in size.
-                                </p>
-                            </label>
-                            <input type="file" id="logotype">
-                        </div>
-                        <p class="text-4">Choose a colour</p>
-                        <div class="customize-colorpicker">
-                            <p id="colorpickerHolder"></p>
-                            <div class="abs-color"></div>
-                        </div>
-                    </div>
-                    <form action="{{ route('invoices.customize') }}" method="POST">
+                    <p class="text-4">Add/Change your logotype</p>
+                    <form action="{{ route('invoices.customize') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
+                        <div class="image-and-color">
+                            <label class="image-upload logotype-input">
+                                {{--                                <label for="logotype">--}}
+                                <div>
+                                    <img src="{{ asset('assets/img/logotype.png') }}">
+                                    <p class="text-6">
+                                        Upload your logo here. Maximum 3MB in size.
+                                    </p>
+                                </div>
+
+
+                                {{--                                </label>--}}
+                                <input type="file" id="logotype" name="logo" accept="image/x-png,image/gif,image/jpeg">
+                                <div class="position-absolute template-logo-view-wrapper">
+                                    <p class="delete-logo">Delete logo</p>
+                                    <img class="template-logo template-logo-view" alt="Invoice logo">
+                                </div>
+                            </label>
+                            <p class="text-4">Choose a colour</p>
+                            <div class="customize-colorpicker">
+                                <p id="colorpickerHolder"></p>
+                                <div class="abs-color"></div>
+                            </div>
+                        </div>
+
                         <input type="hidden" name="invoice_id" value="{{ $user->invoice_id }}" class="invoice-id">
-                        <input type="hidden" name="invoice_color" value="{{ $user->invoice_color }}" class="invoice-color">
+                        <input type="hidden" name="invoice_color" value="{{ $user->invoice_color }}"
+                               class="invoice-color">
                         <button type="submit" class="btn-save">save</button>
                     </form>
                 </div>
