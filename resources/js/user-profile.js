@@ -46,7 +46,7 @@ $("#update-profile-form").on('submit', function(e) {
     $.ajax({
         method: 'POST',
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        url: '/dashboard/user-profile',
+        url: '/platform/user-profile',
         data:  formData,
         contentType: false,
         processData: false

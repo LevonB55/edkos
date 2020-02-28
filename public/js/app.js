@@ -27486,42 +27486,12 @@ try {
 
 /***/ }),
 
-/***/ "./resources/js/scripts.js":
-/*!*********************************!*\
-  !*** ./resources/js/scripts.js ***!
-  \*********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({
-  //Image upload
-  imageUpload: function imageUpload(imageSpot, selector) {
-    if (selector && selector[0]) {
-      var reader = new FileReader();
-
-      reader.onload = function (e) {
-        imageSpot.attr('src', e.target.result);
-      };
-
-      reader.readAsDataURL(selector[0]);
-    }
-  }
-});
-
-/***/ }),
-
 /***/ "./resources/js/user-profile.js":
 /*!**************************************!*\
   !*** ./resources/js/user-profile.js ***!
   \**************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _scripts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scripts */ "./resources/js/scripts.js");
+/*! no static exports found */
+/***/ (function(module, exports) {
 
 var userProfile = {
   newEmailEl: $('.new-email'),
@@ -27570,7 +27540,7 @@ $("#update-profile-form").on('submit', function (e) {
     headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     },
-    url: '/dashboard/user-profile',
+    url: '/platform/user-profile',
     data: formData,
     contentType: false,
     processData: false
@@ -27607,7 +27577,7 @@ $("#update-profile-form").on('submit', function (e) {
 }); //Image upload
 
 $("#image").change(function (e) {
-  _scripts__WEBPACK_IMPORTED_MODULE_0__["default"].imageUpload($('.circle-user img'), e.target.files);
+  app.imageUpload($('.circle-user img'), e.target.files);
 });
 
 /***/ }),

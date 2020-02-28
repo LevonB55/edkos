@@ -19,7 +19,7 @@
             </div>
             <div class="menu-right">
                 @if(Auth::check())
-                    <a href="{{ route('user-profile') }}">{{ auth()->user()->full_name }}</a>
+                    <a href="{{ route('user.show') }}">{{ auth()->user()->full_name }}</a>
                     <a class="auth-btn" href="{{ route('logout') }}">Logout</a>
                 @else
                     <a href="{{ route('login') }}">Login</a>

@@ -325,4 +325,5 @@ $('.delete-logo').on('click', function (e) {
     e.preventDefault();
     $('.template-logo-view').attr('src','');
     main.templateLogoViewWrapper.hide();
+    $('.upload-logo').show();
 });

@@ -83,7 +83,7 @@
             <div class="user-dashboard-2">
                 <div class="settings-block back-color-settings">
                     <h5 class="settings-block-title">Settings For You</h5>
-                    <a href="{{ route('company-profile') }}" class="settings-block-item {{ Request::routeIs('company-profile') ? 'active' : '' }}">
+                    <a href="{{ route('company.show') }}" class="settings-block-item {{ Request::routeIs('company.show') ? 'active' : '' }}">
                         <div class="settings-block-item-img">
                             <img src="{{ asset('assets/img/dashboard/home.png') }}">
                         </div>
@@ -135,7 +135,7 @@
                 </div>
                 <div class="settings-block">
                     <h5 class="settings-block-title">Personal</h5>
-                    <a href="{{ route('user-profile') }}" class="settings-block-item {{ Request::routeIs('user-profile') ? 'active' : '' }}">
+                    <a href="{{ route('user.show') }}" class="settings-block-item {{ Request::routeIs('user.show') ? 'active' : '' }}">
                         <div class="settings-block-item-img">
                             <img src="{{ asset('assets/img/dashboard/user-small.png') }}">
                         </div>

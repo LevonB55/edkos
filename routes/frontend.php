@@ -17,19 +17,18 @@ Route::get('/help', 'PageController@help')->name('help');
 
 //Platform Routes
 Route::prefix('platform')->middleware(['auth'])->group(function () {
+    Route::get('user-profile', 'UserController@show')->name('user.show');
+    Route::post('user-profile', 'UserController@edit')->name('user.edit');
+    Route::get('company-profile', 'CompanyController@show')->name('company.show');
+    Route::put('company-profile', 'CompanyController@edit')->name('company.edit');
     Route::get('invoices/templates', 'InvoiceController@showTemplates')->name('invoices.templates');
     Route::put('invoices/customize', 'InvoiceController@customizeInvoice')->name('invoices.customize');
     Route::resource('invoices', 'InvoiceController')->except('destroy');
-
-    Route::get('company-profile', 'UserController@showCompanyProfile')->name('company-profile');
-    Route::put('company-profile', 'UserController@updateCompanyProfile')->name('company-profile.update');
 
     Route::get('services', 'PlatformController@showServices')->name('services');
     Route::get('online-payment', 'PlatformController@onlinePayment')->name('online-payment');
     Route::get('banks', 'PlatformController@banks')->name('banks');
     Route::get('billing-upgrade', 'PlatformController@billingUpgrade')->name('billing-upgrade');
-    Route::get('user-profile', 'UserController@showUserProfile')->name('user-profile');
-    Route::post('user-profile', 'UserController@userProfileUpdate')->name('user-profile.update');
     Route::get('clients', 'PlatformController@clients')->name('clients');
     Route::get('expenses', 'PlatformController@expenses')->name('expenses');
     Route::get('estimates', 'PlatformController@estimates')->name('estimates');

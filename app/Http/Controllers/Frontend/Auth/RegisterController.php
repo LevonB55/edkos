@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend\Auth;
 
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Models\Company;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
@@ -67,12 +68,18 @@ class RegisterController extends FrontendController
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        Company::create([
+            'user_id' => $user->id
+        ]);
+
+        return $user;
     }
 
     /**

@@ -10,17 +10,13 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    const DATE_FORMAT = 'mm/dd/yyyy';
-    const INVOICE_TEMPLATE = 1;
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password', 'company', 'business_phone', 'mobile_phone', 'date_format',
-        'standard_rate', 'vat', 'street', 'city', 'state', 'country_id', 'zip', 'bank_account', 'invoice_id', 'invoice_color'
+        'first_name', 'last_name', 'email', 'password'
     ];
 
     /**
@@ -42,16 +38,6 @@ class User extends Authenticatable
     ];
 
     /**
-     * The model's default values for attributes.
-     *
-     * @var array
-     */
-    protected $attributes = [
-        'date_format' => self::DATE_FORMAT,
-        'invoice_id' => self::INVOICE_TEMPLATE
-    ];
-
-    /**
      * Get the user's full name.
      *
      * @return string
@@ -61,17 +47,19 @@ class User extends Authenticatable
         return "{$this->first_name} {$this->last_name}";
     }
 
+    /**
+     * Get the company record associated with the user.
+     */
+    public function company()
+    {
+        return $this->hasOne('App\Models\Company')->withDefault();
+    }
+
+    /**
+     * Get the user's image.
+     */
     public function image()
     {
         return $this->morphOne('App\Models\Image', 'imageable');
-    }
-
-    public function getDateFormats()
-    {
-        return [
-          '1' => self::DATE_FORMAT,
-          '2' => 'dd/mm/yyyy',
-          '3' => 'yyyy-mm-dd'
-        ];
     }
 }

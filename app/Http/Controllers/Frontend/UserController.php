@@ -3,9 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Requests\UpdateCompanyProfile;
-use App\Models\Country;
 use App\Http\Requests\UpdateUserProfile;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 use Session;
@@ -13,18 +11,18 @@ use File;
 use Illuminate\Support\Facades\Storage;
 use Image;
 
-class UserController  extends FrontendController
+class  UserController  extends FrontendController
 {
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function showUserProfile()
+    public function show()
     {
         $user = Auth::user();
-        return view('frontend.platform.users.user-profile', compact('user'));
+        return view('frontend.platform.users.show', compact('user'));
     }
 
-    public function userProfileUpdate(UpdateUserProfile $request)
+    public function edit(UpdateUserProfile $request)
     {
         $validated = $request->validated();
         if($request->ajax()) {
@@ -45,7 +43,7 @@ class UserController  extends FrontendController
             if($request->hasFile('image')){
                 $file = $request->file('image');
                 $name = uniqid().'.'.strtolower($file->getClientOriginalExtension());
-                $url = 'public/profile-image/' . $name;
+                $url = 'public/profile-images/' . $name;
                 if($user->image()->first() && storage_path($user->image()->first()->url)) {
                     Storage::delete($user->image()->first()->url);
                 }
@@ -64,24 +62,5 @@ class UserController  extends FrontendController
         }
 
         return abort(404);
-    }
-
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function showCompanyProfile()
-    {
-        $countries = Country::select('id', 'name')->get();
-        $user = Auth::user();
-
-        return view('frontend.platform.users.company-profile', compact('user', 'countries'));
-    }
-
-    public function updateCompanyProfile(UpdateCompanyProfile $request)
-    {
-        $validatedData = $request->validated();
-        Auth::user()->update($validatedData);
-
-        return back()->with("success", "<strong>Success!</strong> Company profile has been successfully updated!");
     }
 }

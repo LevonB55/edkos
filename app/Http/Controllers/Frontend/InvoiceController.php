@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Http\Requests\UpdateInvoiceTemplate;
+use App\Models\Company;
 use App\Models\InvoiceTemplate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+use Image;
 
 class InvoiceController extends Controller
 {
@@ -73,16 +77,30 @@ class InvoiceController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param UpdateInvoiceTemplate $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function customizeInvoice(Request $request)
+    public function customizeInvoice(UpdateInvoiceTemplate $request)
     {
-        $validatedData = $request->validate([
-            'invoice_id' => 'required|integer|min:1',
-            'invoice_color' => 'required',
-        ]);
-        auth()->user()->update($validatedData);
+        $company = Company::updateOrCreate(['user_id' => auth()->id()], $request->validated());
+
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $name = uniqid().'.'.strtolower($file->getClientOriginalExtension());
+            $url = 'public/invoice-logos/' . $name;
+            if($company->image()->first() && storage_path($company->image()->first()->url)) {
+                Storage::delete($company->image()->first()->url);
+            }
+
+            Image::make($file)
+                ->resize(700, 300)
+                ->save(storage_path('app/' . $url));
+
+            $company->image()->updateOrCreate(
+                ['imageable_id' => $company->id],
+                ['url' => $url]
+            );
+        }
 
         return back()->with('invoice-customize', 'Your invoice has been customized!');
     }

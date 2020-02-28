@@ -38,9 +38,9 @@
 
             <div class="carusel-and-div">
                 <div id="owl-container">
-                    <div class="owl-carousel invoice-slider owl-theme" data-invoice-color="{{ $user->invoice_color }}"
+                    <div class="owl-carousel invoice-slider owl-theme" data-invoice-color="{{ $user->company->invoice_color }}"
                          data-invoice-templates-count="{{ $templates->count() }}"
-                         data-chosen-invoice-id="{{ $user->invoice_id }}">
+                         data-chosen-invoice-id="{{ $user->company->invoice_id }}">
                         @foreach($templates as $template)
                             <div class="item-owl-carousel">
                                 <li class="items main-pos" id="{{ $template->id }}"
@@ -69,7 +69,7 @@
 
 
                                 {{--                                </label>--}}
-                                <input type="file" id="logotype" name="logo" accept="image/x-png,image/gif,image/jpeg">
+                                <input type="file" id="logotype" name="image" accept="image/x-png,image/gif,image/jpeg">
                                 <div class="position-absolute template-logo-view-wrapper">
                                     <p class="delete-logo">Delete logo</p>
                                     <img class="template-logo template-logo-view" alt="Invoice logo">
@@ -82,8 +82,8 @@
                             </div>
                         </div>
 
-                        <input type="hidden" name="invoice_id" value="{{ $user->invoice_id }}" class="invoice-id">
-                        <input type="hidden" name="invoice_color" value="{{ $user->invoice_color }}"
+                        <input type="hidden" name="invoice_id" value="{{ $user->company->invoice_id }}" class="invoice-id">
+                        <input type="hidden" name="invoice_color" value="{{ $user->company->invoice_color }}"
                                class="invoice-color">
                         <button type="submit" class="btn-save">save</button>
                     </form>

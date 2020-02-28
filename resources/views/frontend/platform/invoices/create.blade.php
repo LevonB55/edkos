@@ -69,7 +69,7 @@
             <img src="{{ asset('assets/img/invoices/back.png') }}">
             <span>Back</span>
         </a>
-        @include('frontend.platform.invoices.templates.template-' . auth()->user()->invoice_id)
+        @include('frontend.platform.invoices.templates.template-' . auth()->user()->company->invoice_id)
     </main>
 @endsection
 

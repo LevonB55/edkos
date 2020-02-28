@@ -40,8 +40,8 @@ class AppServiceProvider extends ServiceProvider
             $user = auth()->user();
 
             $view->with([
-                'invoiceId' => $user->invoice_id,
-                'invoiceColor' => $user->invoice_color
+                'invoiceId' => $user->company->invoice_id,
+                'invoiceColor' => $user->company->invoice_color
             ]);
         });
     }

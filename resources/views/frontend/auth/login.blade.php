@@ -27,7 +27,9 @@
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <h4>{{ __('messages.login') }}</h4>
-                    <input   id="email"  type="email" class="login-right-side-email form-control @error('email') is-invalid @enderror" placeholder="{{ __('messages.email_address') }}" name="email" required autocomplete="email">
+                    <input  id="email"  type="email" value="{{ old('email') }}" name="email" placeholder="{{ __('messages.email_address') }}"
+                        class="login-right-side-email form-control @error('email') is-invalid @enderror"
+                        required autocomplete="email">
                     @error('email')
                         <span class="invalid-feedback">
                             <strong>{{ $message }}</strong>

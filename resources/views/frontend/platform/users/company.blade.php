@@ -19,27 +19,27 @@
         @include('frontend.partials._messages')
 
         <div class="dashboard-company-content">
-            <form action="{{ route('company-profile.update') }}" method="POST" class="dashboard-form dashboard-form-error">
+            <form action="{{ route('company.edit') }}" method="POST" class="dashboard-form dashboard-form-error">
                 @csrf
                 @method('PUT')
                 <div class="form-all-content">
                     <div class="dashboard-form-block">
                         <label>Company Name</label>
-                        <input type="text" name="company" value="{{  $user->company }}">
+                        <input type="text" name="name" value="{{  $user->company->name}}">
                     </div>
                     <div class="error-message text-danger">
-                        {{ $errors->first('company') }}
+                        {{ $errors->first('name') }}
                     </div>
                     <div class="dashboard-form-block">
                         <label>Business Phone</label>
-                        <input type="text" name="business_phone" value="{{ $user->business_phone }}">
+                        <input type="text" name="business_phone" value="{{ $user->company->business_phone }}">
                     </div>
                     <div class="error-message text-danger">
                         {{ $errors->first('business_phone') }}
                     </div>
                     <div class="dashboard-form-block">
                         <label>Mobile Phone</label>
-                        <input type="text" name="mobile_phone" value="{{ $user->mobile_phone }}">
+                        <input type="text" name="mobile_phone" value="{{ $user->company->mobile_phone }}">
                     </div>
                     <div class="error-message text-danger">
                         {{ $errors->first('mobile_phone') }}
@@ -47,8 +47,8 @@
                     <div class="dashboard-form-block address-select position-relative">
                         <label>Date Format</label>
                         <select name="date_format">
-                            @foreach($user->getDateFormats() as $formatKey => $formatVal)
-                                <option value="{{ $formatKey }}" {{ $user->date_format == $formatVal ? 'selected' : '' }}>
+                            @foreach($user->company->getDateFormats() as $formatKey => $formatVal)
+                                <option value="{{ $formatKey }}" {{ $user->company->date_format == $formatVal ? 'selected' : '' }}>
                                     {{ $formatVal }}
                                 </option>
                             @endforeach
@@ -74,7 +74,7 @@
                             <div class="position-relative">
                                 <label>Standard Rate<span class="standart-rate"> / hr</span></label>
                                 <i class="symbol-currency">&euro;</i>
-                                <input type="text" name="standard_rate" class="input-rate pl-3"  placeholder="0.00" value="{{ $user->standard_rate }}">
+                                <input type="text" name="standard_rate" class="input-rate pl-3"  placeholder="0.00" value="{{ $user->company->standard_rate }}">
                                 <span>/hr</span>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                     </div>
                     <div class="dashboard-form-block">
                         <label>VAT Number</label>
-                        <input type="text" name="vat" value="{{ $user->vat }}">
+                        <input type="text" name="vat" value="{{ $user->company->vat }}">
                     </div>
                     <div class="error-message text-danger">
                         {{ $errors->first('vat') }}
@@ -93,21 +93,21 @@
                 <div class="form-all-content">
                     <div class="dashboard-form-block">
                         <label>Address</label>
-                        <input type="text" name="street" placeholder="Street Address" value="{{ $user->street }}">
+                        <input type="text" name="street" placeholder="Street Address" value="{{ $user->company->street }}">
                     </div>
                     <div class="error-message text-danger">
                         {{ $errors->first('street') }}
                     </div>
                     <div class="dashboard-form-block address-select position-relative">
                         <label></label>
-                        <input type="text" name="city" placeholder="City" value="{{ $user->city }}">
+                        <input type="text" name="city" placeholder="City" value="{{ $user->company->city }}">
                     </div>
                     <div class="error-message text-danger">
                         {{ $errors->first('city') }}
                     </div>
                     <div class="dashboard-form-block address-select position-relative">
                         <label></label>
-                        <input type="text" name="state" placeholder="State" value="{{ $user->state }}">
+                        <input type="text" name="state" placeholder="State" value="{{ $user->company->state }}">
                     </div>
                     <div class="error-message text-danger">
                         {{ $errors->first('state') }}
@@ -117,7 +117,7 @@
                         <select name="country_id">
                             <option value="">Country</option>
                             @foreach($countries as $country)
-                                <option value="{{ $country->id }}" {{ $user->country_id == $country->id ? 'selected' : '' }}>
+                                <option value="{{ $country->id }}" {{ $user->company->country_id == $country->id ? 'selected' : '' }}>
                                     {{ $country->name }}
                                 </option>
                             @endforeach
@@ -129,14 +129,14 @@
                     </div>
                     <div class="dashboard-form-block">
                         <label>ZIP Code</label>
-                        <input type="text" name="zip" value="{{ $user->zip }}">
+                        <input type="text" name="zip" value="{{ $user->company->zip }}">
                     </div>
                     <div class="error-message text-danger">
                         {{ $errors->first('zip') }}
                     </div>
                     <div class="dashboard-form-block">
                         <label>Bank Account</label>
-                        <input type="text" name="bank_account" value="{{ $user->bank_account }}">
+                        <input type="text" name="bank_account" value="{{ $user->company->bank_account }}">
                     </div>
                     <div class="error-message text-danger">
                         {{ $errors->first('bank_account') }}
