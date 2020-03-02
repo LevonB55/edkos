@@ -19,10 +19,16 @@
 {{--                </label>--}}
 {{--                <input id="gr-logo" type="file">--}}
 {{--            </a>--}}
-            <span class="gr-content-1-logo">
-                Logo
-                <img class="template-logo" alt="Template Logo">
-            </span>
+            @isset($templateLogo)
+                <span class="gr-content-1-logo template-logo-wrapper">
+                    <img src="{{ Storage::url($templateLogo->url) }}" class="template-logo" alt="Template Logo">
+                </span>
+            @else
+                <span class="gr-content-1-logo template-logo-wrapper hide-logo">
+                    <img class="template-logo" alt="Template Logo">
+                </span>
+            @endif
+
             <div class="gr-date-issue">
                 <p class="gr-text-5">Date Of Issue</p>
                 <input type="date" placeholder="02/05/2019" class="gr-text-6">

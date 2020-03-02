@@ -44,5 +44,13 @@ class AppServiceProvider extends ServiceProvider
                 'invoiceColor' => $user->company->invoice_color
             ]);
         });
+
+        view()->composer('frontend.platform.invoices.templates*', function ($view) {
+            $user = auth()->user();
+
+            $view->with([
+                'templateLogo' => $user->company->image
+            ]);
+        });
     }
 }

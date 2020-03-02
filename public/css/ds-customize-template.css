@@ -30,10 +30,10 @@
     cursor: pointer;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /*object-fit: cover;*/
 }
 .template-logo-view-wrapper {
-    display: none;
+    /*display: none;*/
     height: 100%;
     width: 100%;
     left: 0;
@@ -155,8 +155,11 @@ input:disabled {
     /*margin-right: 3px;*/
     z-index: 111;
     border: 1px solid #58595B;
-    height: 1057px;
+    height: 1100px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .gr-header {
     padding: 15px;
@@ -221,15 +224,15 @@ input:disabled {
     line-height: 110px;
     position: relative;
 }
-.owl-carousel .owl-item img.template-logo {
-    display: none;
-    position: absolute;
-    height: 100%;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-    /*object-fit: cover;*/
-}
+/*.owl-carousel .owl-item img.template-logo {*/
+/*    display: none;*/
+/*    position: absolute;*/
+/*    height: 100%;*/
+/*    left: 50%;*/
+/*    top: 0;*/
+/*    transform: translateX(-50%);*/
+/*    object-fit: cover;*/
+/*}*/
 
 .gr-content-1-logo input {
     display: none;
@@ -480,7 +483,7 @@ input:disabled {
     /*margin-right: 3px;*/
     z-index: 111;
     border: 1px solid #58595B;
-    height: 1057px;
+    height: 1100px;
     box-sizing: border-box;
 }
 .bz-header {
@@ -818,7 +821,7 @@ input:disabled {
     /*margin-right: 3px;*/
     z-index: 111;
     border: 1px solid #58595B;
-    height: 1057px;
+    height: 1100px;
 }
 .wt-header {
     position: relative;
@@ -866,9 +869,8 @@ input:disabled {
 }
 .wt-body {
     width: 100%;
-    margin: 0 auto;
+    margin: 10px auto 0;
     padding: 10px 20px;
-    margin-top: 50px;
 }
 .wt-footer {
     height: 40px;
@@ -887,7 +889,8 @@ input:disabled {
     border: 1px solid #707070;
     width: 400px;
     height: 110px;
-    position: absolute;
+    position: relative;
+    margin: 20px auto;
 }
 .wt-content-1-logo input {
     display: none;
@@ -1668,4 +1671,8 @@ input:disabled {
     .wt-header-left {
         display: none;
     }
+}
+
+.hide-logo {
+    display: none;
 }

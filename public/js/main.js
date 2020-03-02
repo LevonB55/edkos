@@ -1,6 +1,7 @@
 const main = {
     templateLogo: $('.template-logo'),
-    templateLogoViewWrapper: $('.template-logo-view-wrapper ')
+    templateLogoViewWrapper: $('.template-logo-view-wrapper '),
+    deleteLogoInput: $('.delete-logo-input')
 };
 
 $(document).ready(function() {
@@ -315,15 +316,18 @@ invoiceSlider.owlCarousel({
 
 //Change template logo
 $("#logotype").on('change', (e) => {
+    $('.template-logo-wrapper').css('display', 'block');
     app.imageUpload(main.templateLogo, e.target.files);
     main.templateLogo.show();
     main.templateLogoViewWrapper.show();
+    main.deleteLogoInput.attr('disabled', true);
 });
 
 //Delete template logo
 $('.delete-logo').on('click', function (e) {
     e.preventDefault();
+    $('.template-logo-wrapper').css('display', 'none');
     $('.template-logo-view').attr('src','');
     main.templateLogoViewWrapper.hide();
-    $('.upload-logo').show();
+    main.deleteLogoInput.attr('disabled', false);
 });

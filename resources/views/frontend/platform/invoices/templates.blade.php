@@ -29,7 +29,7 @@
 
         <section class="custom-template">
             <div class="invoice-back border-right-0">
-                <a href="{{ route('invoices.create') }}" href="ds-invoices.html">
+                <a href="{{ route('invoices.create') }}">
                     <img src="{{ asset('assets/img/invoices/back.png') }}">
                     <span class="border-right-black">Back</span>
                 </a>
@@ -59,21 +59,24 @@
                         @method('PUT')
                         <div class="image-and-color">
                             <label class="image-upload logotype-input">
-                                {{--                                <label for="logotype">--}}
                                 <div>
                                     <img src="{{ asset('assets/img/logotype.png') }}">
                                     <p class="text-6">
                                         Upload your logo here. Maximum 3MB in size.
                                     </p>
                                 </div>
-
-
-                                {{--                                </label>--}}
+                                @isset($user->company->image)
+                                    <div class="position-absolute template-logo-view-wrapper">
+                                        <p class="delete-logo">Delete logo</p>
+                                        <img src="{{ Storage::url($user->company->image->url) }}" class="template-logo template-logo-view" alt="Invoice logo">
+                                    </div>
+                                @else
+                                    <div class="position-absolute template-logo-view-wrapper hide-logo">
+                                        <p class="delete-logo">Delete logo</p>
+                                        <img class="template-logo template-logo-view" alt="Invoice logo">
+                                    </div>
+                                @endisset
                                 <input type="file" id="logotype" name="image" accept="image/x-png,image/gif,image/jpeg">
-                                <div class="position-absolute template-logo-view-wrapper">
-                                    <p class="delete-logo">Delete logo</p>
-                                    <img class="template-logo template-logo-view" alt="Invoice logo">
-                                </div>
                             </label>
                             <p class="text-4">Choose a colour</p>
                             <div class="customize-colorpicker">
@@ -85,6 +88,7 @@
                         <input type="hidden" name="invoice_id" value="{{ $user->company->invoice_id }}" class="invoice-id">
                         <input type="hidden" name="invoice_color" value="{{ $user->company->invoice_color }}"
                                class="invoice-color">
+                        <input type="hidden" name="delete_logo" value="Delete Logo" class="delete-logo-input" disabled>
                         <button type="submit" class="btn-save">save</button>
                     </form>
                 </div>

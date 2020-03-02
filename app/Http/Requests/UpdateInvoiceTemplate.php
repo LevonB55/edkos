@@ -26,7 +26,8 @@ class UpdateInvoiceTemplate extends FormRequest
         return [
             'invoice_id'    => 'required|integer|min:1',
             'invoice_color' => 'required',
-            'image'         => 'sometimes|nullable|image|max:3000'
+            'image'         => 'sometimes|nullable|image|max:3000',
+            'delete_logo'   => 'sometimes|string|min:10|max:12'
         ];
     }
 }

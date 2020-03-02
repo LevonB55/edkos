@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/ds-clients.css') }}">
     <link rel="stylesheet" href="{{ asset('css/ds-invoices.css') }}">
     <link rel="stylesheet" href="{{ asset('css/ds-invoice-template.css') }}">
-{{--    <link rel="stylesheet" href="{{ asset('css/ds-customize-template.css') }}">--}}
+    <link rel="stylesheet" href="{{ asset('css/ds-customize-template.css') }}">
     <link rel="stylesheet" href="{{ asset('css/select2.css') }}">
 @endsection
 

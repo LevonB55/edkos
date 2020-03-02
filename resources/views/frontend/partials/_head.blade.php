@@ -15,6 +15,6 @@
 @yield('extra-styles')
 <style>
     :root {
-        --invoice-color: {{ $invoiceColor }};
+        --invoice-color: {{ $invoiceColor ??  '#8DC63F' }};
     }
 </style>

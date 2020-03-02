@@ -1,5 +1,5 @@
 <div class="wt-template">
-    <div class="wt-header">
+{{--    <div class="wt-header">--}}
 {{--        <a class="wt-content-1-logo">--}}
 {{--            <label for="wt-logo">--}}
 {{--                <h4 class="wt-text-3">Drag Your Logo Or</h4>--}}
@@ -7,11 +7,22 @@
 {{--            </label>--}}
 {{--            <input id="wt-logo" type="file">--}}
 {{--        </a>--}}
-        <span class="wt-content-1-logo">
-            Logo
+{{--        <span class="wt-content-1-logo">--}}
+{{--            Logo--}}
+{{--            <img class="template-logo" alt="Template Logo">--}}
+{{--        </span>--}}
+
+    @isset($templateLogo)
+        <span class="wt-content-1-logo template-logo-wrapper">
+            <img src="{{ Storage::url($templateLogo->url) }}" class="template-logo" alt="Template Logo">
+        </span>
+    @else
+        <span class="wt-content-1-logo template-logo-wrapper hide-logo">
             <img class="template-logo" alt="Template Logo">
         </span>
-    </div>
+    @endif
+
+{{--    </div>--}}
     <div class="wt-body">
             <div class="wt-content-1">
                 <div class="wt-date-issue">

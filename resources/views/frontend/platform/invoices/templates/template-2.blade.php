@@ -6,10 +6,21 @@
 {{--        </label>--}}
 {{--        <input id="bz-logo" type="file">--}}
 {{--    </a>--}}
-    <span class="bz-content-1-logo">
-        Logo
-        <img class="template-logo" alt="Template Logo">
-    </span>
+{{--    <span class="bz-content-1-logo">--}}
+{{--        Logo--}}
+{{--        <img class="template-logo" alt="Template Logo">--}}
+{{--    </span>--}}
+
+    @isset($templateLogo)
+        <span class="bz-content-1-logo template-logo-wrapper">
+            <img src="{{ Storage::url($templateLogo->url) }}" class="template-logo" alt="Template Logo">
+        </span>
+    @else
+        <span class="bz-content-1-logo template-logo-wrapper hide-logo">
+            <img class="template-logo" alt="Template Logo">
+        </span>
+    @endif
+
     <div class="bz-header">
         <div class="bz-header-left">
             <p class="bz-text-7">Bill To</p>
