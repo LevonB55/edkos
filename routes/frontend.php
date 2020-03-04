@@ -16,7 +16,8 @@ Route::get('/pricing', 'PageController@pricing')->name('pricing');
 Route::get('/help', 'PageController@help')->name('help');
 
 //Platform Routes
-Route::prefix('platform')->middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->group(function () {
+    Route::get('dashboard', 'PlatformController@showDashboard')->name('user-dashboard');
     Route::get('user-profile', 'UserController@show')->name('user.show');
     Route::post('user-profile', 'UserController@edit')->name('user.edit');
     Route::get('company-profile', 'CompanyController@show')->name('company.show');
@@ -54,22 +55,22 @@ Route::view('/registration-4', 'frontend.basic.registration-4');
 Route::view('/registration-5', 'frontend.basic.registration-5');
 
 //Platform views
-Route::view('/platform/billing-upgrade-monthly', 'frontend.platform.billing-upgrade-monthly');
-Route::view('/platform/billing-upgrade-monthly-pay', 'frontend.platform.billing-upgrade-monthly-pay');
-Route::view('/platform/billing-upgrade-yearly', 'frontend.platform.billing-upgrade-yearly');
-Route::view('/platform/billing-upgrade-yearly-pay', 'frontend.platform.billing-upgrade-yearly-pay');
-Route::view('/platform/estimates-template', 'frontend.platform.estimates-template');
-Route::view('/platform/estimates-customize', 'frontend.platform.estimates-customize');
-Route::view('/platform/recurring-expenses', 'frontend.platform.recurring-expenses');
-Route::view('/platform/new-expense', 'frontend.platform.new-expense');
-Route::view('/platform/recurring-invoices', 'frontend.platform.recurring-invoices');
-Route::view('/platform/new-recurring-invoices', 'frontend.platform.new-recurring-invoices');
-Route::view('/platform/new-project', 'frontend.platform.new-project');
-Route::view('/platform/proposals', 'frontend.platform.proposals');
-Route::view('/platform/proposals-template', 'frontend.platform.proposals-template');
-Route::view('/platform/tracking-review', 'frontend.platform.tracking-review');
-Route::view('/platform/add-new-business', 'frontend.platform.add-new-business');
-Route::view('/platform/services-2', 'frontend.platform.services-2');
+Route::view('/billing-upgrade-monthly', 'frontend.platform.billing-upgrade-monthly');
+Route::view('/billing-upgrade-monthly-pay', 'frontend.platform.billing-upgrade-monthly-pay');
+Route::view('/billing-upgrade-yearly', 'frontend.platform.billing-upgrade-yearly');
+Route::view('/billing-upgrade-yearly-pay', 'frontend.platform.billing-upgrade-yearly-pay');
+Route::view('/estimates-template', 'frontend.platform.estimates-template');
+Route::view('/estimates-customize', 'frontend.platform.estimates-customize');
+Route::view('/recurring-expenses', 'frontend.platform.recurring-expenses');
+Route::view('/new-expense', 'frontend.platform.new-expense');
+Route::view('/recurring-invoices', 'frontend.platform.recurring-invoices');
+Route::view('/new-recurring-invoices', 'frontend.platform.new-recurring-invoices');
+Route::view('/new-project', 'frontend.platform.new-project');
+Route::view('/proposals', 'frontend.platform.proposals');
+Route::view('/proposals-template', 'frontend.platform.proposals-template');
+Route::view('/tracking-review', 'frontend.platform.tracking-review');
+Route::view('/add-new-business', 'frontend.platform.add-new-business');
+Route::view('/services-2', 'frontend.platform.services-2');
 
 
 //Artisan commands

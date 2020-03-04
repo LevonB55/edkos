@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Validator;
 
 class PlatformController extends FrontendController
 {
+    public function showDashboard()
+    {
+        return view('frontend.platform.dashboard');
+    }
+
     public function showServices()
     {
         return view('frontend.platform.services');

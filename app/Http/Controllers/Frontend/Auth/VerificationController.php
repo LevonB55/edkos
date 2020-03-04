@@ -25,7 +25,7 @@ class VerificationController extends FrontendController
      *
      * @var string
      */
-    protected $redirectTo = '/platform/user-profile';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.

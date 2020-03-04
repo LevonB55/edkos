@@ -10,6 +10,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use DB;
 
 class RegisterController extends FrontendController
 {
@@ -31,7 +32,8 @@ class RegisterController extends FrontendController
      *
      * @var string
      */
-    protected $redirectTo = '/platform/user-profile';
+    protected $redirectTo = '/dashboard';
+    protected $user;
 
     /**
      * Create a new controller instance.
@@ -68,18 +70,22 @@ class RegisterController extends FrontendController
      */
     protected function create(array $data)
     {
-        $user = User::create([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        DB::transaction(function () use($data) {
+            $user = User::create([
+                'first_name' => $data['first_name'],
+                'last_name' => $data['last_name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+            ]);
 
-        Company::create([
-            'user_id' => $user->id
-        ]);
+            Company::create([
+                'user_id' => $user->id
+            ]);
 
-        return $user;
+            $this->user = $user;
+        }, 2);
+
+        return $this->user;
     }
 
     /**

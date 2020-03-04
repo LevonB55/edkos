@@ -32,8 +32,7 @@
     height: 100%;
     /*object-fit: cover;*/
 }
-.template-logo-view-wrapper {
-    /*display: none;*/
+.template-logo-wrapper {
     height: 100%;
     width: 100%;
     left: 0;

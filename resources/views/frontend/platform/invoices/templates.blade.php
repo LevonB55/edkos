@@ -66,12 +66,12 @@
                                     </p>
                                 </div>
                                 @isset($user->company->image)
-                                    <div class="position-absolute template-logo-view-wrapper">
+                                    <div class="position-absolute template-logo-wrapper">
                                         <p class="delete-logo">Delete logo</p>
                                         <img src="{{ Storage::url($user->company->image->url) }}" class="template-logo template-logo-view" alt="Invoice logo">
                                     </div>
                                 @else
-                                    <div class="position-absolute template-logo-view-wrapper hide-logo">
+                                    <div class="position-absolute template-logo-wrapper hide-logo">
                                         <p class="delete-logo">Delete logo</p>
                                         <img class="template-logo template-logo-view" alt="Invoice logo">
                                     </div>

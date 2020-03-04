@@ -22,11 +22,7 @@
 
         <div class="login-right-side">
             <div class="login-right-side-content">
-                @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                @endif
+
                 <div class="login-right-side-man">
                     <img src="{{asset('assets/img/question.png')}}">
                 </div>
@@ -38,12 +34,15 @@
                     </p>
                     <input id="email" type="email" placeholder="Enter Your Email Address" class="login-right-side-email form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                     @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
                     @enderror
+
+                    @include('frontend.partials._messages')
+
                     <div class="d-flex justify-content-between w-100">
-                        <a href="{{ route('login') }}">Cancel</a>
+                        <a class="login-left-side-reset" href="{{ route('login') }}">Cancel</a>
                         <button type="submit" class="login-left-side-reset">
                             Reset
                         </button>
