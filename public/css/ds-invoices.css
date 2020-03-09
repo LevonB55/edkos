@@ -468,3 +468,10 @@ canvas {
     top: 0;
     transform: translateX(-50%);
 }
+
+.gr-template .invoice-notes {
+    resize: none;
+    width: 60%;
+    max-height: 56px;
+    overflow: hidden;
+}

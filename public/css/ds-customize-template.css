@@ -160,11 +160,17 @@ input:disabled {
     flex-direction: column;
     justify-content: space-between;
 }
+
+.create-invoice .gr-template {
+    height: auto;
+}
+
 .gr-header {
     padding: 15px;
     display: flex;
     justify-content: space-between;
     background: var(--invoice-color);
+    align-items: center;
 }
 .gr-text-1 {
     font-size: 18px;
@@ -302,6 +308,10 @@ input:disabled {
 }
 .gr-content-block-1 {
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .gr-content-block-2 {
     width: 50%;
@@ -310,8 +320,12 @@ input:disabled {
     border: 1px solid silver;
 }
 .gr-content-block-2 {
-    text-align: left;
+    /*text-align: left;*/
     width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .gr-text-7 {
     color: var(--invoice-color);
@@ -330,8 +344,9 @@ input:disabled {
     width: 100%;
 }
 .gr-text-9 {
+    padding: 2px 0;
     color: #58595B;
-    font-size: 17px;
+    font-size: 15px;
     line-height: 20px;
     font-family: 'Segoe UI Semibold';
     border: 1px solid #fff;
@@ -1674,4 +1689,8 @@ input:disabled {
 
 .hide-logo {
     display: none;
+}
+
+.gr-add-table-tr {
+    cursor: pointer;
 }

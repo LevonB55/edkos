@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Requests\UpdateInvoiceTemplate;
 use App\Models\Company;
+use App\Models\Country;
+use App\Models\Invoice;
 use App\Models\InvoiceTemplate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -51,7 +53,15 @@ class InvoiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Invoice::create([
+            'number' => Invoice::generateInvoiceNumber(),
+            'user_id' => auth()->id(),
+            'invoice_template_id' => 1,
+            'color' => '#fff',
+            'status' => Invoice::SEND
+        ]);
+
+        return 'Created';
     }
 
     /**
@@ -74,6 +84,16 @@ class InvoiceController extends Controller
     public function edit($id)
     {
         //
+    }
+
+    public function send()
+    {
+        return 'Send';
+    }
+
+    public function draft()
+    {
+        return 'Draft';
     }
 
     /**

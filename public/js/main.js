@@ -277,13 +277,15 @@ $('.password-icon').on('click', function () {
 
 //Invoice Add tr
 $('.gr-add-table-tr').click(function(e) {
-    $(".gr-content-3 tbody").prepend( "    <tr>\n" +
-        "                                <td></td>\n" +
-        "                                <td></td>\n" +
-        "                                <td><input placeholder=\"€0.00\"></td>\n" +
-        "                                <td><input placeholder=\"1\"></td>\n" +
-        "                                <td><input placeholder=\"€0.00\"></td>\n" +
-        "                            </tr>" );
+    $(".gr-content-3 tbody").prepend(`
+        <tr>
+            <td><input type="text" placeholder="Enter an Item Name"></td>
+            <td></td>
+            <td><input type="text" placeholder="€0.00" name="price"></td>
+            <td><input placeholder="1" name="quantity"></td>
+            <td><input placeholder="€0.00" name="amount" disabled></td>
+        </tr>
+    `);
 });
 
 //Invoice slider
@@ -327,3 +329,14 @@ $('.delete-logo').on('click', (e) => {
     $('.template-logo-view').attr('src','');
     main.deleteLogoInput.attr('disabled', false);
 });
+
+//Bootstrap datepicker
+(function () {
+    let dt = new Date();
+    let today = new Date(dt.getFullYear(), dt.getMonth(), dt.getDate());
+    $('.datepicker').datepicker({
+        todayHighlight: true,
+        format: $('.date-format').data('date-format'),
+        startDate: today
+    }).datepicker('setDate', today);
+}());

@@ -3,13 +3,12 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 
-class AppServiceProvider extends ServiceProvider
+class MacroServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Register services.
      *
      * @return void
      */
@@ -19,12 +18,14 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bootstrap any application services.
+     * Bootstrap services.
      *
      * @return void
      */
     public function boot()
     {
-        Schema::defaultStringLength(191);
+        Str::macro('invoiceNumber', function ($number) {
+            return str_pad((string)$number,6,"0", STR_PAD_LEFT);
+        });
     }
 }

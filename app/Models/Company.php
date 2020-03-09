@@ -16,7 +16,7 @@ class Company extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'user_id', 'invoice_id', 'invoice_color', 'business_phone', 'mobile_phone', 'date_format',
+        'name', 'email', 'user_id', 'invoice_id', 'invoice_color', 'business_phone', 'mobile_phone', 'date_format',
         'standard_rate', 'vat', 'street', 'city', 'state', 'country_id', 'zip', 'bank_account'
     ];
 

@@ -46,15 +46,16 @@ $("#update-profile-form").on('submit', function(e) {
     $.ajax({
         method: 'POST',
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        url: '/platform/user-profile',
+        url: '/user-profile',
         data:  formData,
         contentType: false,
         processData: false
     })
     .then((response) => {
-        const {image, email } = response;
+        const { name, image, email } = response;
         userProfile.alertSuccessEl.show();
         setTimeout(function(){ userProfile.alertSuccessEl.slideUp(); }, 3000);
+        $('.user-name').text(name);
         if(image) {
             $('.user-profile-img').attr('src', $('.form-image').attr('src'));
         }

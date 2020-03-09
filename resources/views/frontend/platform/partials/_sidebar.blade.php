@@ -6,7 +6,7 @@
             @else
                 <img class="user-profile-img" src="{{ asset('assets/img/dashboard/user.png') }}">
             @endif
-            <h3 class="user-data-title">{{ $user->full_name }}</h3>
+            <h3 class="user-data-title user-name">{{ $user->full_name }}</h3>
             <div class="open-close-arrow">
                 <img src="{{ asset('assets/img/dashboard/arrow.png') }}">
             </div>

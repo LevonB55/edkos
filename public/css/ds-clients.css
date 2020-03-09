@@ -272,8 +272,8 @@ table td {
     transition: 0.3s ease-in-out;
 }
 table td:hover {
-    cursor: pointer;
-    background: #f9f9f9;
+    /*cursor: pointer;*/
+    /*background: #f9f9f9;*/
 }
 .table tr {
     transition: 0.3s ease-in-out;

@@ -24,12 +24,21 @@
                 @method('PUT')
                 <div class="form-all-content">
                     <div class="dashboard-form-block">
-                        <label>Company Name</label>
+                        <label>Name</label>
                         <input type="text" name="name" value="{{  $user->company->name}}">
                     </div>
                     <div class="error-message text-danger">
                         {{ $errors->first('name') }}
                     </div>
+
+                    <div class="dashboard-form-block">
+                        <label>Email</label>
+                        <input type="email" name="email" value="{{ $user->company->email }}">
+                    </div>
+                    <div class="error-message text-danger">
+                        {{ $errors->first('email') }}
+                    </div>
+
                     <div class="dashboard-form-block">
                         <label>Business Phone</label>
                         <input type="text" name="business_phone" value="{{ $user->company->business_phone }}">

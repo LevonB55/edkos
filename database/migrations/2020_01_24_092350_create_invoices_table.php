@@ -15,10 +15,14 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedTinyInteger('invoice_template_id')->default(1);
+            $table->integer('number');
+            $table->unsignedInteger('user_id');
+            $table->unsignedTinyInteger('invoice_template_id');
             $table->string('color')->nullable();
+            $table->unsignedTinyInteger('status');
             $table->timestamps();
 
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('invoice_template_id')->references('id')->on('invoice_templates');
         });
     }

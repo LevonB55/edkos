@@ -16,6 +16,7 @@ class CreateCompaniesTable extends Migration
         Schema::create('companies', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable();
+            $table->string('email')->nullable();
             $table->unsignedInteger('user_id');
             $table->unsignedTinyInteger('invoice_id');
             $table->string('invoice_color')->nullable();
@@ -23,7 +24,7 @@ class CreateCompaniesTable extends Migration
             $table->string('mobile_phone')->nullable();
             $table->enum('date_format', ['mm/dd/yyyy', 'dd/mm/yyyy', 'yyyy-mm-dd']);
             $table->float('standard_rate',8,2)->nullable();
-            $table->float('vat',8,2)->nullable();
+            $table->string('vat')->nullable();
             $table->string('street')->nullable();
             $table->string('city')->nullable();
             $table->string('state')->nullable();

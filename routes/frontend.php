@@ -21,7 +21,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('user-profile', 'UserController@show')->name('user.show');
     Route::post('user-profile', 'UserController@edit')->name('user.edit');
     Route::get('company-profile', 'CompanyController@show')->name('company.show');
-    Route::put('company-profile', 'CompanyController@edit')->name('company.edit');
+    Route::put('company-profile', 'CompanyController@update')->name('company.edit');
     Route::get('invoices/templates', 'InvoiceController@showTemplates')->name('invoices.templates');
     Route::put('invoices/customize', 'InvoiceController@customizeInvoice')->name('invoices.customize');
     Route::resource('invoices', 'InvoiceController')->except('destroy');

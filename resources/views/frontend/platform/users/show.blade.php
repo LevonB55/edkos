@@ -18,7 +18,7 @@
     <div class="dashboard-content">
         <form class="dashboard-form flex-column" id="update-profile-form" method='POST' action="{{route('user.edit')}}"  enctype="multipart/form-data">
 
-            <div class="alert alert-success">
+            <div class="alert alert-success flash-message">
                 <strong>Success!</strong> Your account has been successfully updated!
             </div>
 

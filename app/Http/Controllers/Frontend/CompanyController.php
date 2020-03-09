@@ -16,7 +16,7 @@ class CompanyController extends FrontendController
         return view('frontend.platform.users.company', compact('user', 'countries'));
     }
 
-    public function edit(UpdateCompany $request)
+    public function update(UpdateCompany $request)
     {
         Company::updateOrCreate(['user_id' => auth()->id()], $request->validated());
 

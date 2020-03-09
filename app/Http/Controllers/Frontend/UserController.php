@@ -58,7 +58,11 @@ class  UserController  extends FrontendController
                 );
             }
 
-            return response()->json(['image' => $url, 'email' => $email]);
+            return response()->json([
+                'name' => $user->full_name,
+                'image' => $url,
+                'email' => $email
+            ]);
         }
 
         return abort(404);
