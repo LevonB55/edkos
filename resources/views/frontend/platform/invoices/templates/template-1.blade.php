@@ -7,8 +7,8 @@
         <div class="gr-header-right">
             <p class="gr-text-1">Invoice</p>
             <p class="gr-text-2">Invoice Number</p>
-{{--            <p class="gr-text-1"><input class="gr-input-2" placeholder="0016"></p>--}}
-            <p class="gr-text-1">{{ Str::invoiceNumber($invoiceNumber) }}</p>
+            <p class="gr-text-1"><input class="gr-input-2" value="{{ Str::invoiceNumber($invoiceNumber) }}" readonly></p>
+{{--            <p class="gr-text-1">{{ Str::invoiceNumber($invoiceNumber) }}</p>--}}
         </div>
     </div>
     <div class="gr-body">
@@ -118,10 +118,10 @@
                 <thead>
                 <tr>
                     <th>Description</th>
-                    <th></th>
                     <th>Price</th>
                     <th>QTY</th>
                     <th>Amount</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -158,14 +158,18 @@
                     <td></td>
                     <td>Subtotal</td>
                     <td></td>
-                    <td>€0.00</td>
+                    <td class="subtotal">€0.00</td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
                     <td>Discount (0%)</td>
                     <td></td>
-                    <td>-€0.00</td>
+                    <td>
+                        <span>-</span>
+{{--                        <span class="discount-number">€0.00</span>--}}
+                        <input type="text" class="discount-number" placeholder="€0.00">
+                    </td>
                 </tr>
                 <tr class="gr-grid-tr">
                     <td>
@@ -186,14 +190,17 @@
                     </td>
                     <td>Tax</td>
                     <td></td>
-                    <td>€0.00</td>
+                    <td>
+                        <span>-</span>
+                        <input type="text" class="tax-number" placeholder="€0.00">
+                    </td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
-                    <td>Total:</td>
+                    <td>Total (€)</td>
                     <td></td>
-                    <td>€0.00 USD</td>
+                    <td class="total">€0.00</td>
                 </tr>
                 </tbody>
             </table>

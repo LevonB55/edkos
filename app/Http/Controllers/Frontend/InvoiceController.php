@@ -53,6 +53,7 @@ class InvoiceController extends Controller
      */
     public function store(Request $request)
     {
+        return $request->all();
         Invoice::create([
             'number' => Invoice::generateInvoiceNumber(),
             'user_id' => auth()->id(),
