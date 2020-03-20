@@ -1,14 +1,14 @@
 <div class="gr-template">
     <div class="gr-header">
         <div class="gr-header-left">
-            <p class="gr-text-1"><input class="gr-input-1" placeholder="Your Company Name" value="{{ $user->company->name }}"></p>
-{{--            <p class="gr-text-2"><input class="gr-input-1" placeholder="Your Company Email" value="{{ $user->company->email }}"></p>--}}
+            <p class="gr-text-1"><input class="gr-input-1" placeholder="Company Name" value="{{ $user->company->name }}"></p>
+            <p class="gr-text-2"><input class="gr-input-1" placeholder="Phone Number" value="{{ $user->company->business_phone }}"></p>
         </div>
         <div class="gr-header-right">
             <p class="gr-text-1">Invoice</p>
             <p class="gr-text-2">Invoice Number</p>
-            <p class="gr-text-1"><input class="gr-input-2" value="{{ Str::invoiceNumber($invoiceNumber) }}" readonly></p>
-{{--            <p class="gr-text-1">{{ Str::invoiceNumber($invoiceNumber) }}</p>--}}
+{{--            <p class="gr-text-1"><input class="gr-input-2" value="{{ Str::invoiceNumber($invoiceNumber) }}" readonly></p>--}}
+            <p class="gr-text-1">{{ Str::invoiceNumber($invoiceNumber) }}</p>
         </div>
     </div>
     <div class="gr-body">
@@ -59,22 +59,20 @@
         <div class="gr-content-2">
             <div class="gr-content-block-1">
                 <p class="gr-text-7">From</p>
-                <input class="gr-text-8" placeholder="Contact name" value="{{ $user->full_name }}">
+                <input class="gr-text-8" placeholder="My name" value="{{ $user->full_name }}">
                 <input class="gr-text-9" placeholder="Email" value="{{ $user->company->email }}">
                 <input class="gr-text-9" placeholder="Street Address" value="{{ $user->company->street }}">
                 <input class="gr-text-9" placeholder="City" value="{{ $user->company->city }}">
                 <input class="gr-text-9" placeholder="State" value="{{ $user->company->state }}">
+                <input class="gr-text-9" placeholder="Zip Code" value="{{ $user->company->zip }}">
                 <select>
                     <option value="">Country</option>
-                    @foreach($countries as $country)
+                @foreach($countries as $country)
                         <option value="{{ $country->id }}" {{ $user->company->country_id == $country->id ? 'selected' : '' }}>
                             {{ $country->name }}
                         </option>
                     @endforeach
                 </select>
-                <input class="gr-text-9" placeholder="Zip" value="{{ $user->company->zip }}">
-                <input class="gr-text-9" placeholder="Business Phone" value="{{ $user->company->business_phone }}">
-                <input class="gr-text-9" placeholder="Mobile Phone" value="{{ $user->company->mobile_phone }}">
             </div>
             <div class="gr-content-block-2 email-clickable">
                 <p class="gr-text-7">For</p>
@@ -83,6 +81,7 @@
                 <input class="gr-text-9" placeholder="Street Address">
                 <input class="gr-text-9" placeholder="City">
                 <input class="gr-text-9" placeholder="State">
+                <input class="gr-text-9" placeholder="Zip Code">
                 <select>
                     <option value="">Country</option>
                     @foreach($countries as $country)
@@ -91,9 +90,7 @@
                         </option>
                     @endforeach
                 </select>
-                <input class="gr-text-9" placeholder="Zip">
-                <input class="gr-text-9" placeholder="Business Phone">
-                <input class="gr-text-9" placeholder="Mobile Phone">
+                <input class="gr-text-9" placeholder="Phone Number">
                 <div class="open-close-user open-clickable">
                     <div class="samll-icons">
                         <img src="{{ asset('assets/img/triangle.png') }}">
@@ -114,7 +111,7 @@
             </div>
         </div>
         <div class="gr-content-3">
-            <table>
+            <table class="invoice-table">
                 <thead>
                 <tr>
                     <th>Description</th>
@@ -151,7 +148,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td class="gr-add-table-tr">+ Add a Line</td>
+                    <td class="gr-add-table-tr add_invoice_item">+ Add a Line</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -163,12 +160,12 @@
                 <tr>
                     <td></td>
                     <td></td>
-                    <td>Discount (0%)</td>
+                    <td>Discount (%)</td>
                     <td></td>
                     <td>
                         <span>-</span>
 {{--                        <span class="discount-number">€0.00</span>--}}
-                        <input type="text" class="discount-number" placeholder="€0.00">
+                        <input type="text" class="discount" placeholder="0.00%">
                     </td>
                 </tr>
                 <tr class="gr-grid-tr">
@@ -188,11 +185,11 @@
 {{--                            <option>Spain</option>--}}
 {{--                        </select>--}}
                     </td>
-                    <td>Tax</td>
+                    <td>Tax (%)</td>
                     <td></td>
                     <td>
                         <span>-</span>
-                        <input type="text" class="tax-number" placeholder="€0.00">
+                        <input type="text" class="tax" placeholder="0.00%">
                     </td>
                 </tr>
                 <tr>

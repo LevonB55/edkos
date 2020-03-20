@@ -260,7 +260,7 @@
 .gr-content-2 {
     display: flex;
     justify-content: flex-start;
-    margin-top: 100px;
+    /*margin-top: 100px;*/
     position: relative;
 }
 .gr-content-2 input:focus {

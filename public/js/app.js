@@ -29512,7 +29512,11 @@ __webpack_require__(/*! owl.carousel */ "./node_modules/owl.carousel/dist/owl.ca
 
 __webpack_require__(/*! bootstrap-datepicker */ "./node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js");
 
+__webpack_require__(/*! ./helper */ "./resources/js/helper.js");
+
 __webpack_require__(/*! ./user-profile */ "./resources/js/user-profile.js");
+
+__webpack_require__(/*! ./invoice */ "./resources/js/invoice.js");
 
 /***/ }),
 
@@ -29534,6 +29538,169 @@ try {
 
   __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
 } catch (e) {}
+
+/***/ }),
+
+/***/ "./resources/js/helper.js":
+/*!********************************!*\
+  !*** ./resources/js/helper.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Helper; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Helper =
+/*#__PURE__*/
+function () {
+  function Helper() {
+    _classCallCheck(this, Helper);
+  }
+
+  _createClass(Helper, null, [{
+    key: "allowFloatNumbers",
+    value: function allowFloatNumbers(e) {
+      var input = $(e.target);
+
+      if (isNaN(input.val())) {
+        input.val('');
+      }
+    }
+  }]);
+
+  return Helper;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/invoice.js":
+/*!*********************************!*\
+  !*** ./resources/js/invoice.js ***!
+  \*********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helper */ "./resources/js/helper.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+var Invoice =
+/*#__PURE__*/
+function () {
+  function Invoice() {
+    _classCallCheck(this, Invoice);
+
+    this.subtotal = 0;
+    this.discount = 0;
+    this.tax = 0;
+    this.subtotalEl = $('.subtotal');
+    this.totalEl = $('.total');
+    this.invoiceItemCounter = 0;
+    this.invoiceItem = {};
+  }
+
+  _createClass(Invoice, [{
+    key: "addInvoiceItem",
+    value: function addInvoiceItem() {
+      this.invoiceItemCounter++;
+      $(".invoice-table tbody").prepend("\n            <tr class=\"invoice_item\" id=\"".concat(this.invoiceItemCounter, "\">\n                <td><input type=\"text\" name=\"invoice_item_").concat(this.invoiceItemCounter, "[name]\" placeholder=\"Enter an Item Name\" required></td>\n                <td><input type=\"text\" name=\"invoice_item_").concat(this.invoiceItemCounter, "[price]\" placeholder=\"\u20AC0.00\" class=\"price\"></td>\n                <td><input type=\"text\" name=\"invoice_item_").concat(this.invoiceItemCounter, "[quantity]\" value=\"1\" class=\"quantity\"></td>\n                <td><input type=\"text\" name=\"invoice_item_").concat(this.invoiceItemCounter, "[amount]\" placeholder=\"\u20AC0.00\" class=\"amount\" readonly></td>\n                <td class=\"text-danger remove_invoice_item remove\" title=\"Delete\" ><i class=\"fas fa-times\"></i></td>\n            </tr>\n        "));
+      this.invoiceItem[this.invoiceItemCounter] = {
+        price: 0,
+        quantity: 1,
+        amount: 0
+      };
+    }
+  }, {
+    key: "calculateDiscount",
+    value: function calculateDiscount() {
+      return this.subtotal * this.discount / 100;
+    }
+  }, {
+    key: "calculateTax",
+    value: function calculateTax() {
+      return (this.subtotal - this.calculateDiscount()) * this.tax / 100;
+    }
+  }, {
+    key: "calculateSubTotal",
+    value: function calculateSubTotal(oldAmount) {
+      var newAmount = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+      this.subtotal = (this.subtotal - oldAmount + newAmount).toFixed(2);
+      this.subtotalEl.text(this.subtotal);
+    }
+  }, {
+    key: "calculateTotal",
+    value: function calculateTotal() {
+      var totalVal = (this.subtotal - this.calculateDiscount() - this.calculateTax()).toFixed(2);
+      this.totalEl.text(totalVal);
+    }
+  }]);
+
+  return Invoice;
+}();
+
+var invoice = new Invoice(); //Adds invoice item
+
+$('.add_invoice_item').click(function () {
+  invoice.addInvoiceItem();
+}); //Deletes invoice item
+
+$(document).on('click', '.remove_invoice_item', function () {
+  var parentEl = $(this).parents('.invoice_item');
+  var selectedEl = parentEl.attr('id');
+  var invoiceItem = invoice.invoiceItem[selectedEl];
+  invoice.calculateSubTotal(invoiceItem.amount);
+  delete invoice.invoiceItem[selectedEl];
+  parentEl.remove();
+  invoice.calculateTotal();
+}); //Price/Quantity Handler
+
+$(document).on('input', '.price, .quantity', function (e) {
+  _helper__WEBPACK_IMPORTED_MODULE_0__["default"].allowFloatNumbers(e);
+  var parentEl = $(this).parents('.invoice_item');
+  var selectedEl = parentEl.attr('id');
+  var invoiceItem = invoice.invoiceItem[selectedEl];
+
+  if ($(e.target).is("input.price")) {
+    invoiceItem.price = +$(this).val();
+  } else {
+    invoiceItem.quantity = +$(this).val();
+  }
+
+  var oldAmount = invoiceItem.amount;
+  invoiceItem.amount = invoiceItem.price * invoiceItem.quantity;
+  var newAmount = invoiceItem.amount;
+  parentEl.find('.amount').val(invoiceItem.amount);
+  invoice.calculateSubTotal(oldAmount, newAmount);
+  invoice.calculateTotal();
+}); //Discount Handler
+
+$('.discount').on('input', function (e) {
+  _helper__WEBPACK_IMPORTED_MODULE_0__["default"].allowFloatNumbers(e);
+  invoice.discount = +$(this).val();
+  invoice.calculateTotal();
+}); //Tax Handler
+
+$('.tax').on('input', function (e) {
+  _helper__WEBPACK_IMPORTED_MODULE_0__["default"].allowFloatNumbers(e);
+  invoice.tax = +$(this).val();
+  invoice.calculateTotal();
+});
 
 /***/ }),
 

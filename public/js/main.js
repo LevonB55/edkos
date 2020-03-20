@@ -1,27 +1,6 @@
 const main = {
     templateLogoWrapper: $('.template-logo-wrapper '),
-    deleteLogoInput: $('.delete-logo-input'),
-    amountClass: '.amount',
-    subtotalEl: $('.subtotal'),
-    totalEl: $('.total'),
-    invoiceItemCounter: 1,
-    subtotal: 0,
-    discount: 0,
-    tax: 0,
-    total: 0,
-    allowFloatNumbers: function(e) {
-        let input = $(e.target);
-        if(!Number(input.val())) {
-            input.val('');
-            return;
-        }
-    },
-    calculateTotal: function () {
-        this.subtotalEl.text(this.subtotal);
-        this.total = this.subtotal - this.discount - this.tax;
-        this.totalEl.text(this.total);
-        return this.total;
-    }
+    deleteLogoInput: $('.delete-logo-input')
 };
 
 $(document).ready(function() {
@@ -294,61 +273,6 @@ $("#select-choose").select2({
 $('.password-icon').on('click', function () {
     $(this).find('i').toggleClass('fa-eye').toggleClass('fa-eye-slash');
     $(this).prev('input').attr('type', (index, attr) => attr === 'password' ? 'text' : 'password');
-});
-
-//Invoice Add tr
-$('.gr-add-table-tr').click(function(e) {
-    main.invoiceItemCounter++;
-    $(".gr-content-3 tbody").prepend(`
-        <tr class="invoice_item">
-            <td><input type="text" name="invoice_item_${main.invoiceItemCounter}[name]" placeholder="Enter an Item Name" required></td>            
-            <td><input type="text" name="invoice_item_${main.invoiceItemCounter}[price]" placeholder="€0.00" class="price"></td>
-            <td><input type="text" name="invoice_item_${main.invoiceItemCounter}[quantity]" value="1" class="quantity"></td>
-            <td><input type="text" name="invoice_item_${main.invoiceItemCounter}[amount]" placeholder="€0.00" class="amount" readonly></td>
-            <td class="text-danger remove-invoice-item remove" title="Delete" ><i class="fas fa-times"></i></td>
-        </tr>
-    `);
-});
-
-$(document).on('input', '.price, .quantity', function(e) {
-    main.allowFloatNumbers(e);
-    let input = $(e.target);
-    let val = input.val();
-    let amount =  unfocusedEl = unfocusedVal = '';
-    let totalVal = 0;
-    let parentEl = $(this).parents('.invoice_item');
-    if($(e.target).is("input.price")) {
-        unfocusedEl = '.quantity';
-    } else {
-        unfocusedEl = '.price';
-    }
-    unfocusedVal = parentEl.find(unfocusedEl).val();
-
-    amount = val * unfocusedVal;
-    parentEl.find(main.amountClass).val(amount.toFixed(2));
-    $(main.amountClass).each(function() {
-        totalVal += +$(this).val();
-        main.subtotalEl.text(totalVal);
-        main.subtotal = totalVal;
-    });
-    main.calculateTotal();
-});
-
-$(document).on('click', '.remove-invoice-item', function () {
-    $(this).parents('.invoice_item').remove();
-});
-
-$('.discount-number').on('input', function(e) {
-    main.allowFloatNumbers(e);
-    let discountNumber = $(e.target).val();
-    main.discount = (main.subtotal * discountNumber) / 100;
-    main.calculateTotal().toFixed(2);
-});
-
-$('.tax-number').on('input', function(e) {
-    main.allowFloatNumbers(e);
-    main.tax = $(e.target).val();
-    main.calculateTotal().toFixed(2);
 });
 
 //Invoice slider
