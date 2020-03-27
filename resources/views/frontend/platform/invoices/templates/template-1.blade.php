@@ -1,14 +1,19 @@
 <div class="gr-template">
     <div class="gr-header">
         <div class="gr-header-left">
-            <p class="gr-text-1"><input class="gr-input-1" placeholder="Company Name" value="{{ $user->company->name }}"></p>
-            <p class="gr-text-2"><input class="gr-input-1" placeholder="Phone Number" value="{{ $user->company->business_phone }}"></p>
+            <p class="gr-text-1">
+                <input type="text" class="gr-input-1" placeholder="Company Name" value="{{ $user->company->name }}" name="company">
+            </p>
+            <p class="gr-text-2">
+                <input type="text" class="gr-input-1" placeholder="Phone Number" value="{{ $user->company->business_phone }}"
+                       name="sender_phone">
+            </p>
         </div>
         <div class="gr-header-right">
             <p class="gr-text-1">Invoice</p>
             <p class="gr-text-2">Invoice Number</p>
 {{--            <p class="gr-text-1"><input class="gr-input-2" value="{{ Str::invoiceNumber($invoiceNumber) }}" readonly></p>--}}
-            <p class="gr-text-1">{{ Str::invoiceNumber($invoiceNumber) }}</p>
+            <p class="gr-text-1">{{ $invoiceNumber }}</p>
         </div>
     </div>
     <div class="gr-body">
@@ -34,7 +39,7 @@
                 <p class="gr-text-5">Date Of Issue</p>
 {{--                <input type="date" placeholder="02/05/2019" class="gr-text-6">--}}
                 <div class="input-group date">
-                    <input type="text" class="form-control datepicker">
+                    <input type="text" class="form-control datepicker" name="issue_date">
                     <div class="input-group-addon">
                         <span class="glyphicon glyphicon-th"></span>
                     </div>
@@ -42,7 +47,7 @@
 
                 <p class="gr-text-5">Due Date</p>
                 <div class="input-group date">
-                    <input type="text" class="form-control datepicker">
+                    <input type="text" class="form-control datepicker" name="due_date">
                     <div class="input-group-addon">
                         <span class="glyphicon glyphicon-th"></span>
                     </div>
@@ -59,38 +64,31 @@
         <div class="gr-content-2">
             <div class="gr-content-block-1">
                 <p class="gr-text-7">From</p>
-                <input class="gr-text-8" placeholder="My name" value="{{ $user->full_name }}">
-                <input class="gr-text-9" placeholder="Email" value="{{ $user->company->email }}">
-                <input class="gr-text-9" placeholder="Street Address" value="{{ $user->company->street }}">
-                <input class="gr-text-9" placeholder="City" value="{{ $user->company->city }}">
-                <input class="gr-text-9" placeholder="State" value="{{ $user->company->state }}">
-                <input class="gr-text-9" placeholder="Zip Code" value="{{ $user->company->zip }}">
-                <select>
-                    <option value="">Country</option>
-                @foreach($countries as $country)
-                        <option value="{{ $country->id }}" {{ $user->company->country_id == $country->id ? 'selected' : '' }}>
-                            {{ $country->name }}
-                        </option>
-                    @endforeach
-                </select>
+                <input type="text" class="gr-text-8" placeholder="My name" value="{{ $user->full_name }}" name="sender[name]">
+                <input type="email" class="gr-text-9" placeholder="Email" value="{{ $user->company->email }}" name="sender[email]">
+                <input type="text" class="gr-text-9" placeholder="Street Address" value="{{ $user->company->street }}" name="sender[street]">
+                <input type="text" class="gr-text-9" placeholder="City" value="{{ $user->company->city }}" name="sender[city]">
+                <input type="text" class="gr-text-9" placeholder="State" value="{{ $user->company->state }}" name="sender[state]">
+                <input type="text" class="gr-text-9" placeholder="Zip Code" value="{{ $user->company->zip }}" name="sender[zip]">
+                @include('frontend.platform.partials._countries', [
+                            'selectedCountry' => $user->company->country_id,
+                            'country' => 'sender[country]'
+                        ])
             </div>
             <div class="gr-content-block-2 email-clickable">
                 <p class="gr-text-7">For</p>
-                <input class="gr-text-8" placeholder="Contact name">
-                <input class="gr-text-9 clickable-input" placeholder="Email" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <input class="gr-text-9" placeholder="Street Address">
-                <input class="gr-text-9" placeholder="City">
-                <input class="gr-text-9" placeholder="State">
-                <input class="gr-text-9" placeholder="Zip Code">
-                <select>
-                    <option value="">Country</option>
-                    @foreach($countries as $country)
-                        <option value="{{ $country->id }}">
-                            {{ $country->name }}
-                        </option>
-                    @endforeach
-                </select>
-                <input class="gr-text-9" placeholder="Phone Number">
+                <input type="text" class="gr-text-8" placeholder="Contact name" name="receiver[name]">
+                <input type="email" class="gr-text-9 clickable-input" placeholder="Email" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false" name="receiver[email]">
+                <input type="text" class="gr-text-9" placeholder="Street Address" name="receiver[street]">
+                <input type="text" class="gr-text-9" placeholder="City" name="receiver[city]">
+                <input type="text" class="gr-text-9" placeholder="State" name="receiver[state]">
+                <input type="text" class="gr-text-9" placeholder="Zip Code" name="receiver[zip]">
+                @include('frontend.platform.partials._countries', [
+                            'selectedCountry' => '',
+                            'country' => "receiver[country]"
+                        ])
+                <input class="gr-text-9" placeholder="Phone Number" name="receiver[phone]">
                 <div class="open-close-user open-clickable">
                     <div class="samll-icons">
                         <img src="{{ asset('assets/img/triangle.png') }}">
@@ -113,92 +111,77 @@
         <div class="gr-content-3">
             <table class="invoice-table">
                 <thead>
-                <tr>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>QTY</th>
-                    <th>Amount</th>
-                    <th></th>
-                </tr>
+                    <tr>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>QTY</th>
+                        <th>Amount</th>
+                        <th></th>
+                    </tr>
                 </thead>
-                <tbody>
-{{--                <tr>--}}
-{{--                    <td><input type="text" placeholder="Enter an Item Name"></td>--}}
-{{--                    <td></td>--}}
-{{--                    <td><input placeholder="€0.00"></td>--}}
-{{--                    <td><input placeholder="1"></td>--}}
-{{--                    <td><input placeholder="€0.00"></td>--}}
-{{--                </tr>--}}
-{{--                <tr>--}}
-{{--                    <td></td>--}}
-{{--                    <td></td>--}}
-{{--                    <td><input placeholder="€0.00"></td>--}}
-{{--                    <td><input placeholder="1"></td>--}}
-{{--                    <td><input placeholder="€0.00"></td>--}}
-{{--                </tr>--}}
-{{--                <tr>--}}
-{{--                    <td></td>--}}
-{{--                    <td></td>--}}
-{{--                    <td><input placeholder="€0.00"></td>--}}
-{{--                    <td><input placeholder="1"></td>--}}
-{{--                    <td><input placeholder="€0.00"></td>--}}
-{{--                </tr>--}}
-                <tr class="gr-add-line">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="gr-add-table-tr add_invoice_item">+ Add a Line</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>Subtotal</td>
-                    <td></td>
-                    <td class="subtotal">€0.00</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>Discount (%)</td>
-                    <td></td>
-                    <td>
-                        <span>-</span>
-{{--                        <span class="discount-number">€0.00</span>--}}
-                        <input type="text" class="discount" placeholder="0.00%">
-                    </td>
-                </tr>
-                <tr class="gr-grid-tr">
-                    <td>
-{{--                        <select class="gr-select-1">--}}
-{{--                            <option selected="" hidden="">Choose country</option>--}}
-{{--                            <option>USA</option>--}}
-{{--                            <option>China</option>--}}
-{{--                            <option>Spain</option>--}}
-{{--                        </select>--}}
-                    </td>
-                    <td>
-{{--                        <select class="gr-select-1">--}}
-{{--                            <option selected="" hidden="">Tax rate</option>--}}
-{{--                            <option>USA</option>--}}
-{{--                            <option>China</option>--}}
-{{--                            <option>Spain</option>--}}
-{{--                        </select>--}}
-                    </td>
-                    <td>Tax (%)</td>
-                    <td></td>
-                    <td>
-                        <span>-</span>
-                        <input type="text" class="tax" placeholder="0.00%">
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>Total (€)</td>
-                    <td></td>
-                    <td class="total">€0.00</td>
-                </tr>
+                <tbody class="invoice-items">
+                </tbody>
+                <tbody class="invoice-summary">
+                    <tr class="gr-add-line">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="gr-add-table-tr add_invoice_item">+ Add a Line</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>Subtotal</td>
+                        <td></td>
+                        <td>
+                            <input type="text" class="subtotal" placeholder="€0.00" name="subtotal" readonly>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>Discount (%)</td>
+                        <td></td>
+                        <td>
+                            <span>-</span>
+                            {{--                        <span class="discount-number">€0.00</span>--}}
+                            <input type="text" class="discount" placeholder="0.00%" name="discount">
+                        </td>
+                    </tr>
+                    <tr class="gr-grid-tr">
+                        <td>
+                            {{--                        <select class="gr-select-1">--}}
+                            {{--                            <option selected="" hidden="">Choose country</option>--}}
+                            {{--                            <option>USA</option>--}}
+                            {{--                            <option>China</option>--}}
+                            {{--                            <option>Spain</option>--}}
+                            {{--                        </select>--}}
+                        </td>
+                        <td>
+                            {{--                        <select class="gr-select-1">--}}
+                            {{--                            <option selected="" hidden="">Tax rate</option>--}}
+                            {{--                            <option>USA</option>--}}
+                            {{--                            <option>China</option>--}}
+                            {{--                            <option>Spain</option>--}}
+                            {{--                        </select>--}}
+                        </td>
+                        <td>Tax (%)</td>
+                        <td></td>
+                        <td>
+                            <span>-</span>
+                            <input type="text" class="tax" placeholder="0.00%" name="tax">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>Total (€)</td>
+                        <td></td>
+                        <td>
+                            <input type="text" class="total" placeholder="€0.00" name="total" readonly>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="gr-line-1"></div>
@@ -209,11 +192,11 @@
             <div class="gr-content-5">
                 <div class="gr-content-5-block">
                     <p class="gr-text-10">VAT Number</p>
-                    <input placeholder="VAT Number" value="{{ $user->company->vat }}">
+                    <input placeholder="VAT Number" value="{{ $user->company->vat }}" name="vat">
                 </div>
                 <div class="gr-content-5-block">
                     <p class="gr-text-10">Bank Account</p>
-                    <input placeholder="Bank Account" value="{{ $user->company->bank_account }}">
+                    <input placeholder="Bank Account" value="{{ $user->company->bank_account }}" name="bank_account">
                 </div>
             </div>
         </div>

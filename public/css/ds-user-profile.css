@@ -199,7 +199,7 @@ main {
     padding: 14px;
     color: #58595B;
 }
-.successful-update {
+.notification {
     width: 43%;
     margin-left: 414px;
     margin-top: 20px;
@@ -597,7 +597,7 @@ button.close-bank {
     }
 }
 @media (max-width: 992px) {
-    .successful-update {
+    .notification {
         width: 89%;
         margin: 0 auto;
         margin-top: 20px;
@@ -860,4 +860,9 @@ button.close-bank {
     font-size: 60%;
     color: red !important;
     font-weight: bolder;
+}
+
+.invoices .notification {
+    width: 76%;
+    margin: 20px 0 0 336px;
 }

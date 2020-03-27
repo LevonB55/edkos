@@ -566,7 +566,7 @@ input[class="blue"]:checked + span::before
 .search-table-input {
     font-size: 14px;
     font-family: 'Segoe UI Regular';
-    color: #D1D1D1;
+    color: #6f6b6b;
     border: 0;
     padding-left: 15px;
     width: 90%;

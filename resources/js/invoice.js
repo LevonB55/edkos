@@ -13,13 +13,15 @@ class Invoice {
 
     addInvoiceItem () {
         this.invoiceItemCounter++;
-        $(".invoice-table tbody").prepend(`
+        $(".invoice-items").append(`
             <tr class="invoice_item" id="${this.invoiceItemCounter}">
-                <td><input type="text" name="invoice_item_${this.invoiceItemCounter}[name]" placeholder="Enter an Item Name" required></td>
-                <td><input type="text" name="invoice_item_${this.invoiceItemCounter}[price]" placeholder="€0.00" class="price"></td>
-                <td><input type="text" name="invoice_item_${this.invoiceItemCounter}[quantity]" value="1" class="quantity"></td>
-                <td><input type="text" name="invoice_item_${this.invoiceItemCounter}[amount]" placeholder="€0.00" class="amount" readonly></td>
-                <td class="text-danger remove_invoice_item remove" title="Delete" ><i class="fas fa-times"></i></td>
+                <td><input type="text" name="items[${this.invoiceItemCounter}][description]]" placeholder="Enter an Item Name" required></td>
+                <td><input type="text" name="items[${this.invoiceItemCounter}][price]]" placeholder="€0.00" class="price"></td>
+                <td><input type="text" name="items[${this.invoiceItemCounter}][quantity]]" value="1" class="quantity"></td>
+                <td><input type="text" name="items[${this.invoiceItemCounter}][amount]]" placeholder="€0.00" class="amount" readonly></td>
+                <td>
+                    <span class="text-danger remove_invoice_item" title="Delete"><i class="fas fa-times"></i></span>
+                </td>
             </tr>
         `);
 
@@ -40,12 +42,12 @@ class Invoice {
 
     calculateSubTotal (oldAmount, newAmount = 0) {
         this.subtotal = (this.subtotal - oldAmount + newAmount).toFixed(2);
-        this.subtotalEl.text(this.subtotal);
+        this.subtotalEl.val(this.subtotal);
     }
 
     calculateTotal () {
         let totalVal = (this.subtotal - this.calculateDiscount() - this.calculateTax()).toFixed(2);
-        this.totalEl.text(totalVal);
+        this.totalEl.val(totalVal);
     }
 }
 

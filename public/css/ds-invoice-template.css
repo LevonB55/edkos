@@ -1750,3 +1750,10 @@
     }
 }
 
+.remove_invoice_item {
+    cursor: pointer;
+}
+
+.invoice-summary input {
+    width: 40px;
+}

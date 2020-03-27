@@ -2,15 +2,21 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Http\Requests\StoreInvoice;
 use App\Http\Requests\UpdateInvoiceTemplate;
+use App\Mail\InvoiceSent;
 use App\Models\Company;
 use App\Models\Country;
 use App\Models\Invoice;
+use App\Models\InvoiceItem;
 use App\Models\InvoiceTemplate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Image;
+use Illuminate\Support\Facades\Validator;
+use Session;
 
 class InvoiceController extends Controller
 {
@@ -21,7 +27,9 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        return view('frontend.platform.invoices.index');
+        $invoices = Invoice::where('user_id', auth()->id())->get();
+
+        return view('frontend.platform.invoices.index', compact('invoices'));
     }
 
     /**
@@ -51,18 +59,128 @@ class InvoiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreInvoice $request)
     {
-        return $request->all();
-        Invoice::create([
-            'number' => Invoice::generateInvoiceNumber(),
-            'user_id' => auth()->id(),
-            'invoice_template_id' => 1,
-            'color' => '#fff',
-            'status' => Invoice::SEND
+        $user = auth()->user();
+        $invoice = Invoice::create([
+            'number'                => Invoice::generateInvoiceNumber(),
+            'user_id'               => $user->id,
+            'company'               => $request->input('company'),
+            'sender_phone'          => $request->input('sender_phone'),
+            'issue_date'            => $request->input('issue_date'),
+            'due_date'              => $request->input('due_date'),
+            'sender_name'           => $request->input('sender')['name'],
+            'sender_email'          => $request->input('sender')['email'],
+            'sender_street'         => $request->input('sender')['street'],
+            'sender_city'           => $request->input('sender')['city'],
+            'sender_state'          => $request->input('sender')['state'],
+            'sender_zip'            => $request->input('sender')['zip'],
+            'sender_country'        => $request->input('sender')['country'],
+            'receiver_name'         => $request->input('receiver')['name'],
+            'receiver_email'        => $request->input('receiver')['email'],
+            'receiver_street'       => $request->input('receiver')['street'],
+            'receiver_city'         => $request->input('receiver')['city'],
+            'receiver_state'        => $request->input('receiver')['state'],
+            'receiver_zip'          => $request->input('receiver')['zip'],
+            'receiver_country'      => $request->input('receiver')['country'],
+            'receiver_phone'        => $request->input('receiver')['phone'],
+            'subtotal'              => $request->input('subtotal'),
+            'discount'              => $request->input('discount'),
+            'tax'                   => $request->input('tax'),
+            'total'                 => $request->input('total'),
+            'notes'                 => $request->input('notes'),
+            'vat'                   => $request->input('vat'),
+            'bank_account'          => $request->input('bank_account'),
+            'status'                => Invoice::SENT,
+            'invoice_template_id'   => $user->company->invoice_id,
+            'color'                 => $user->company->invoice_color,
+            'slug'                  => \Str::random(60),
         ]);
 
-        return 'Created';
+        if($invoiceItems = $request->input('items')) {
+            foreach ($invoiceItems as $item) {
+                $invoice->invoice_items()->create([
+                    'description' => $item['description'],
+                    'price' => $item['price'],
+                    'quantity' => $item['quantity'],
+                    'amount' => $item['amount'],
+                ]);
+            }
+        }
+
+        if($image = $user->company->image) {
+            $invoice->image()->create([
+                'imageable_id' => $invoice->id,
+                'url' => $image->url
+            ]);
+        }
+
+        Mail::send(new InvoiceSent($invoice));
+
+        Session::flash('success', "Invoice #{$invoice->number} has been successfully sent!");
+
+        return redirect()->route('invoices.index');
+    }
+
+    public function storeAsDraft(StoreInvoice $request)
+    {
+        $user = auth()->user();
+        $invoice = Invoice::create([
+            'number'                => Invoice::generateInvoiceNumber(),
+            'user_id'               => $user->id,
+            'company'               => $request->input('company'),
+            'sender_phone'          => $request->input('sender_phone'),
+            'issue_date'            => $request->input('issue_date'),
+            'due_date'              => $request->input('due_date'),
+            'sender_name'           => $request->input('sender')['name'],
+            'sender_email'          => $request->input('sender')['email'],
+            'sender_street'         => $request->input('sender')['street'],
+            'sender_city'           => $request->input('sender')['city'],
+            'sender_state'          => $request->input('sender')['state'],
+            'sender_zip'            => $request->input('sender')['zip'],
+            'sender_country'        => $request->input('sender')['country'],
+            'receiver_name'         => $request->input('receiver')['name'],
+            'receiver_email'        => $request->input('receiver')['email'],
+            'receiver_street'       => $request->input('receiver')['street'],
+            'receiver_city'         => $request->input('receiver')['city'],
+            'receiver_state'        => $request->input('receiver')['state'],
+            'receiver_zip'          => $request->input('receiver')['zip'],
+            'receiver_country'      => $request->input('receiver')['country'],
+            'receiver_phone'        => $request->input('receiver')['phone'],
+            'subtotal'              => $request->input('subtotal'),
+            'discount'              => $request->input('discount'),
+            'tax'                   => $request->input('tax'),
+            'total'                 => $request->input('total'),
+            'notes'                 => $request->input('notes'),
+            'vat'                   => $request->input('vat'),
+            'bank_account'          => $request->input('bank_account'),
+            'status'                => Invoice::DRAFT,
+            'invoice_template_id'   => $user->company->invoice_id,
+            'color'                 => $user->company->invoice_color,
+            'slug'                  => \Str::random(60),
+        ]);
+
+        if($invoiceItems = $request->input('items')) {
+            foreach ($invoiceItems as $item) {
+                $invoice->invoice_items()->create([
+                    'description' => $item['description'],
+                    'price' => $item['price'],
+                    'quantity' => $item['quantity'],
+                    'amount' => $item['amount'],
+                ]);
+            }
+        }
+
+        if($image = $user->company->image) {
+            $invoice->image()->create([
+                'imageable_id' => $invoice->id,
+                'url' => $image->url
+            ]);
+        }
+
+        Session::flash('warning', "Invoice #{$invoice->number} has been saved!");
+
+        return redirect()->route('invoices.index');
     }
 
     /**
@@ -71,9 +189,31 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug, $email)
     {
-        //
+        $invoice = Invoice::where([
+            'slug' => $slug,
+            'receiver_email' => $email
+        ])->with('invoice_items')->with('image')->first();
+
+        if($invoice->status === Invoice::SENT) {
+            $invoice->update([
+                'status' => Invoice::VIEWED
+            ]);
+        }
+
+        $countries = Country::find([$invoice->sender_country, $invoice->receiver_country]);
+
+        $selectedCountries = [];
+        foreach ($countries as $country) {
+            $selectedCountries[$country->id] = $country->name;
+        }
+
+        if($invoice){
+            return view('frontend.platform.invoices.ready-templates.template-1', compact('invoice', 'selectedCountries'));
+        } else {
+            return  back();
+        }
     }
 
     /**
@@ -85,16 +225,6 @@ class InvoiceController extends Controller
     public function edit($id)
     {
         //
-    }
-
-    public function send()
-    {
-        return 'Send';
-    }
-
-    public function draft()
-    {
-        return 'Draft';
     }
 
     /**
@@ -127,7 +257,7 @@ class InvoiceController extends Controller
             $company->image()->delete();
         }
 
-        return back()->with('invoice-customize', 'Your invoice has been customized!');
+        return back()->with('success', 'Your invoice has been customized!');
     }
 
     public function deleteLogo($company)

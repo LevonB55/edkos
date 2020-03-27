@@ -24,11 +24,13 @@
         </div>
     </div>
 
+    @include('frontend.partials._messages')
+
     <div class="dashboard-clients">
         <div class="block-recently">
             <div class="invoices-first-item">
                 <div class="invoice-item">
-                    <a class="image-upload" href="ds-invoice-template.html">
+                    <a href="{{ route('invoices.create') }}" class="image-upload">
                         <label for="file-input" class="d-flex justify-content-center">
                             <img src="{{ asset('assets/img/add.svg') }}">
                             <h4 class="add-new-client">Add New Invoice</h4>
@@ -74,217 +76,248 @@
                 </div>
             </a>
         </div>
-        <div class="table-clients">
-            <div class="table-inner-search">
-                <div class="search-table">
-                    <button class="search-table-button"><img src="{{ asset('assets/img/search.png') }}"></button>
-                    <input class="search-table-input" placeholder="Search by client name, company name, project or invoice number">
+        @if($invoices->count())
+            <div class="table-clients">
+                <div class="table-inner-search">
+                    <div class="search-table">
+                        <button class="search-table-button"><img src="{{ asset('assets/img/search.png') }}"></button>
+                        <input class="search-table-input" placeholder="Search by client name, company name, project or invoice number">
+                    </div>
                 </div>
-            </div>
-            <table class="table">
-                <thead>
-                <tr class="table-title">
-                    <th>
-                        <label class="container">
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                    </th>
-                    <th>Status</th>
-                    <th>
-                        <div class="dropdown">
-                            <a class="dropdown-toggle" id="dropdown-clients" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                 Invoice
-                                <img src="{{ asset('assets/img/dashboard/select.png') }}">
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown-clients">
-                                <button class="dropdown-item" type="button">Archived Invoices</button>
-                                <div class="inside-line"></div>
-                                <button class="dropdown-item" type="button">Deleted Invoices</button>
+                <table class="table">
+                    <thead>
+                    <tr class="table-title">
+                        <th>
+    {{--                        <label class="container">--}}
+    {{--                            <input type="checkbox">--}}
+    {{--                            <span class="checkmark"></span>--}}
+    {{--                        </label>--}}
+                        </th>
+                        <th>Status</th>
+                        <th>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" id="dropdown-clients" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                     Invoice
+                                    <img src="{{ asset('assets/img/dashboard/select.png') }}">
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdown-clients">
+                                    <button class="dropdown-item" type="button">Archived Invoices</button>
+                                    <div class="inside-line"></div>
+                                    <button class="dropdown-item" type="button">Deleted Invoices</button>
+                                </div>
                             </div>
-                        </div>
-                    </th>
-                    <th>Active Clients</th>
-                    <th>Company</th>
-                    <th>Description</th>
-                    <th>Issued Date</th>
-                    <th>Due Date</th>
-                    <th class="part">Amount</th>
-                    <th class="del-top"></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>
-                        <label class="container">
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                    </td>
-                    <td><button class="btn-paid btn-tables">Paid</button></td>
-                    <td>0016</td>
-                    <td>David Mong</td>
-                    <td>Company Name</td>
-                    <td>A Description</td>
-                    <td>05/10/2019</td>
-                    <td>14/12/2019</td>
-                    <td class="part">€0.00</td>
-                    <td class="last">
-                        <img src="{{ asset('assets/img/dashboard/edit.png') }}">
-                        <img src="{{ asset('assets/img/dashboard/archive.png') }}">
-                        <img src="{{ asset('assets/img/dashboard/delete.png') }}">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class="container">
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                    </td>
-                    <td><button class="btn-overdue btn-tables">Overdue</button></td>
-                    <td>0016</td>
-                    <td>Sasha Wain</td>
-                    <td>Company Name</td>
-                    <td>A Description</td>
-                    <td>05/10/2019</td>
-                    <td>14/12/2019</td>
-                    <td class="part">€0.00</td>
-                    <td class="last">
-                        <img src="{{ asset('assets/img/dashboard/edit.png') }}">
-                        <img src="{{ asset('assets/img/dashboard/archive.png') }}">
-                        <img src="{{ asset('assets/img/dashboard/delete.png') }}">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class="container">
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                    </td>
-                    <td><button class="btn-viewed btn-tables">Viewed</button></td>
-                    <td>0016</td>
-                    <td>Tom Smith</td>
-                    <td>Company Name</td>
-                    <td>A Description</td>
-                    <td>05/10/2019</td>
-                    <td>14/12/2019</td>
-                    <td class="part">€0.00</td>
-                    <td class="last">
-                        <img src="{{ asset('assets/img/dashboard/edit.png') }}">
-                        <img src="{{ asset('assets/img/dashboard/archive.png') }}">
-                        <img src="{{ asset('assets/img/dashboard/delete.png') }}">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class="container">
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                    </td>
-                    <td><button class="btn-unpaid btn-tables">Unpaid</button></td>
-                    <td>0016</td>
-                    <td>David Mong</td>
-                    <td>Company Name</td>
-                    <td>A Description</td>
-                    <td>05/10/2019</td>
-                    <td>14/12/2019</td>
-                    <td class="part">€0.00</td>
-                    <td class="last">
-                        <img src="{{ asset('assets/img/dashboard/edit.png') }}">
-                        <img src="{{ asset('assets/img/dashboard/archive.png') }}">
-                        <img src="{{ asset('assets/img/dashboard/delete.png') }}">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class="container">
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                    </td>
-                    <td><button class="btn-partial btn-tables">Partial</button></td>
-                    <td>0016</td>
-                    <td>Sasha Wain</td>
-                    <td>Company Name</td>
-                    <td>A Description</td>
-                    <td>05/10/2019</td>
-                    <td>14/12/2019</td>
-                    <td class="part">€0.00</td>
-                    <td class="last">
-                        <img src="{{ asset('assets/img/dashboard/edit.png') }}">
-                        <img src="{{ asset('assets/img/dashboard/archive.png') }}">
-                        <img src="{{ asset('assets/img/dashboard/delete.png') }}">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class="container">
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                    </td>
-                    <td><button class="btn-draft btn-tables">Draft</button></td>
-                    <td>0016</td>
-                    <td>Tom Smith</td>
-                    <td>Company Name</td>
-                    <td>A Description</td>
-                    <td>05/10/2019</td>
-                    <td>14/12/2019</td>
-                    <td class="part">€0.00</td>
-                    <td class="last">
-                        <img src="{{ asset('assets/img/dashboard/edit.png') }}">
-                        <img src="{{ asset('assets/img/dashboard/archive.png') }}">
-                        <img src="{{ asset('assets/img/dashboard/delete.png') }}">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class="container">
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                    </td>
-                    <td><button class="btn-paid btn-tables">Paid</button></td>
-                    <td>0016</td>
-                    <td>Tom Smith</td>
-                    <td>Company Name</td>
-                    <td>A Description</td>
-                    <td>05/10/2019</td>
-                    <td>14/12/2019</td>
-                    <td class="part">€0.00</td>
-                    <td class="last">
-                        <img src="{{ asset('assets/img/dashboard/edit.png') }}">
-                        <img src="{{ asset('assets/img/dashboard/archive.png') }}">
-                        <img src="{{ asset('assets/img/dashboard/delete.png') }}">
-                    </td>
-                </tr>
-                <tr class="last-block">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="hide-sometime"></td>
-                    <td></td>
-                    <td>Total: €0.00 USD</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="pagination">
-            <a href="#"><i class="fas fa-chevron-left"></i></a>
-            <a href="#">1</a>
-            <a class="active" href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
-            <a href="#"><i class="fas fa-chevron-right"></i></a>
-        </div>
+                        </th>
+                        <th>Active Clients</th>
+{{--                        <th>Company</th>--}}
+{{--                        <th>Description</th>--}}
+                        <th>Issued Date</th>
+                        <th>Due Date</th>
+                        <th class="part">Amount</th>
+                        <th class="del-top"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($invoices as $invoice)
+                            <tr>
+                                <td>
+    {{--                                <label class="container">--}}
+    {{--                                    <input type="checkbox">--}}
+    {{--                                    <span class="checkmark"></span>--}}
+    {{--                                </label>--}}
+                                </td>
+                                <td>
+                                    <button class="btn-{{ $status =  \App\Models\Invoice::statuses()[$invoice->status] }} btn-tables">
+                                        {{ ucfirst($status)  }}
+                                    </button>
+                                </td>
+                                <td>{{ $invoice->number }}</td>
+                                <td>{{ $invoice->receiver_name }}</td>
+{{--                                <td>Company Name</td>--}}
+{{--                                <td>A Description</td>--}}
+                                <td>{{ $invoice->issue_date }}</td>
+                                <td>{{ $invoice->due_date }}</td>
+                                <td class="part">€{{ $invoice->total }}</td>
+                                <td class="last">
+                                    <img src="{{ asset('assets/img/dashboard/edit.png') }}">
+                                    <img src="{{ asset('assets/img/dashboard/archive.png') }}">
+                                    <img src="{{ asset('assets/img/dashboard/delete.png') }}">
+                                </td>
+                            </tr>
+                        @endforeach
+    {{--                <tr>--}}
+    {{--                    <td>--}}
+    {{--                        <label class="container">--}}
+    {{--                            <input type="checkbox">--}}
+    {{--                            <span class="checkmark"></span>--}}
+    {{--                        </label>--}}
+    {{--                    </td>--}}
+    {{--                    <td><button class="btn-paid btn-tables">Paid</button></td>--}}
+    {{--                    <td>0016</td>--}}
+    {{--                    <td>David Mong</td>--}}
+    {{--                    <td>Company Name</td>--}}
+    {{--                    <td>A Description</td>--}}
+    {{--                    <td>05/10/2019</td>--}}
+    {{--                    <td>14/12/2019</td>--}}
+    {{--                    <td class="part">€0.00</td>--}}
+    {{--                    <td class="last">--}}
+    {{--                        <img src="{{ asset('assets/img/dashboard/edit.png') }}">--}}
+    {{--                        <img src="{{ asset('assets/img/dashboard/archive.png') }}">--}}
+    {{--                        <img src="{{ asset('assets/img/dashboard/delete.png') }}">--}}
+    {{--                    </td>--}}
+    {{--                </tr>--}}
+    {{--                <tr>--}}
+    {{--                    <td>--}}
+    {{--                        <label class="container">--}}
+    {{--                            <input type="checkbox">--}}
+    {{--                            <span class="checkmark"></span>--}}
+    {{--                        </label>--}}
+    {{--                    </td>--}}
+    {{--                    <td><button class="btn-overdue btn-tables">Overdue</button></td>--}}
+    {{--                    <td>0016</td>--}}
+    {{--                    <td>Sasha Wain</td>--}}
+    {{--                    <td>Company Name</td>--}}
+    {{--                    <td>A Description</td>--}}
+    {{--                    <td>05/10/2019</td>--}}
+    {{--                    <td>14/12/2019</td>--}}
+    {{--                    <td class="part">€0.00</td>--}}
+    {{--                    <td class="last">--}}
+    {{--                        <img src="{{ asset('assets/img/dashboard/edit.png') }}">--}}
+    {{--                        <img src="{{ asset('assets/img/dashboard/archive.png') }}">--}}
+    {{--                        <img src="{{ asset('assets/img/dashboard/delete.png') }}">--}}
+    {{--                    </td>--}}
+    {{--                </tr>--}}
+    {{--                <tr>--}}
+    {{--                    <td>--}}
+    {{--                        <label class="container">--}}
+    {{--                            <input type="checkbox">--}}
+    {{--                            <span class="checkmark"></span>--}}
+    {{--                        </label>--}}
+    {{--                    </td>--}}
+    {{--                    <td><button class="btn-viewed btn-tables">Viewed</button></td>--}}
+    {{--                    <td>0016</td>--}}
+    {{--                    <td>Tom Smith</td>--}}
+    {{--                    <td>Company Name</td>--}}
+    {{--                    <td>A Description</td>--}}
+    {{--                    <td>05/10/2019</td>--}}
+    {{--                    <td>14/12/2019</td>--}}
+    {{--                    <td class="part">€0.00</td>--}}
+    {{--                    <td class="last">--}}
+    {{--                        <img src="{{ asset('assets/img/dashboard/edit.png') }}">--}}
+    {{--                        <img src="{{ asset('assets/img/dashboard/archive.png') }}">--}}
+    {{--                        <img src="{{ asset('assets/img/dashboard/delete.png') }}">--}}
+    {{--                    </td>--}}
+    {{--                </tr>--}}
+    {{--                <tr>--}}
+    {{--                    <td>--}}
+    {{--                        <label class="container">--}}
+    {{--                            <input type="checkbox">--}}
+    {{--                            <span class="checkmark"></span>--}}
+    {{--                        </label>--}}
+    {{--                    </td>--}}
+    {{--                    <td><button class="btn-unpaid btn-tables">Unpaid</button></td>--}}
+    {{--                    <td>0016</td>--}}
+    {{--                    <td>David Mong</td>--}}
+    {{--                    <td>Company Name</td>--}}
+    {{--                    <td>A Description</td>--}}
+    {{--                    <td>05/10/2019</td>--}}
+    {{--                    <td>14/12/2019</td>--}}
+    {{--                    <td class="part">€0.00</td>--}}
+    {{--                    <td class="last">--}}
+    {{--                        <img src="{{ asset('assets/img/dashboard/edit.png') }}">--}}
+    {{--                        <img src="{{ asset('assets/img/dashboard/archive.png') }}">--}}
+    {{--                        <img src="{{ asset('assets/img/dashboard/delete.png') }}">--}}
+    {{--                    </td>--}}
+    {{--                </tr>--}}
+    {{--                <tr>--}}
+    {{--                    <td>--}}
+    {{--                        <label class="container">--}}
+    {{--                            <input type="checkbox">--}}
+    {{--                            <span class="checkmark"></span>--}}
+    {{--                        </label>--}}
+    {{--                    </td>--}}
+    {{--                    <td><button class="btn-partial btn-tables">Partial</button></td>--}}
+    {{--                    <td>0016</td>--}}
+    {{--                    <td>Sasha Wain</td>--}}
+    {{--                    <td>Company Name</td>--}}
+    {{--                    <td>A Description</td>--}}
+    {{--                    <td>05/10/2019</td>--}}
+    {{--                    <td>14/12/2019</td>--}}
+    {{--                    <td class="part">€0.00</td>--}}
+    {{--                    <td class="last">--}}
+    {{--                        <img src="{{ asset('assets/img/dashboard/edit.png') }}">--}}
+    {{--                        <img src="{{ asset('assets/img/dashboard/archive.png') }}">--}}
+    {{--                        <img src="{{ asset('assets/img/dashboard/delete.png') }}">--}}
+    {{--                    </td>--}}
+    {{--                </tr>--}}
+    {{--                <tr>--}}
+    {{--                    <td>--}}
+    {{--                        <label class="container">--}}
+    {{--                            <input type="checkbox">--}}
+    {{--                            <span class="checkmark"></span>--}}
+    {{--                        </label>--}}
+    {{--                    </td>--}}
+    {{--                    <td><button class="btn-draft btn-tables">Draft</button></td>--}}
+    {{--                    <td>0016</td>--}}
+    {{--                    <td>Tom Smith</td>--}}
+    {{--                    <td>Company Name</td>--}}
+    {{--                    <td>A Description</td>--}}
+    {{--                    <td>05/10/2019</td>--}}
+    {{--                    <td>14/12/2019</td>--}}
+    {{--                    <td class="part">€0.00</td>--}}
+    {{--                    <td class="last">--}}
+    {{--                        <img src="{{ asset('assets/img/dashboard/edit.png') }}">--}}
+    {{--                        <img src="{{ asset('assets/img/dashboard/archive.png') }}">--}}
+    {{--                        <img src="{{ asset('assets/img/dashboard/delete.png') }}">--}}
+    {{--                    </td>--}}
+    {{--                </tr>--}}
+    {{--                <tr>--}}
+    {{--                    <td>--}}
+    {{--                        <label class="container">--}}
+    {{--                            <input type="checkbox">--}}
+    {{--                            <span class="checkmark"></span>--}}
+    {{--                        </label>--}}
+    {{--                    </td>--}}
+    {{--                    <td><button class="btn-paid btn-tables">Paid</button></td>--}}
+    {{--                    <td>0016</td>--}}
+    {{--                    <td>Tom Smith</td>--}}
+    {{--                    <td>Company Name</td>--}}
+    {{--                    <td>A Description</td>--}}
+    {{--                    <td>05/10/2019</td>--}}
+    {{--                    <td>14/12/2019</td>--}}
+    {{--                    <td class="part">€0.00</td>--}}
+    {{--                    <td class="last">--}}
+    {{--                        <img src="{{ asset('assets/img/dashboard/edit.png') }}">--}}
+    {{--                        <img src="{{ asset('assets/img/dashboard/archive.png') }}">--}}
+    {{--                        <img src="{{ asset('assets/img/dashboard/delete.png') }}">--}}
+    {{--                    </td>--}}
+    {{--                </tr>--}}
+                    <tr class="last-block">
+                        <td></td>
+{{--                        <td></td>--}}
+{{--                        <td></td>--}}
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="hide-sometime"></td>
+                        <td></td>
+                        <td>Total: €{{ $invoices->sum('total') }} EUR</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination">
+                <a href="#"><i class="fas fa-chevron-left"></i></a>
+                <a class="active" href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#"><i class="fas fa-chevron-right"></i></a>
+            </div>
+        @else
+            <div class="no-invoice">No Invoice yet!</div>
+        @endif
     </div>
 </main>
 @endsection

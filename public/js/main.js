@@ -327,3 +327,11 @@ $('.delete-logo').on('click', (e) => {
         startDate: today
     }).datepicker('setDate', today);
 }());
+
+//Prevent submitting form on pressing enter key
+$('.prevent-enter').keydown(function (e) {
+    if (e.keyCode == 13) {
+        e.preventDefault();
+        return false;
+    }
+});

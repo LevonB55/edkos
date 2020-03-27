@@ -7,11 +7,15 @@
 </head>
 <body>
 
-    @include('frontend.platform.partials._sidebar')
+    @section('sidebar')
+        @include('frontend.platform.partials._sidebar')
+    @show
 
     @yield('content')
 
-    @include('frontend.partials._scripts')
+    @section('scripts')
+        @include('frontend.partials._scripts')
+    @show
 
 </body>
 </html>

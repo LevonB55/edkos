@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    <main>
+    <main class="company-profile">
         <div class="dashboard-header">
             <h1 class="dashboard-header-title">Company Profile</h1>
             <div class="dashboard-form-mobile">
@@ -123,14 +123,10 @@
                     </div>
                     <div class="dashboard-form-block address-select position-relative">
                         <label></label>
-                        <select name="country_id">
-                            <option value="">Country</option>
-                            @foreach($countries as $country)
-                                <option value="{{ $country->id }}" {{ $user->company->country_id == $country->id ? 'selected' : '' }}>
-                                    {{ $country->name }}
-                                </option>
-                            @endforeach
-                        </select>
+                        @include('frontend.platform.partials._countries', [
+                                    'selectedCountry' => $user->company->country_id,
+                                    'country' => 'country_id'
+                                ])
                         <img src="{{ asset('assets/img/dashboard/select.png') }}">
                     </div>
                     <div class="error-message text-danger">

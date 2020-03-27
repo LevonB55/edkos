@@ -29619,7 +29619,7 @@ function () {
     key: "addInvoiceItem",
     value: function addInvoiceItem() {
       this.invoiceItemCounter++;
-      $(".invoice-table tbody").prepend("\n            <tr class=\"invoice_item\" id=\"".concat(this.invoiceItemCounter, "\">\n                <td><input type=\"text\" name=\"invoice_item_").concat(this.invoiceItemCounter, "[name]\" placeholder=\"Enter an Item Name\" required></td>\n                <td><input type=\"text\" name=\"invoice_item_").concat(this.invoiceItemCounter, "[price]\" placeholder=\"\u20AC0.00\" class=\"price\"></td>\n                <td><input type=\"text\" name=\"invoice_item_").concat(this.invoiceItemCounter, "[quantity]\" value=\"1\" class=\"quantity\"></td>\n                <td><input type=\"text\" name=\"invoice_item_").concat(this.invoiceItemCounter, "[amount]\" placeholder=\"\u20AC0.00\" class=\"amount\" readonly></td>\n                <td class=\"text-danger remove_invoice_item remove\" title=\"Delete\" ><i class=\"fas fa-times\"></i></td>\n            </tr>\n        "));
+      $(".invoice-items").append("\n            <tr class=\"invoice_item\" id=\"".concat(this.invoiceItemCounter, "\">\n                <td><input type=\"text\" name=\"items[").concat(this.invoiceItemCounter, "][description]]\" placeholder=\"Enter an Item Name\" required></td>\n                <td><input type=\"text\" name=\"items[").concat(this.invoiceItemCounter, "][price]]\" placeholder=\"\u20AC0.00\" class=\"price\"></td>\n                <td><input type=\"text\" name=\"items[").concat(this.invoiceItemCounter, "][quantity]]\" value=\"1\" class=\"quantity\"></td>\n                <td><input type=\"text\" name=\"items[").concat(this.invoiceItemCounter, "][amount]]\" placeholder=\"\u20AC0.00\" class=\"amount\" readonly></td>\n                <td>\n                    <span class=\"text-danger remove_invoice_item\" title=\"Delete\"><i class=\"fas fa-times\"></i></span>\n                </td>\n            </tr>\n        "));
       this.invoiceItem[this.invoiceItemCounter] = {
         price: 0,
         quantity: 1,
@@ -29641,13 +29641,13 @@ function () {
     value: function calculateSubTotal(oldAmount) {
       var newAmount = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
       this.subtotal = (this.subtotal - oldAmount + newAmount).toFixed(2);
-      this.subtotalEl.text(this.subtotal);
+      this.subtotalEl.val(this.subtotal);
     }
   }, {
     key: "calculateTotal",
     value: function calculateTotal() {
       var totalVal = (this.subtotal - this.calculateDiscount() - this.calculateTax()).toFixed(2);
-      this.totalEl.text(totalVal);
+      this.totalEl.val(totalVal);
     }
   }]);
 
