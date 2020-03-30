@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Country;
 use App\Models\Invoice;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 
 class ViewComposerServiceProvider extends ServiceProvider
@@ -26,7 +27,7 @@ class ViewComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('frontend.platform.partials._sidebar', function ($view) {
-            $user = auth()->user();
+            $user = Auth::user();
             $userImage = null;
             if($image = $user->image()->first()) {
                 $userImage = $image->url;
@@ -36,7 +37,7 @@ class ViewComposerServiceProvider extends ServiceProvider
         });
 
         view()->composer('frontend.platform.main', function ($view) {
-            $user = auth()->user();
+            $user = Auth::user();
 
             $view->with([
                 'invoiceId' => $user->company->invoice_id,
