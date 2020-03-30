@@ -27,7 +27,7 @@ class ViewComposerServiceProvider extends ServiceProvider
     {
         view()->composer('frontend.platform.partials._sidebar', function ($view) {
             $user = auth()->user();
-            $userImage = '';
+            $userImage = null;
             if($image = $user->image()->first()) {
                 $userImage = $image->url;
             }

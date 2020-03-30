@@ -1,11 +1,11 @@
 <aside>
     <div class="aside-content @yield('sidebarClass')">
         <div class="user-data">
-            @if($userImage)
+            @isset($userImage)
                 <img class="user-profile-img" src="{{ Storage::url($userImage) }}">
             @else
                 <img class="user-profile-img" src="{{ asset('assets/img/dashboard/user.png') }}">
-            @endif
+            @endisset
             <h3 class="user-data-title user-name">{{ $user->full_name }}</h3>
             <div class="open-close-arrow">
                 <img src="{{ asset('assets/img/dashboard/arrow.png') }}">

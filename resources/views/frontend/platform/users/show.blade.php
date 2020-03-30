@@ -24,11 +24,11 @@
 
             <div class="circle-user" title="Change profile image">
                 <label for="image">
-                    @if(isset($user->image))
+                    @isset($user->image)
                         <img class="form-image" src="{{ Storage::url($user->image->url) }}">
                     @else
                         <img class="form-image" src="{{ asset('assets/img/dashboard/user-green.png') }}">
-                    @endif
+                    @endisset
                 </label>
                 <span class="image text-danger user-form-error"></span>
                 <input type="file" name="image" class="d-none" id="image" accept="image/x-png,image/gif,image/jpeg">
