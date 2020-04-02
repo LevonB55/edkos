@@ -27,7 +27,7 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        $invoices = Invoice::where('user_id', auth()->id())->get();
+        $invoices = Invoice::where('user_id', auth()->id())->paginate(10);
 
         return view('frontend.platform.invoices.index', compact('invoices'));
     }
@@ -202,15 +202,11 @@ class InvoiceController extends Controller
             ]);
         }
 
-        $countries = Country::find([$invoice->sender_country, $invoice->receiver_country]);
-
-        $selectedCountries = [];
-        foreach ($countries as $country) {
-            $selectedCountries[$country->id] = $country->name;
-        }
-
         if($invoice){
-            return view('frontend.platform.invoices.ready-templates.template-1', compact('invoice', 'selectedCountries'));
+            return view('frontend.platform.invoices.ready-templates.template-1', [
+                'invoice' => $invoice,
+                'selectedCountries' => Country::restructureCountries()
+            ]);
         } else {
             return  back();
         }

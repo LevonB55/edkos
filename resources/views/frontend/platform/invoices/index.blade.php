@@ -305,19 +305,13 @@
                     </tbody>
                 </table>
             </div>
-            <div class="pagination">
-                <a href="#"><i class="fas fa-chevron-left"></i></a>
-                <a class="active" href="#">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#"><i class="fas fa-chevron-right"></i></a>
-            </div>
+
+            {{ $invoices->links('frontend.partials._pagination') }}
+
         @else
             <div class="no-invoice">No Invoice yet!</div>
         @endif
+
     </div>
 </main>
 @endsection

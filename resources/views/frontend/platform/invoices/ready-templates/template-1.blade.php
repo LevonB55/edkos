@@ -12,6 +12,9 @@
         .date .form-control {
             background-color: #fff;
         }
+        .gr-add-table-tr {
+            cursor: unset;
+        }
         .gr-content-2 input:focus {
             border: 1px solid transparent;
         }
@@ -97,7 +100,7 @@
                 <input type="text" class="gr-text-9" value="{{ $invoice->sender_city }}">
                 <input type="text" class="gr-text-9" value="{{ $invoice->sender_state }}">
                 <input type="text" class="gr-text-9" value="{{ $invoice->sender_zip }}">
-                <input type="text" class="gr-text-9" value="{{ $selectedCountries[$invoice->sender_country] ?? '' }}">
+                <input type="text" class="gr-text-9" value="{{ $selectedCountries[$invoice->sender_country][0]['name'] ?? '' }}">
             </div>
             <div class="gr-content-block-2 email-clickable">
                 <p class="gr-text-7">For</p>
@@ -107,7 +110,7 @@
                 <input type="text" class="gr-text-9" value="{{ $invoice->receiver_city }}">
                 <input type="text" class="gr-text-9" value="{{ $invoice->receiver_state }}">
                 <input type="text" class="gr-text-9" value="{{ $invoice->receiver_zip }}">
-                <input type="text" class="gr-text-9" value="{{ $selectedCountries[$invoice->receiver_country] ?? '' }}">
+                <input type="text" class="gr-text-9" value="{{ $selectedCountries[$invoice->receiver_country][0]['name'] ?? '' }}">
                 <input class="gr-text-9" value="{{ $invoice->receiver_phone }}">
             </div>
         </div>

@@ -14,7 +14,7 @@
         <div class="open-close-menu" id="style-2">
             <div class="user-dashboard-1">
                 <div class="settings-block">
-                    <a class="settings-block-item">
+                    <a href="{{ route('user-dashboard') }}" class="settings-block-item {{ Request::routeIs('user-dashboard') ? 'active' : '' }}">
                         <div class="settings-block-item-img">
                             <img src="{{ asset('assets/img/dashboard/home.png') }}">
                         </div>

@@ -1,10 +1,12 @@
 @extends('frontend.platform.main')
 
 @section('title', 'Dashboard')
+@section('sidebarClass', 'back-color-aside')
 
 @section('extra-styles')
     <link rel="stylesheet" href="{{ asset('css/ds-user-profile.css') }}">
     <link rel="stylesheet" href="{{ asset('css/ds-company-profile.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/ds-clients.css') }}">
 @endsection
 
 @section('content')
