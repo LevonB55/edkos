@@ -126,9 +126,10 @@
     {{--                                </label>--}}
                                 </td>
                                 <td>
-                                    <button class="btn-{{ $status =  \App\Models\Invoice::statuses()[$invoice->status] }} btn-tables">
+                                    <a href="{{ route('invoices.show', $invoice->slug) }}" title="View Invoice"
+                                       class="btn-{{ $status =  \App\Models\Invoice::statuses()[$invoice->status] }} btn-tables status-button">
                                         {{ ucfirst($status)  }}
-                                    </button>
+                                    </a>
                                 </td>
                                 <td>{{ $invoice->number }}</td>
                                 <td>{{ $invoice->receiver_name }}</td>

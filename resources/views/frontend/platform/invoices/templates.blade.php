@@ -45,7 +45,7 @@
                             <div class="item-owl-carousel">
                                 <li class="items main-pos" id="{{ $template->id }}"
                                     data-invoice-id="{{ $template->id }}">
-                                    @include('frontend.platform.invoices.templates.template-' . $template->id)
+                                    @include('frontend.platform.invoices.templates.samples.template-' . $template->id)
                                 </li>
                                 <div class="cover-item"></div>
                             </div>

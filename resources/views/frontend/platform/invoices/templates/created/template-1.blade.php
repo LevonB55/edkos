@@ -1,57 +1,4 @@
-@extends('frontend.platform.main')
-
-@section('title', 'Invoice')
-@section('sidebar')@stop
-@section('scripts')@stop
-
-@section('extra-styles')
-    <link rel="stylesheet" href="{{ asset('css/ds-invoices.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/ds-invoice-template.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/ds-customize-template.css') }}">
-    <style>
-        .date .form-control {
-            background-color: #fff;
-        }
-        .gr-add-table-tr {
-            cursor: unset;
-        }
-        .gr-content-2 input:focus {
-            border: 1px solid transparent;
-        }
-        .gr-content-3 table input:focus {
-            border: none;
-        }
-        .form-control:focus {
-            border-color: #ced4da;
-            box-shadow: unset;
-        }
-        textarea:focus {
-            outline: 0;
-        }
-        .invoice-info {
-            background-color: #fbf2d5;
-            height: 40px;
-        }
-        .invoice-status {
-            width: 998px;
-            margin: 0 auto;
-        }
-        .status {
-            color: #ff6a00;
-            font-weight: bold;
-            line-height: 2.3;
-        }
-    </style>
-@endsection
-
-@section('content')
-<div class="invoice-info">
-    <div class="invoice-status">
-        <span class="status mr-3">OUTSTANDING</span> €{{ $invoice->total }} is due on {{ $invoice->due_date }}.
-        Sent on {{ date('F d', strtotime($invoice->created_at)) }}.
-    </div>
-</div>
-<div class="gr-template">
+<div class="gr-template view">
     <div class="gr-header">
         <div class="gr-header-left">
             <p class="gr-text-1">
@@ -126,21 +73,21 @@
                     </tr>
                 </thead>
                 <tbody class="invoice-items">
-                    @foreach($invoice->invoice_items as $item)
-                        <td>{{ $item->description }}</td>
-                        <td>{{ $item->price }}</td>
-                        <td>{{ $item->quantity }}</td>
-                        <td>{{ $item->amount }}</td>
-                    @endforeach
+                    @if($invoice->invoice_items->count())
+                        @foreach($invoice->invoice_items as $item)
+                            <td>{{ $item->description }}</td>
+                            <td>{{ $item->price }}</td>
+                            <td>{{ $item->quantity }}</td>
+                            <td>{{ $item->amount }}</td>
+                        @endforeach
+                    @else
+                        <td></td>
+                        <td>€0.00</td>
+                        <td>1</td>
+                        <td>€0.00</td>
+                    @endif
                 </tbody>
                 <tbody class="invoice-summary">
-                    <tr class="gr-add-line">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td class="gr-add-table-tr add_invoice_item">+ Add a Line</td>
-                    </tr>
                     <tr>
                         <td></td>
                         <td></td>
@@ -201,12 +148,3 @@
     <div class="gr-footer">
     </div>
 </div>
-<script>
-    var x, i;
-    x = document.querySelectorAll("input");
-    for (i = 0; i < x.length; i++) {
-        x[i].setAttribute('readonly', true);
-    }
-    document.querySelector('textarea').setAttribute('readonly', true);
-</script>
-@endsection

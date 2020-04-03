@@ -15,6 +15,8 @@ Route::get('/about', 'PageController@about')->name('about');
 Route::get('/pricing', 'PageController@pricing')->name('pricing');
 Route::get('/help', 'PageController@help')->name('help');
 
+Route::get('invoices/{slug}&email={email}', 'InvoiceController@view')->name('invoices.view');
+
 //Platform Routes
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', 'PlatformController@showDashboard')->name('user-dashboard');
@@ -25,7 +27,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('invoices/templates', 'InvoiceController@showTemplates')->name('invoices.templates');
     Route::put('invoices/customize', 'InvoiceController@customizeInvoice')->name('invoices.customize');
     Route::post('invoices/draft', 'InvoiceController@storeAsDraft')->name('invoices.draft');
-    Route::resource('invoices', 'InvoiceController')->except('destroy', 'show');
+    Route::resource('invoices', 'InvoiceController')->except('destroy');
 
     Route::get('services', 'PlatformController@showServices')->name('services');
     Route::get('online-payment', 'PlatformController@onlinePayment')->name('online-payment');
@@ -37,8 +39,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('tracking', 'PlatformController@tracking')->name('tracking');
     Route::get('projects', 'PlatformController@projects')->name('projects');
 });
-
-Route::get('invoices/{slug}&email={email}', 'InvoiceController@show')->name('invoices.show');
 
 //Authentication routes
 Auth::routes();

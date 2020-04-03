@@ -1694,3 +1694,40 @@ input:disabled {
 .gr-add-table-tr {
     cursor: pointer;
 }
+
+/*Makes invoice templates static*/
+.view .date .form-control {
+    background-color: #fff;
+}
+.view .gr-add-table-tr {
+    cursor: unset;
+}
+.view .gr-content-2 input:focus {
+    border: 1px solid transparent;
+}
+.view .gr-content-3 table input:focus {
+    border: none;
+}
+.view .form-control:focus {
+    border-color: #ced4da;
+    box-shadow: unset;
+}
+.view textarea:focus {
+    outline: 0;
+}
+.invoice-info {
+    background-color: #fbf2d5;
+    height: 45px;
+    width: 52.5%;
+    margin: 20px 0 0 452px;
+    padding: 6px;
+}
+.invoice-status {
+    width: 998px;
+    margin: 0 auto;
+}
+.status {
+    color: #ff6a00;
+    font-weight: bold;
+    line-height: 2.3;
+}

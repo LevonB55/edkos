@@ -75,7 +75,7 @@
                 <span>Back</span>
             </a>
 
-            @include('frontend.platform.invoices.templates.template-' . auth()->user()->company->invoice_id)
+            @include('frontend.platform.invoices.templates.samples.template-' . auth()->user()->company->invoice_id)
 
         </form>
     </main>

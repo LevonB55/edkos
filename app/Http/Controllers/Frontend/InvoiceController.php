@@ -27,7 +27,9 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        $invoices = Invoice::where('user_id', auth()->id())->paginate(10);
+        $invoices = Invoice::where('user_id', auth()->id())
+                            ->orderByDesc('id')
+                            ->paginate(10);
 
         return view('frontend.platform.invoices.index', compact('invoices'));
     }
@@ -189,12 +191,28 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug, $email)
+    public function show($invoice)
+    {
+        $invoice = Invoice::where([
+                    'user_id' => auth()->id(),
+                    'slug' => $invoice
+                ])->first();
+
+        return view('frontend.platform.invoices.show', compact('invoice'));
+    }
+
+
+    /**
+     * @param $slug
+     * @param $email
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
+    public function view($slug, $email)
     {
         $invoice = Invoice::where([
             'slug' => $slug,
             'receiver_email' => $email
-        ])->with('invoice_items')->with('image')->first();
+        ])->with(['invoice_items', 'image'])->first();
 
         if($invoice->status === Invoice::SENT) {
             $invoice->update([
@@ -203,7 +221,7 @@ class InvoiceController extends Controller
         }
 
         if($invoice){
-            return view('frontend.platform.invoices.ready-templates.template-1', [
+            return view('frontend.platform.invoices.view', [
                 'invoice' => $invoice,
                 'selectedCountries' => Country::restructureCountries()
             ]);

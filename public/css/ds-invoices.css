@@ -83,6 +83,11 @@ a:hover {
     border: 0;
     font-size: 14px;
 }
+
+.status-button:hover {
+    color: red;
+}
+
 .btn-sent {
     background: #ece624;
 }

@@ -335,3 +335,16 @@ $('.prevent-enter').keydown(function (e) {
         return false;
     }
 });
+
+//Makes invoice template static
+(function () {
+    let viewEl = document.querySelector('.view');
+    if(viewEl) {
+        var x, i;
+        x = viewEl.querySelectorAll("input");
+        for (i = 0; i < x.length; i++) {
+            x[i].setAttribute('readonly', true);
+        }
+        viewEl.querySelector('textarea').setAttribute('readonly', true);
+    }
+}());
