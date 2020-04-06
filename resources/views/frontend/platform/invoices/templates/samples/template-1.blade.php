@@ -189,12 +189,12 @@
                 <p class="gr-text-10">Notes</p>
                 <textarea class="gr-text-11 invoice-notes" name="notes" placeholder="Some notes or payment instructions (optional)."></textarea>
             </div>
-            <div class="gr-content-5">
-                <div class="gr-content-5-block">
+            <div class="gr-content-5 clearfix">
+                <div class="gr-content-5-block float-left">
                     <p class="gr-text-10">VAT Number</p>
                     <input placeholder="VAT Number" value="{{ $user->company->vat }}" name="vat">
                 </div>
-                <div class="gr-content-5-block">
+                <div class="gr-content-5-block float-right">
                     <p class="gr-text-10">Bank Account</p>
                     <input placeholder="Bank Account" value="{{ $user->company->bank_account }}" name="bank_account">
                 </div>

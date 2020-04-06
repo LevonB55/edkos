@@ -198,7 +198,10 @@ class InvoiceController extends Controller
                     'slug' => $invoice
                 ])->first();
 
-        return view('frontend.platform.invoices.show', compact('invoice'));
+        return view('frontend.platform.invoices.show', [
+            'invoice' => $invoice,
+            'selectedCountries' => Country::restructureCountries()
+        ]);
     }
 
 

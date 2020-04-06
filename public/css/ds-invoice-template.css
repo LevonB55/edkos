@@ -389,11 +389,11 @@
     font-family: 'Segoe UI Semibold';
 }
 .gr-content-5 {
-    display: flex;
+    /*display: flex;*/
     margin-top: 40px;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    /*justify-content: space-between;*/
+    /*align-items: center;*/
+    /*width: 100%;*/
 }
 .gr-content-5-block {
     text-align: left;

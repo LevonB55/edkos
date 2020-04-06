@@ -1,9 +1,11 @@
 <div class="gr-template view">
     <div class="gr-header">
         <div class="gr-header-left">
-            <p class="gr-text-1">
-                <input type="text" class="gr-input-1" value="{{ $invoice->company }}">
-            </p>
+            @if($invoice->company)
+                <p class="gr-text-1">
+                    <input type="text" class="gr-input-1" value="{{ $invoice->company }}">
+                </p>
+            @endif
             <p class="gr-text-2">
                 <input type="text" class="gr-input-1" value="{{ $invoice->sender_phone }}">
             </p>
@@ -43,23 +45,58 @@
                 <p class="gr-text-7">From</p>
                 <input type="text" class="gr-text-8" value="{{ $invoice->sender_name }}">
                 <input type="email" class="gr-text-9" value="{{ $invoice->sender_email }}">
-                <input type="text" class="gr-text-9" value="{{ $invoice->sender_street }}">
-                <input type="text" class="gr-text-9" value="{{ $invoice->sender_city }}">
-                <input type="text" class="gr-text-9" value="{{ $invoice->sender_state }}">
-                <input type="text" class="gr-text-9" value="{{ $invoice->sender_zip }}">
-                <input type="text" class="gr-text-9" value="{{ $selectedCountries[$invoice->sender_country][0]['name'] ?? '' }}">
+
+                @if($invoice->sender_street)
+                    <input type="text" class="gr-text-9" value="{{ $invoice->sender_street }}">
+                @endif
+
+                @if($invoice->sender_city)
+                    <input type="text" class="gr-text-9" value="{{ $invoice->sender_city }}">
+                @endif
+
+                @if($invoice->sender_state)
+                    <input type="text" class="gr-text-9" value="{{ $invoice->sender_state }}">
+                @endif
+
+                @if($invoice->sender_zip)
+                    <input type="text" class="gr-text-9" value="{{ $invoice->sender_zip }}">
+                @endif
+
+                @if($invoice->sender_country)
+                    <input type="text" class="gr-text-9" value="{{ $selectedCountries[$invoice->sender_country][0]['name'] ?? '' }}">
+                @endif
             </div>
+
             <div class="gr-content-block-2 email-clickable">
                 <p class="gr-text-7">For</p>
                 <input type="text" class="gr-text-8" value="{{ $invoice->receiver_name }}">
                 <input type="email" class="gr-text-9 clickable-input" value="{{ $invoice->receiver_email }}">
-                <input type="text" class="gr-text-9" value="{{ $invoice->receiver_street }}">
-                <input type="text" class="gr-text-9" value="{{ $invoice->receiver_city }}">
-                <input type="text" class="gr-text-9" value="{{ $invoice->receiver_state }}">
-                <input type="text" class="gr-text-9" value="{{ $invoice->receiver_zip }}">
-                <input type="text" class="gr-text-9" value="{{ $selectedCountries[$invoice->receiver_country][0]['name'] ?? '' }}">
-                <input class="gr-text-9" value="{{ $invoice->receiver_phone }}">
+
+                @if($invoice->receiver_street)
+                    <input type="text" class="gr-text-9" value="{{ $invoice->receiver_street }}">
+                @endif
+
+                @if($invoice->receiver_city)
+                    <input type="text" class="gr-text-9" value="{{ $invoice->receiver_city }}">
+                @endif
+
+                @if($invoice->receiver_state)
+                    <input type="text" class="gr-text-9" value="{{ $invoice->receiver_state }}">
+                @endif
+
+                @if($invoice->receiver_zip)
+                    <input type="text" class="gr-text-9" value="{{ $invoice->receiver_zip }}">
+                @endif
+
+                @if($invoice->receiver_country)
+                    <input type="text" class="gr-text-9" value="{{ $selectedCountries[$invoice->receiver_country][0]['name'] ?? '' }}">
+                @endif
+
+                @if($invoice->receiver_phone)
+                    <input class="gr-text-9" value="{{ $invoice->receiver_phone }}">
+                @endif
             </div>
+
         </div>
         <div class="gr-content-3">
             <table class="invoice-table">
@@ -129,19 +166,28 @@
                 </tbody>
             </table>
             <div class="gr-line-1"></div>
-            <div class="gr-content-4">
-                <p class="gr-text-10">Notes</p>
-                <textarea class="gr-text-11 invoice-notes">{{ $invoice->notes }}</textarea>
-            </div>
-            <div class="gr-content-5">
-                <div class="gr-content-5-block">
-                    <p class="gr-text-10">VAT Number</p>
-                    <input value="{{ $invoice->vat }}" name="vat">
+
+            @if($invoice->notes)
+                <div class="gr-content-4">
+                    <p class="gr-text-10">Notes</p>
+                    <textarea class="gr-text-11 invoice-notes">{{ $invoice->notes }}</textarea>
                 </div>
-                <div class="gr-content-5-block">
-                    <p class="gr-text-10">Bank Account</p>
-                    <input value="{{ $invoice->bank_account }}" name="bank_account">
-                </div>
+            @endif
+
+            <div class="gr-content-5 clearfix">
+                @if($invoice->vat)
+                    <div class="gr-content-5-block float-left">
+                        <p class="gr-text-10">VAT Number</p>
+                        <input value="{{ $invoice->vat }}" name="vat">
+                    </div>
+                @endif
+
+                @if($invoice->bank_account)
+                    <div class="gr-content-5-block float-right">
+                        <p class="gr-text-10">Bank Account</p>
+                        <input value="{{ $invoice->bank_account }}" name="bank_account">
+                    </div>
+                @endif
             </div>
         </div>
     </div>

@@ -447,12 +447,12 @@ input:disabled {
     font-size: 17px;
     font-family: 'Segoe UI Semibold';
 }
-.gr-content-5 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
+/*.gr-content-5 {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    width: 100%;*/
+/*}*/
 .gr-content-5-block {
     text-align: left;
 }

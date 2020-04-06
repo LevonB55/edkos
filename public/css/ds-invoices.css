@@ -500,3 +500,63 @@ canvas {
     max-height: 56px;
     overflow: hidden;
 }
+
+.invoices-table {
+    display: table;
+    color: #58595B;
+}
+
+.invoices-table .table-row {
+    display: table-row;
+    color: inherit;
+    height: 50px;
+}
+
+.invoices-table .table-row:not(:last-child):hover {
+    background-color: #f5f5f5;
+}
+
+.invoices-table .table-row:hover .action-icons {
+    visibility: visible;
+}
+
+.invoices-table .table-row:first-child {
+    font-size: 18px;
+    font-family: 'Segoe UI Semibold';
+    color: #58595B;
+}
+
+.invoices-table .table-row:last-child .table-cell {
+    border-bottom: unset;
+}
+
+.invoices-table .table-cell {
+    display: table-cell;
+    border-bottom: 1px solid #ddd;
+    padding: 3px;
+    vertical-align: middle;
+}
+
+.invoices-table .table-cell:nth-child(6) {
+    text-align: right;
+}
+
+.invoices-table .table-cell:last-child {
+    width: 41px;
+}
+
+.invoices-table .table-row:last-child {
+    border-bottom: 1px solid green;
+}
+
+.invoices-table .action-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    visibility: hidden;
+}
+
+.invoices-table .total {
+    text-align: right;
+}
