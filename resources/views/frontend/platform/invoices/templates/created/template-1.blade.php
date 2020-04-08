@@ -31,12 +31,12 @@
             <div class="gr-date-issue date-format">
                 <p class="gr-text-5">Date Of Issue</p>
                 <div class="input-group date">
-                    <input type="text" class="form-control" value="{{ $invoice->issue_date }}">
+                    <input type="text" class="form-control" value="{{ \Str::convertDateFormat($invoice->issue_date, $invoice->date_format) }}">
                 </div>
 
                 <p class="gr-text-5">Due Date</p>
                 <div class="input-group date">
-                    <input type="text" class="form-control" value="{{ $invoice->due_date }}">
+                    <input type="text" class="form-control" value="{{ \Str::convertDateFormat($invoice->due_date, $invoice->date_format) }}">
                 </div>
             </div>
         </div>
@@ -106,59 +106,63 @@
                         <th>Price</th>
                         <th>QTY</th>
                         <th>Amount</th>
-                        <th></th>
+{{--                        <th></th>--}}
                     </tr>
                 </thead>
                 <tbody class="invoice-items">
                     @if($invoice->invoice_items->count())
                         @foreach($invoice->invoice_items as $item)
-                            <td>{{ $item->description }}</td>
-                            <td>{{ $item->price }}</td>
-                            <td>{{ $item->quantity }}</td>
-                            <td>{{ $item->amount }}</td>
+                           <tr>
+                               <td>{{ $item->description }}</td>
+                               <td>{{ $item->price }}</td>
+                               <td>{{ $item->quantity }}</td>
+                               <td>{{ $item->amount }}</td>
+                           </tr>
                         @endforeach
                     @else
-                        <td></td>
-                        <td>€0.00</td>
-                        <td>1</td>
-                        <td>€0.00</td>
+                        <tr>
+                            <td></td>
+                            <td>€0.00</td>
+                            <td>1</td>
+                            <td>€0.00</td>
+                        </tr>
                     @endif
                 </tbody>
                 <tbody class="invoice-summary">
                     <tr>
+{{--                        <td></td>--}}
                         <td></td>
                         <td></td>
-                        <td>Subtotal</td>
-                        <td></td>
-                        <td>
+                        <td class="pt-3">Subtotal</td>
+                        <td class="pt-3">
                             <input type="text" value="€{{ $invoice->subtotal }}">
                         </td>
                     </tr>
                     <tr>
+{{--                        <td></td>--}}
                         <td></td>
                         <td></td>
                         <td>Discount (%)</td>
-                        <td></td>
                         <td>
                             <span>-</span>
                             <input type="text" value="{{ $invoice->discount }}">
                         </td>
                     </tr>
                     <tr class="gr-grid-tr">
+{{--                        <td></td>--}}
                         <td></td>
                         <td></td>
                         <td>Tax (%)</td>
-                        <td></td>
                         <td>
                             <span>-</span>
                             <input type="text" value="{{ $invoice->tax }}">
                         </td>
                     </tr>
                     <tr>
+{{--                        <td></td>--}}
                         <td></td>
                         <td></td>
                         <td>Total (€)</td>
-                        <td></td>
                         <td>
                             <input type="text" value="€{{ $invoice->total }}">
                         </td>

@@ -407,6 +407,11 @@ input:disabled {
 .gr-content-3 table input:focus {
     border: 1px solid silver;
 }
+
+.gr-content-3 table input:read-only {
+    border: unset;
+}
+
 .gr-add-line td {
     color: #58595B;
     font-size: 17px;

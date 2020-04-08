@@ -28,7 +28,7 @@ class UpdateCompany extends FormRequest
             'email'          => 'nullable|email|max:255',
             'business_phone' => 'nullable|min:2|max:255',
             'mobile_phone'   => 'nullable|min:2|max:255',
-            'date_format'    => 'required|integer|min:1|max:'.array_key_last(auth()->user()->company->getDateFormats()),
+            'date_format'    => 'required|integer|min:1|max:3',
             'standard_rate'  => 'nullable|numeric|min:0|max:1000',
             'vat'            => 'nullable|string|max:255',
             'street'         => 'nullable|min:2|max:255',

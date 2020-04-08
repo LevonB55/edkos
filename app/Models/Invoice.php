@@ -18,7 +18,7 @@ class Invoice extends Model
      * @var array
      */
     protected $fillable = [
-        'number', 'user_id', 'company', 'sender_phone', 'issue_date', 'due_date', 'sender_name', 'sender_email', 'sender_street',
+        'number', 'user_id', 'company', 'sender_phone', 'issue_date', 'due_date', 'date_format', 'sender_name', 'sender_email', 'sender_street',
         'sender_city', 'sender_state', 'sender_zip', 'sender_country', 'receiver_name', 'receiver_email', 'receiver_street',
         'receiver_city', 'receiver_state','receiver_zip', 'receiver_country', 'receiver_phone', 'subtotal', 'discount',
         'tax', 'total', 'notes', 'vat', 'bank_account', 'status', 'invoice_template_id', 'color', 'slug', 'viewed'
@@ -82,6 +82,23 @@ class Invoice extends Model
     public function getTotalAttribute($value)
     {
         return number_format($value,2);
+    }
+
+    public function setIssueDateAttribute($value)
+    {
+        $date = self::formatDate($value);
+        $this->attributes['issue_date'] = date_format($date, 'Y-m-d');
+    }
+
+    public function setDueDateAttribute($value)
+    {
+        $date = self::formatDate($value);
+        $this->attributes['due_date'] = date_format($date, 'Y-m-d');
+    }
+
+    public static function formatDate($value)
+    {
+        return date_create_from_format(Company::getPHPDateFormats()[auth()->user()->company->date_format], $value);
     }
 
     public static function statuses()

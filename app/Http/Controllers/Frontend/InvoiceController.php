@@ -27,11 +27,15 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        $invoices = Invoice::where('user_id', auth()->id())
+        $user = auth()->user();
+        $invoices = Invoice::where('user_id', $user->id)
                             ->orderByDesc('id')
                             ->paginate(10);
 
-        return view('frontend.platform.invoices.index', compact('invoices'));
+        return view('frontend.platform.invoices.index', [
+            'user' => $user,
+            'invoices' => $invoices
+        ]);
     }
 
     /**
@@ -71,6 +75,7 @@ class InvoiceController extends Controller
             'sender_phone'          => $request->input('sender_phone'),
             'issue_date'            => $request->input('issue_date'),
             'due_date'              => $request->input('due_date'),
+            'date_format'           => $user->company->date_format,
             'sender_name'           => $request->input('sender')['name'],
             'sender_email'          => $request->input('sender')['email'],
             'sender_street'         => $request->input('sender')['street'],
@@ -134,6 +139,7 @@ class InvoiceController extends Controller
             'sender_phone'          => $request->input('sender_phone'),
             'issue_date'            => $request->input('issue_date'),
             'due_date'              => $request->input('due_date'),
+            'date_format'           => $user->company->date_format,
             'sender_name'           => $request->input('sender')['name'],
             'sender_email'          => $request->input('sender')['email'],
             'sender_street'         => $request->input('sender')['street'],

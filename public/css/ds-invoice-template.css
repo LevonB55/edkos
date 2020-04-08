@@ -1754,6 +1754,7 @@
     cursor: pointer;
 }
 
-.invoice-summary input {
+.gr-content-3 .invoice-summary input {
     width: 40px;
+    text-align: left;
 }

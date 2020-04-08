@@ -55,4 +55,13 @@ class Company extends Model
             '3' => 'yyyy-mm-dd'
         ];
     }
+
+    public static function getPHPDateFormats()
+    {
+        return [
+            self::DATE_FORMAT => 'm/d/Y',
+            'dd/mm/yyyy' => 'd/m/Y',
+            'yyyy-mm-dd' => 'Y-m-d'
+        ];
+    }
 }

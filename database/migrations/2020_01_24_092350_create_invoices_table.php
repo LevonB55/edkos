@@ -19,8 +19,9 @@ class CreateInvoicesTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('company')->nullable();
             $table->string('sender_phone')->nullable();
-            $table->string('issue_date');
-            $table->string('due_date');
+            $table->date('issue_date');
+            $table->date('due_date');
+            $table->string('date_format');
             $table->string('sender_name')->nullable();
             $table->string('sender_email')->nullable();
             $table->string('sender_street')->nullable();

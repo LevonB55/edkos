@@ -116,8 +116,12 @@
                             </div>
                             <div class="table-cell">{{ $invoice->number }}</div>
                             <div class="table-cell">{{ $invoice->receiver_name }}</div>
-                            <div class="table-cell">{{ $invoice->issue_date }}</div>
-                            <div class="table-cell">{{ $invoice->due_date }}</div>
+                            <div class="table-cell">
+                                {{ \Carbon\Carbon::parse($invoice->issue_date)->format(\App\Models\Company::getPHPDateFormats()[$user->company->date_format]) }}
+                            </div>
+                            <div class="table-cell">
+                                {{ $daysLeft = Str::daysLeft($invoice->due_date) }} day{{ $daysLeft > 1 ? 's' : ''}}
+                            </div>
                             <div class="table-cell">€{{ $invoice->total }}</div>
                             <div class="table-cell">
                                <div class="action-icons">
